@@ -20,3 +20,8 @@ body{
 .color-gray{
   color: #404A51;
 }
+.component-scroll{
+  height: calc(100vh - 116px);
+  overflow: auto;
+  margin-left: auto !important;
+}

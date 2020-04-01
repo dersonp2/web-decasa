@@ -10,7 +10,7 @@ import { OrcamentoComponent } from './sistema/orcamento/orcamento.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavVerticalComponent } from './sistema/nav-vertical/nav-vertical.component';
 import { NavHorizontalComponent } from './sistema/nav-horizontal/nav-horizontal.component';
-import { TabelaComponent } from './sistema/tabela/tabela.component';
+import { TabelaComponent } from './sistema/tabela-orcamento/tabela.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 // Angular material
 import { MatButtonModule} from '@angular/material/button';
@@ -28,6 +28,8 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 //Brasil
 import { registerLocaleData } from '@angular/common';
 import ptBr from '@angular/common/locales/pt';
+import { QuantidadeComponent } from './sistema/quantidade/quantidade.component';
+import { TabelaQuantidadeComponent } from './sistema/tabela-quantidade/tabela-quantidade.component';
 registerLocaleData(ptBr);
 
 
@@ -39,7 +41,9 @@ registerLocaleData(ptBr);
     OrcamentoComponent,
     NavVerticalComponent,
     NavHorizontalComponent,
-    TabelaComponent
+    TabelaComponent,
+    QuantidadeComponent,
+    TabelaQuantidadeComponent
   ],
   imports: [
     BrowserModule,
