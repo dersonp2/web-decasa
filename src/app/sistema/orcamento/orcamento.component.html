@@ -9,6 +9,7 @@
       <!-- Linha das opções de agendamento -->
       <div class="row">
         <div class="col-12 col-md-4 d-md-flex justify-content-md-end justify-content-center d-inline-block">
+          <!--Data-->
           <mat-form-field class="font-padrao">
             <mat-label mask='{dd/MM/y}'>Selecione a data </mat-label>
             <input matInput [matDatepicker]="picker" [min]="minDate" placeholder="dia/mês/ano">
@@ -16,6 +17,7 @@
             <mat-datepicker disabled="false" touchUi #picker></mat-datepicker>
           </mat-form-field>
         </div>
+        <!-- Hora-->
         <div class="col-12 col-md-4 mt-4">
           <div class="font-padrao font-padrao d-md-flex justify-content-center d-inline-block">
             <ngx-timepicker-field class="font-padrao" [format]="24"></ngx-timepicker-field>
@@ -25,8 +27,9 @@
           <button
             class="btn font-padrao d-md-flex justify-content-md-start justify-content-center d-inline-block color-btn">Imediato</button>
         </div>
-      </div> <!--Row-->
-            <!-- Acompanhar serviço -->
+      </div>
+      <!--Row-->
+      <!-- Acompanhar serviço -->
       <h3 class="mt-5">Quem vai acompanhar o serviço?</h3>
       <div class="d-flex justify-content-center">
         <button class="btn font-padrao color-btn mr-2">Eu</button>

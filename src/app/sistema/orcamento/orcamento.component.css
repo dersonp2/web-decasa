@@ -21,3 +21,12 @@ h3{
   overflow: auto;
   margin-left: auto !important;
 }
+
+/* Fonte da Hora */
+::ng-deep .ngx-timepicker-control .ngx-timepicker-control__input{
+  font-size: 16px !important;
+}
+
+::ng-deep .mat-form-field label {
+  font-size: 20px;
+}

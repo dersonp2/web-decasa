@@ -1,6 +1,6 @@
 .nav-side-menu {
   overflow: auto;
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 200;
   background-color:#D1F6FF;
   position: fixed;
@@ -15,7 +15,6 @@
   line-height: 50px;
   display: block;
   text-align: center;
-  font-size: 14px;
 }
 .nav-side-menu .toggle-btn {
   display: none;
@@ -64,7 +63,7 @@
 .nav-side-menu ul .sub-menu li:before,
 .nav-side-menu li .sub-menu li:before {
   font-family: FontAwesome;
-  content: "\f105";
+  content: "\f107";
   display: inline-block;
   padding-left: 10px;
   padding-right: 10px;
