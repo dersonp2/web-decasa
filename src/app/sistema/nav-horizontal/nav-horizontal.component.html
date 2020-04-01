@@ -31,9 +31,21 @@
         </div>
       </div> <!-- Row Logo-->
       <div class="row lista">
-        <div class="col-12">
+        <div class="offset-3 col-6">
+          <!-- Teste-->
+          <mat-horizontal-stepper class="testeStepper" [linear]="isLinear" #stepper>
+            <mat-step>
+              <ng-template matStepLabel>Orçamento</ng-template>
+            </mat-step>
+            <mat-step>
+              <ng-template matStepLabel>Quantidades</ng-template>
+            </mat-step>
+            <mat-step>
+              <ng-template matStepLabel>Propostas</ng-template>
+            </mat-step>
+          </mat-horizontal-stepper>
 
-          <ul id="barra" class="d-block">
+          <!-- <ul id="barra" class="d-block">
             <li>
               <p class="active">Monte seu orçamento </p>
             </li>
@@ -43,13 +55,15 @@
             <li>
               <p class="">Propostas</p>
             </li>
-          </ul>
+          </ul> -->
+        </div>
+        <div class="col-3">
           <div class="justify-content-md-end text-center text-md-right d-block mt-3 mb-2 ">
             <button mat-raised-button>Avançar <i class="fas fa-angle-double-right"></i></button>
           </div>
-        </div>
       </div>
-      <!--Row Orçamento-->
     </div>
+    <!--Row Orçamento-->
   </div>
-  </div>
+</div>
+</div>

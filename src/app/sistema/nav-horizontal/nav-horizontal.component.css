@@ -42,3 +42,13 @@ li p {
   justify-content: center;
 }
 
+.mat-horizontal-steppe{
+  background-color: none !important;
+}
+::ng-deep .mat-stepper-horizontal{
+  background-color:#D1F6FF;
+}
+
+::ng-deep .mat-horizontal-content-container{
+  display: none;
+}

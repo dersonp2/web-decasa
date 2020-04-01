@@ -21,6 +21,8 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
 //Hora
 import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
+//Stepper
+import { MatStepperModule } from '@angular/material/stepper';
 //Brasil
 import { registerLocaleData } from '@angular/common';
 import ptBr from '@angular/common/locales/pt';
@@ -48,7 +50,8 @@ registerLocaleData(ptBr);
     MatInputModule,
     NgxMaterialTimepickerModule,
     MatTableModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatStepperModule
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'pt' }],
   bootstrap: [AppComponent]
