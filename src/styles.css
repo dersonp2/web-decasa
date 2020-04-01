@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+  font-family: 'Karla', sans-serif;
+  overflow: hidden;
+}
+
+.background-secondary{
+  background-color: rgba(99, 225, 253, 0.3);
+}
+.background-primary{
+  background-color:#63E1FD;
+}
+

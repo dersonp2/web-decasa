@@ -1,0 +1,23 @@
+h3{
+  font-size: 20px;
+  color: #404A51;
+}
+.font-padrao{
+  font-size: 18px !important;
+}
+.color-btn{
+  background-color: #FCB23A !important;
+  color:white;
+  box-shadow: 3px 2px 5px 0px rgba(0,0,0,0.75);
+-webkit-box-shadow: 3px 2px 5px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 3px 2px 5px 0px rgba(0,0,0,0.75);
+}
+.color-btn-outra{
+  background-color: #A9A9A9 !important;
+}
+
+.orcamento{
+  height: calc(100vh - 116px);
+  overflow: auto;
+  margin-left: auto !important;
+}

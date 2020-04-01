@@ -1,0 +1,20 @@
+table {
+  width: 100%;
+}
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+.form-check-input:checked + div {
+  background-color: red;
+}
+
+/* overwrite the checkbox background */
+::ng-deep .mat-checkbox-checked .mat-checkbox-background, .mat-checkbox-indeterminate .mat-checkbox-background {
+  background-color: #63E1FD !important;
+}
+
+/* overwrite the ripple overlay on hover and click */
+::ng-deep .mat-checkbox:not(.mat-checkbox-disabled) .mat-checkbox-ripple .mat-ripple-element {
+  background-color: #63E1FD !important;
+}

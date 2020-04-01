@@ -1,0 +1,44 @@
+.redes-sociais{
+  color: #404A51;
+  margin-right: 1rem;
+  text-decoration: none;
+}
+
+.login{
+  position: absolute;
+  bottom: 0;
+}
+
+.active{
+  font-size: 20px;
+  font-weight: bold;
+}
+.lista{
+  background-color: rgba(99, 225, 253, 0.3);
+}
+
+#barra {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+li {
+  float: left;
+}
+
+li p {
+  display: block;
+  color: #404A51;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.center{
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
