@@ -1,0 +1,76 @@
+<!-- Menu horizontal -->
+<app-nav-horizontal></app-nav-horizontal>
+<div class="offset-md-2  col-md-10 float-md-right col-12 ml-auto component-scroll">
+  <div class="container-fluid mt-5 color-gray">
+    <form>
+      <!-- Primeira linha -->
+      <div class="form-row">
+        <!-- Atendimento domiciliar -->
+        <div class="form-group col-12">
+          <h2>
+            <label for="inputEmail4">Atendimento em domicilio?</label>
+            <div class="form-check form-check-inline m-2">
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+              <label class="form-check-label" for="inlineRadio1">Sim</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+              <label class="form-check-label" for="inlineRadio2">Não</label>
+            </div>
+            <p>Para contratar ou compartilhar sua proposta, favor preencha o endereço de onde será executado o serviço
+            </p>
+          </h2>
+        </div> <!--Atendimento domiliar-->
+      </div>
+
+      <!-- Segunda linha -->
+      <div class="form-row">
+        <div class="form-group col-md-2">
+          <label for="inputCEP">CEP</label>
+          <input type="text" class="form-control" id="inputCEP">
+        </div>
+        <div class="form-group col-md-9">
+          <label for="inputEndereco">Endereço</label>
+          <input type="text" class="form-control" id="inputEndereco" placeholder="Ex: Rua tal">
+        </div>
+        <div class="form-group col-md-1">
+          <label for="inputCEP">Número</label>
+          <input type="number" class="form-control" min="0">
+        </div>
+      </div>
+
+      <!-- Terceira Linha -->
+      <div class="form-row">
+
+        <div class="form-group col-md-2">
+          <label for="inputEstado">Pais</label>
+          <select id="inputEstado" class="form-control">
+            <option selected>Escolher...</option>
+            <option>Brasil</option>
+          </select>
+        </div>
+
+        <div class="form-group col-md-1">
+          <label for="inputUF">UF</label>
+          <select id="inputUF" class="form-control">
+            <option selected>...</option>
+            <option>MA</option>
+          </select>
+        </div>
+
+        <div class="form-group col-md-5">
+          <label for="inputCidade">Cidade</label>
+          <input type="text" class="form-control" id="inputCidade" placeholder="Ex: São Luís">
+        </div>
+
+        <div class="form-group col-md-4">
+          <label for="inputComplemento">Complemento</label>
+          <input type="text" class="form-control" id="inputComplemento" placeholder="Ex: Cond.">
+        </div>
+      </div>
+    </form> <!-- Formulario-->
+
+    <app-tabela-proposta></app-tabela-proposta>
+
+  </div><!--Container-->
+</div><!--Coluna -->

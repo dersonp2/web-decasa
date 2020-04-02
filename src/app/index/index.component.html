@@ -55,7 +55,7 @@
     <div role="tabpanel" class="tab-pane active" id="servico">
       <div class="d-flex row">
         <div class="col-4 col-md-2 box" *ngFor="let grupo of grupos">
-          <p><i class="fa fa-laptop d-block"></i>{{grupo.descricao}}</p>
+          <a routerLink="/orcamento"><i class="fa fa-laptop d-block"></i>{{grupo.descricao}}</a>
           <ul>
             <li *ngFor="let s of grupo.servico">
               {{s.descricao}}
@@ -64,54 +64,6 @@
         </div>
       </div>
     </div>
-    <!-- <a href="#" class="servicos box">
-        <p> <i class="fa fa-laptop d-block"></i>
-          Informática
-        </p>
-      </a>
-
-      <a href="#" class="servicos box">
-        <p> <i class="fa fa-birthday-cake d-block"></i>
-          Festa e Eventos
-        </p>
-      </a>
-
-      <a href="#" class="servicos box">
-        <p> <i class="fas fa-hard-hat d-block"></i>
-          Obras e Serviços
-        </p>
-      </a>
-
-      <a href="#" class="servicos box">
-        <p> <i class="fas fa-tools d-block"></i>
-          Assistência Técnica
-        </p>
-      </a>
-
-      <a href="#" class="servicos box">
-        <p> <i class="fas fa-home d-block"></i>
-          Serviços de Casa
-        </p>
-      </a>
-
-      <a href="#" class="servicos box">
-        <p> <i class="fas fa-magic d-block"></i>
-          Beleza e Estética
-        </p>
-      </a>
-
-      <a href="#" class="servicos box">
-        <p><i class="fas fa-chalkboard-teacher d-block"></i>
-          Aulas
-        </p>
-      </a>
-
-      <a href="#" class="servicos box">
-        <p> <i class="fas fa-heartbeat d-block"></i>
-          Saúde
-        </p>
-      </a> -->
-
     <div role="tabpanel" class="tab-pane" id="material">
       Lista de opções de compras de materiais
     </div>

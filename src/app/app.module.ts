@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, LOCALE_ID } from '@angular/core';
+import { NgModule, LOCALE_ID, Component } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { TabViewModule } from 'primeng/tabview';
@@ -12,9 +12,15 @@ import { NavVerticalComponent } from './sistema/nav-vertical/nav-vertical.compon
 import { NavHorizontalComponent } from './sistema/nav-horizontal/nav-horizontal.component';
 import { TabelaComponent } from './sistema/tabela-orcamento/tabela.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+
 // Angular material
 import { MatButtonModule} from '@angular/material/button';
 import {MatTableModule} from '@angular/material/table';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import {MatRadioModule} from '@angular/material/radio';
+// AGM - MAPS
+import { AgmCoreModule } from '@agm/core';
 //Data
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
@@ -30,6 +36,9 @@ import { registerLocaleData } from '@angular/common';
 import ptBr from '@angular/common/locales/pt';
 import { QuantidadeComponent } from './sistema/quantidade/quantidade.component';
 import { TabelaQuantidadeComponent } from './sistema/tabela-quantidade/tabela-quantidade.component';
+import { PropostaComponent } from './sistema/proposta/proposta.component';
+import { TabelaPropostaComponent } from './sistema/tabela-proposta/tabela-proposta.component';
+import { MapPropostaComponent } from './sistema/map-proposta/map-proposta.component';
 registerLocaleData(ptBr);
 
 
@@ -43,7 +52,10 @@ registerLocaleData(ptBr);
     NavHorizontalComponent,
     TabelaComponent,
     QuantidadeComponent,
-    TabelaQuantidadeComponent
+    TabelaQuantidadeComponent,
+    PropostaComponent,
+    TabelaPropostaComponent,
+    MapPropostaComponent,
   ],
   imports: [
     BrowserModule,
@@ -58,7 +70,13 @@ registerLocaleData(ptBr);
     MatTableModule,
     MatCheckboxModule,
     MatStepperModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatRadioModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAoVvj5lM77pVqV4EyRzJwIHoBK83MGumU'
+    })
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'pt' }],
   bootstrap: [AppComponent]

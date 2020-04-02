@@ -1,7 +1,10 @@
+.qntd-input{
+  width: 50px;
+  text-align: right;
+}
 table {
   width: 98%;
 }
-
 /* Configurar a tabela */
 ::ng-deep .mat-cell {
   font-size: 16px;
@@ -14,9 +17,4 @@ table {
 
 ::ng-deep .mat-input-element{
   width: 5px !important;
-}
-
-.qntd-input{
-  width: 80px;
-  text-align: right;
 }
