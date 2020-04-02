@@ -1,3 +1,4 @@
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID, Component } from '@angular/core';
 
@@ -39,6 +40,7 @@ import { TabelaQuantidadeComponent } from './sistema/tabela-quantidade/tabela-qu
 import { PropostaComponent } from './sistema/proposta/proposta.component';
 import { TabelaPropostaComponent } from './sistema/tabela-proposta/tabela-proposta.component';
 import { MapPropostaComponent } from './sistema/map-proposta/map-proposta.component';
+import { PagamentoComponent } from './sistema/pagamento/pagamento.component';
 registerLocaleData(ptBr);
 
 
@@ -56,6 +58,7 @@ registerLocaleData(ptBr);
     PropostaComponent,
     TabelaPropostaComponent,
     MapPropostaComponent,
+    PagamentoComponent
   ],
   imports: [
     BrowserModule,
