@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-nav-horizontal',
@@ -8,6 +7,8 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 })
 export class NavHorizontalComponent implements OnInit {
   isLinear = false;
+
+  @Input() btnContratar: true;
 
   constructor() { }
 

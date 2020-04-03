@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-nav-pagamento',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./nav-pagamento.component.css']
 })
 export class NavPagamentoComponent implements OnInit {
+
 
   constructor() { }
 
