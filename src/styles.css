@@ -13,9 +13,11 @@ body{
 
 .background-blue-logo{
   background-color: #0A68AE !important;
+  color: white;
 }
 .color-orange-logo{
   background-color: #FCB23A;
+  color: white;
 }
 .color-gray{
   color: #404A51;

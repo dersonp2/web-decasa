@@ -1,0 +1,112 @@
+<div class="row mt-3">
+  <div class="col-8">
+    <!--Nav Tav-->
+    <ul class="nav nav-tabs nav-fill">
+      <li class="nav-item">
+        <a class="nav-link active" href="#cartao" role="tab" data-toggle="tab">Cartão</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#boleto" role="tab" data-toggle="tab">Boleto</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#empresa" role="tab" data-toggle="tab">Conta empresa</a>
+      </li>
+    </ul>
+
+    <!--Conteudo de cada Nav-Item-->
+    <div class="tab-content mt-3 mb-3 ml-2">
+      <!-- Cartão de credito-->
+      <div role="tabpanel" class="tab-pane active" id="cartao">
+
+        <!-- Primeira Linha-->
+        <div class="form-row">
+          <div class="form-group col-12">
+            Pagamento:
+            <div class="form-check form-check-inline ml-1">
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"
+                checked>
+              <label class="form-check-label" for="inlineRadio1" checked> Débito</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+              <label class="form-check-label" for="inlineRadio2">Crédito</label>
+            </div>
+          </div>
+        </div>
+        <!--Primeira linha-->
+
+        <!--Segunda Linha-->
+        <div class="form-row mt-2">
+          <div class="form-group col-8">
+            <label for="exampleFormControlInput1">Número</label>
+            <input type="number" class="form-control" id="exampleFormControlInput1">
+          </div>
+          <div class="form-group col-2">
+            <label for="exampleFormControlInput1">Mês</label>
+            <input type="number" class="form-control" id="exampleFormControlInput1">
+          </div>
+          <div class="form-group col-2">
+            <label for="exampleFormControlInput1">Ano</label>
+            <input type="number" class="form-control" id="exampleFormControlInput1">
+          </div>
+        </div>
+        <!--Segunda linha-->
+
+        <!-- Terceira linha-->
+        <div class="form-row ">
+          <div class="form-group col-10">
+            <!--Nome-->
+            <div class="form-group">
+              <label for="idNomeCartao">Nome do Titular</label>
+              <input type="text" class="form-control" id="idNomeCartao" >
+              <small class="form-text text-muted">Nome completo, como mostrado no cartão.</small>
+            </div>
+          </div>
+          <div class="form-group col-2">
+            <label for="idCod">Cod. Segurança</label>
+            <input type="number" class="form-control" id="idCod">
+          </div>
+        </div> <!-- Terceira Linha-->
+
+         <!-- Quarta linha-->
+         <div class="form-row ">
+          <div class="form-group col-8">
+            <!--Nome-->
+            <div class="form-group">
+              <label for="idCupom">Cupom de desconto</label>
+              <input type="text" class="form-control" id="idCupom" >
+            </div>
+          </div>
+          <div class="form-group col-2">
+            <a href="#" class="btn  btn-outline-secondary btn-aplicar">Aplicar</a>
+          </div>
+          <div class="form-group col-2">
+            <label for="idCod">Total</label>
+            <input type="number" disabled class="form-control" id="idCod">
+          </div>
+        </div> <!--Quarta Linha-->
+
+      </div>
+      <!--Tab Cartão -->
+
+
+
+      <div role="tabpanel" class="tab-pane" id="boleto">
+        boleto
+      </div>
+      <div role="tabpanel" class="tab-pane" id="empresa">
+        Empresa
+      </div>
+    </div>
+  </div><!-- Coluna-->
+
+  <div class="col-2">
+    <img src="/assets/sistema/pagamento/cartaoPagamento.jpg" width="340px"  alt="Cartão" class="vertical-align">
+  </div>
+</div> <!-- Linha-->
+
+<br />
+<br />
+<br />
+<br />
+<br />

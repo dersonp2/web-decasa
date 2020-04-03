@@ -1,0 +1,15 @@
+.btn-aplicar{
+  margin-top: 28px;
+}
+.vertical-align{
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%); /* Adicionar os prefixos dos navegadores */
+}
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active{
+  color:#0A69AF !important;
+}
+
+.nav-link{
+  color:#404A51 !important;
+}

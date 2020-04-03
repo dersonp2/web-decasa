@@ -41,6 +41,7 @@ import { PropostaComponent } from './sistema/proposta/proposta.component';
 import { TabelaPropostaComponent } from './sistema/tabela-proposta/tabela-proposta.component';
 import { MapPropostaComponent } from './sistema/map-proposta/map-proposta.component';
 import { PagamentoComponent } from './sistema/pagamento/pagamento.component';
+import { NavPagamentoComponent } from './sistema/nav-pagamento/nav-pagamento.component';
 registerLocaleData(ptBr);
 
 
@@ -58,7 +59,8 @@ registerLocaleData(ptBr);
     PropostaComponent,
     TabelaPropostaComponent,
     MapPropostaComponent,
-    PagamentoComponent
+    PagamentoComponent,
+    NavPagamentoComponent
   ],
   imports: [
     BrowserModule,

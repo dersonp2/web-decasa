@@ -3,8 +3,10 @@
 <div class="offset-md-2  col-md-10 float-md-right col-12 ml-auto component-scroll">
   <div class="container-fluid mt-5 color-gray">
     <form>
+
       <!-- Primeira linha -->
       <div class="form-row">
+
         <!-- Preferencia -->
         <div class="form-group col-6">
           <h2>Possui um Prestador de Serviços de sua preferência?</h2>
@@ -12,9 +14,11 @@
             <div class="input-group-prepend">
               <span class="input-group-text" id="basic-addon1">@</span>
             </div>
-            <input type="text" class="form-control" placeholder="Código do Prestador de serviço" aria-label="Código do Prestador de serviço">
+            <input type="text" class="form-control" placeholder="Código do Prestador de serviço"
+              aria-label="Código do Prestador de serviço">
           </div>
         </div>
+
         <!-- Indicação -->
         <div class="form-group col-5 offset-1">
           <h2>Alguém te indicou este Prestador de Serviços?</h2>
@@ -22,10 +26,44 @@
             <div class="input-group-prepend">
               <span class="input-group-text" id="basic-addon1">@</span>
             </div>
-            <input type="text" class="form-control" placeholder="Código do Prestador de serviço" aria-label="Código do Prestador de serviço">
+            <input type="text" class="form-control" placeholder="Código do Prestador de serviço"
+              aria-label="Código do Prestador de serviço">
           </div>
         </div>
       </div> <!-- Linha-->
+
+      <!-- Segunda Linha -->
+      <div class="form-row mt-3">
+        <div class="form-group col-12 text-center">
+          <h2 class="d-block">Você prefere ser atendido por:</h2>
+          <!-- Radio Buttons -->
+          <div class="form-check form-check-inline btn btn-secondary">
+            <input class="form-check-input" type="radio" name="radioOptionsAtendimento" id="rPreferencia" value="option1" checked>
+            <label class="form-check-label" for="rPreferencia">Sem Prefência</label>
+          </div>
+          <div class="form-check form-check-inline btn background-blue-logo">
+            <input class="form-check-input" type="radio" name="radioOptionsAtendimento" id="rHomem" value="option2">
+            <label class="form-check-label" for="rHomem">Homem</label>
+          </div>
+          <div class="form-check form-check-inline btn color-orange-logo">
+            <input class="form-check-input " type="radio" name="radioOptionsAtendimento " id="rMulher" value="option2">
+            <label class="form-check-label" for="rMulher">Mulher</label>
+          </div>
+
+        </div> <!-- Form-group-->
+      </div> <!--Linha-->
+
+      <!-- Terceira Linha -->
+      <div class="form-row mt-3">
+        <div class="form-group col-12">
+          <p class="m-0"><b>ATENÇÃO:</b></p>
+          <p class="m-0">1. O nosso sistema é criptografado, logo os pagamentos são realizados com total segurança</p>
+          <p class="m-0"> 2. Somos uma plataforma de intermediação de negócios, o pagamento realizado agora somente será transferido para o Prestador de Serviços após você Autorizar o Pagamento, após a conclusão e avaliação do serviço.</p>
+          <p class="m-0">3. Prestadores de Serviços receberão seu pedido após esta etapa. Aqueles que responderem dizendo que tem interesse em fazer o seu serviço aparecerão na próxima tela. (OBS: Este processo pode levar até 30 minutos)</p>
+        </div> <!-- Form-group-->
+      </div> <!--Linha-->
+
+      <app-nav-pagamento></app-nav-pagamento>
     </form>
   </div>
 </div>

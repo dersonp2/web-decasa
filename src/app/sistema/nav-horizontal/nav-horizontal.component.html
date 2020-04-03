@@ -41,7 +41,7 @@
         </div>
       </div> <!-- Row Logo-->
       <div class="row lista">
-        <div class="offset-md-3 col-md-6 col-12">
+        <div class="offset-md-1 col-md-8 col-12">
           <!-- Teste-->
           <mat-horizontal-stepper [linear]="isLinear" #stepper>
             <mat-step>
@@ -52,6 +52,9 @@
             </mat-step>
             <mat-step>
               <ng-template matStepLabel>Propostas</ng-template>
+            </mat-step>
+            <mat-step>
+              <ng-template matStepLabel>Pagamento</ng-template>
             </mat-step>
           </mat-horizontal-stepper>
         </div>
