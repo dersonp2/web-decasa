@@ -8,8 +8,13 @@ import { Component, OnInit, Input } from '@angular/core';
 export class NavHorizontalComponent implements OnInit {
   isLinear = false;
   btnContratar = true;
+  isDisplay = true;
   constructor() { }
 
   ngOnInit() {
-}
+  }
+
+  toggleDisplay() {
+    this.isDisplay = !this.isDisplay;
+  }
 }

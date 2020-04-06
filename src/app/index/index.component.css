@@ -42,4 +42,7 @@
   color: white !important;
 }
 
-
+a{
+  text-decoration: none !important;
+  color: #404A51;
+}

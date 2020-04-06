@@ -11,12 +11,12 @@ table {
 
 /* overwrite the checkbox background */
 ::ng-deep .mat-checkbox-checked .mat-checkbox-background, .mat-checkbox-indeterminate .mat-checkbox-background {
-  background-color: #63E1FD !important;
+  background-color:#0A68AE  !important;
 }
 
 /* overwrite the ripple overlay on hover and click */
 ::ng-deep .mat-checkbox:not(.mat-checkbox-disabled) .mat-checkbox-ripple .mat-ripple-element {
-  background-color: #63E1FD !important;
+  background-color: #0A68AE  !important;
 }
 
 /*  Tamanho da fonte da label */

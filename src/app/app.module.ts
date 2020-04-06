@@ -1,3 +1,4 @@
+import { routing } from './app.routing';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID, Component } from '@angular/core';
@@ -83,6 +84,7 @@ registerLocaleData(ptBr);
     MatFormFieldModule,
     MatSelectModule,
     MatRadioModule,
+    routing,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyAoVvj5lM77pVqV4EyRzJwIHoBK83MGumU'
     })
