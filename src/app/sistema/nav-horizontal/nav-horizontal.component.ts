@@ -7,11 +7,9 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class NavHorizontalComponent implements OnInit {
   isLinear = false;
-
-  @Input() btnContratar: true;
-
+  btnContratar = true;
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit() {
+}
 }

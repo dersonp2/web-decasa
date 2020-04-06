@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter  } from '@angular/core';
+import { Component, Output, EventEmitter,OnInit  } from '@angular/core';
 
 @Component({
   selector: 'app-pagamento',
@@ -7,11 +7,7 @@ import { Component, OnInit, Output, EventEmitter  } from '@angular/core';
 })
 export class PagamentoComponent implements OnInit {
 
-
-  constructor() { }
-
-  ngOnInit(): void {
+  ngOnInit() {
   }
-
 
 }
