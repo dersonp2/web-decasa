@@ -10,11 +10,15 @@ import { Grupo } from './model/grupo';
 export class IndexComponent implements OnInit {
 
   grupos: any [];
-
+  isDisplay = true;
   constructor(private gruposService: GruposService) { }
 
   ngOnInit(): void {
     this.listarGrupos();
+  }
+
+  toggleDisplay(){
+    this.isDisplay = !this.isDisplay;
   }
 
   listarGrupos() {

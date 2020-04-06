@@ -43,6 +43,7 @@ import { MapPropostaComponent } from './sistema/map-proposta/map-proposta.compon
 import { PagamentoComponent } from './sistema/pagamento/pagamento.component';
 import { NavPagamentoComponent } from './sistema/nav-pagamento/nav-pagamento.component';
 import { CadastroComponent } from './sistema/cadastro/cadastro.component';
+import { LoginComponent } from './sistema/login/login.component';
 registerLocaleData(ptBr);
 
 
@@ -62,7 +63,8 @@ registerLocaleData(ptBr);
     MapPropostaComponent,
     PagamentoComponent,
     NavPagamentoComponent,
-    CadastroComponent
+    CadastroComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
