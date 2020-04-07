@@ -1,4 +1,9 @@
 
+.overflow-hidden{
+  overflow: hidden;
+}
+
+
 .img-logo{
   width: 80x;
   height: 80px;
