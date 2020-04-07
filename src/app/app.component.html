@@ -36,21 +36,19 @@
           <div class="d-flex justify-content-end mr-md-4 mr-0">
             <ul class="navbar-nav login mb-4">
               <li class="nav-item ">
-                <a href="#" class="redes-sociais" data-html="true" data-toggle="popover" data-trigger="focus"
+                <button class="btn-icon mr-3" data-html="true" data-toggle="popover" data-trigger="focus"
                   template="<div class='popover my-specific-popover'" title="Localização" data-placement="bottom"
                   data-content="Informe a sua cidade para carregarmos os serviços disponíveis.
-              <br/>
-              <a class='btn'>Informar</a>
-              <a class= 'btn'>Fechar</a>">
-                  <i class="fas fa-map-marker-alt fa-lg d-block ml-2"></i>
-                  <span class="mr-5">SLZ</span>
-                </a>
-
-                <a href="#" class="redes-sociais mr-5"><i class="far fa-heart fa-lg"></i></a>
-                <a href="#" class="redes-sociais"><i class="fa fa-shopping-cart fa-lg"></i></a>
+                <br/>
+                <a class='btn'>Informar</a>
+                <a class= 'btn'>Fechar</a>"><i class="fas fa-map-marker-alt">
+                  </i><br /> SLZ
+                </button>
+                <button class="btn-icon mr-3"><i class="far fa-heart"></i> </button>
+                <button class="btn-icon"><i class="fa fa-shopping-cart"></i> </button>
               </li>
             </ul>
-          </div>
+          </div> <!-- Links direitos-->
         </div>
       </div> <!-- Row Logo-->
       <div class="row lista">
@@ -58,7 +56,8 @@
           <!-- Teste-->
           <mat-horizontal-stepper #stepper>
             <mat-step>
-              <ng-template matStepLabel> <a style="text-decoration: none;" [routerLink]="['/orcamento']" >Selecione Serviços</a></ng-template>
+              <ng-template matStepLabel> <a style="text-decoration: none;" [routerLink]="['/orcamento']">Selecione
+                  Serviços</a></ng-template>
             </mat-step>
             <mat-step>
               <ng-template matStepLabel>Inserir Quantidades</ng-template>

@@ -82,7 +82,7 @@ export class AppComponent implements OnInit, OnDestroy {
     }
   }
 
-
+teste(){}
 
   toggleDisplay() {
     this.isDisplay = !this.isDisplay;

@@ -1,6 +1,15 @@
 <div class="row">
   <!-- Tabela -->
   <div class="col-md-7 col-12">
+    <!-- Texto da garantia e validade -->
+    <div>
+      <p class="text-center ">
+        Garantia: <b>60 dias</b> |
+        Validade da Proposta: <b>15 dias</b>
+      </p>
+    </div>
+
+    <!-- Tabela -->
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 mt-2 mb-4">
 
       <!-- Name Column -->
@@ -28,7 +37,7 @@
       <ng-container matColumnDef="uni">
         <th mat-header-cell *matHeaderCellDef> Und </th>
         <td mat-cell *matCellDef="let element"> {{element.uni}} </td>
-        <td mat-footer-cell *matFooterCellDef [hidden]= "true"></td>
+        <td mat-footer-cell *matFooterCellDef [hidden]="true"></td>
       </ng-container>
 
 

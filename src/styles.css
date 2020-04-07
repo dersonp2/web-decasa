@@ -3,7 +3,11 @@ body{
   font-family: 'Karla', sans-serif;
   /* overflow: hidden; */
 }
-
+.btn-icon{
+  color: #404A51;
+  background-color: white;
+  border: none !important;
+}
 .background-secondary{
   background-color: rgba(99, 225, 253, 0.3);
 }
