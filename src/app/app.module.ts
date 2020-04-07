@@ -1,5 +1,5 @@
-import { routing } from './app.routing';
-
+import { NotFoundComponent } from './sistema/not-found/not-found.component';
+import { AppRoutingModule } from './app.routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID, Component } from '@angular/core';
 
@@ -12,7 +12,7 @@ import { OrcamentoComponent } from './sistema/orcamento/orcamento.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavVerticalComponent } from './sistema/nav-vertical/nav-vertical.component';
 import { NavHorizontalComponent } from './sistema/nav-horizontal/nav-horizontal.component';
-import { TabelaComponent } from './sistema/tabela-orcamento/tabela.component';
+import { TabelaComponent } from './sistema/orcamento/tabela-orcamento/tabela.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 
 // Angular material
@@ -39,10 +39,10 @@ import ptBr from '@angular/common/locales/pt';
 import { QuantidadeComponent } from './sistema/quantidade/quantidade.component';
 import { TabelaQuantidadeComponent } from './sistema/tabela-quantidade/tabela-quantidade.component';
 import { PropostaComponent } from './sistema/proposta/proposta.component';
-import { TabelaPropostaComponent } from './sistema/tabela-proposta/tabela-proposta.component';
-import { MapPropostaComponent } from './sistema/map-proposta/map-proposta.component';
+import { TabelaPropostaComponent } from './sistema/proposta/tabela-proposta/tabela-proposta.component';
+import { MapPropostaComponent } from './sistema/proposta/map-proposta/map-proposta.component';
 import { PagamentoComponent } from './sistema/pagamento/pagamento.component';
-import { NavPagamentoComponent } from './sistema/nav-pagamento/nav-pagamento.component';
+import { NavPagamentoComponent } from './sistema/pagamento/nav-pagamento/nav-pagamento.component';
 import { CadastroComponent } from './sistema/cadastro/cadastro.component';
 import { LoginComponent } from './sistema/login/login.component';
 registerLocaleData(ptBr);
@@ -65,7 +65,8 @@ registerLocaleData(ptBr);
     PagamentoComponent,
     NavPagamentoComponent,
     CadastroComponent,
-    LoginComponent
+    LoginComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -84,7 +85,7 @@ registerLocaleData(ptBr);
     MatFormFieldModule,
     MatSelectModule,
     MatRadioModule,
-    routing,
+    AppRoutingModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyAoVvj5lM77pVqV4EyRzJwIHoBK83MGumU'
     })

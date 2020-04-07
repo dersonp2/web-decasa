@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation  } from '@angular/core';
 
 @Component({
   selector: 'app-orcamento',
   templateUrl: './orcamento.component.html',
+  encapsulation: ViewEncapsulation.None,
   styleUrls: ['./orcamento.component.css']
 })
 export class OrcamentoComponent implements OnInit {

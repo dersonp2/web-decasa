@@ -10,21 +10,24 @@
           <h2>
             <label for="inputEmail4">Atendimento em domicilio?</label>
             <div class="form-check form-check-inline m-2">
-              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"
+              (change)="handleChange($event)">
               <label class="form-check-label" for="inlineRadio1">Sim</label>
             </div>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-              <label class="form-check-label" for="inlineRadio2">Não</label>
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"
+              (change)="handleChange($event)">
+              <label class="form-check-label" for="inlineRadio2"
+              >Não</label>
             </div>
-            <p>Para contratar ou compartilhar sua proposta, favor preencha o endereço de onde será executado o serviço
+            <p [hidden]="domicile">Para contratar ou compartilhar sua proposta, favor preencha o endereço de onde será executado o serviço
             </p>
           </h2>
         </div> <!--Atendimento domiliar-->
       </div>
 
       <!-- Segunda linha -->
-      <div class="form-row">
+      <div class="form-row" [hidden]="domicile">
         <div class="form-group col-md-2">
           <label for="inputCEP">CEP</label>
           <input type="text" class="form-control" id="inputCEP">
@@ -40,7 +43,7 @@
       </div>
 
       <!-- Terceira Linha -->
-      <div class="form-row">
+      <div class="form-row" [hidden]="domicile">
 
         <div class="form-group col-md-2">
           <label for="inputEstado">Pais</label>
@@ -70,7 +73,7 @@
       </div>
     </form> <!-- Formulario-->
 
-    <app-tabela-proposta></app-tabela-proposta>
+    <app-tabela-proposta [hidden]="domicile"></app-tabela-proposta>
 
   </div><!--Container-->
 </div><!--Coluna -->

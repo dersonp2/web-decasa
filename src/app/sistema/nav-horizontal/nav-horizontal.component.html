@@ -1,8 +1,8 @@
 <div class="container-fluid">
   <div class="row">
     <!-- Login-->
-    <div class="col-12  col-md-2 background-primary float-left" (click) = "toggleDisplay()">
-      <a href="#" id="login" >
+    <div class="col-12  col-md-2 background-primary float-left" (click)="toggleDisplay()" style="cursor:pointer">
+      <a id="login">
         <div class="justify-content-center d-flex mt-5">
           <img class="img-logo rounded-circle" src="/assets/sistema/nav-horizontal/user.png" alt="Imagem Perfil">
         </div>
@@ -17,7 +17,9 @@
       <div class="row">
         <div class="col-12">
           <p class="float-left mt-3 mb-5">
-            <img src="/assets/site/logo.png" alt="Logo">
+            <a [routerLink]="['/home']">
+              <img src="/assets/site/logo.png" alt="Logo">
+            </a>
           </p>
           <!-- Links direitos -->
           <div class="d-flex justify-content-end mr-md-4 mr-0">
@@ -43,7 +45,7 @@
       <div class="row lista">
         <div class="offset-md-1 col-md-8 col-12">
           <!-- Teste-->
-          <mat-horizontal-stepper [linear]="isLinear" #stepper>
+          <mat-horizontal-stepper [linear]="isLinear" >
             <mat-step>
               <ng-template matStepLabel>Orçamento</ng-template>
             </mat-step>
@@ -60,14 +62,17 @@
         </div>
         <div class="col-12 col-md-3">
           <div class="justify-content-md-end text-center text-md-right d-block mt-md-3 mt-2 mb-2 mr-md-4 mr-0">
-            <button mat-raised-button class="font-btn-nav"  [hidden]= "!btnContratar">Avançar <i class="fas fa-angle-double-right"></i></button>
-            <button mat-raised-button class="font-btn-nav" [hidden]= "btnContratar">Pagar <i class="far fa-credit-card"></i></button>
+            <button mat-raised-button class="font-btn-nav" (click)="goTo()" [hidden]="!btnContratar"> Avançar <i
+                class="fas fa-angle-double-right"></i></button>
+            <button mat-raised-button class="font-btn-nav" [hidden]="btnContratar">Pagar <i
+                class="far fa-credit-card"></i></button>
           </div>
         </div>
       </div>
     </div>
-  </div><!--Row Orçamento-->
-  <div class="row" [hidden]= "isDisplay">
+  </div>
+  <!--Row Orçamento-->
+  <div class="row" [hidden]="isDisplay">
     <div class="ml-0 col-12  col-md-4">
       <app-login></app-login>
     </div>

@@ -7,9 +7,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PropostaComponent implements OnInit {
 
+  domicile = true;
+
   constructor() { }
 
   ngOnInit(): void {
   }
+
+  handleChange(evt) {
+    console.log(evt.target);
+    if (evt.target.value === 'option1'){
+      this.domicile = false;
+    } else {
+      this.domicile = true;
+    }
+  }
+
+    // this.domicile = !this.domicile;
 
 }

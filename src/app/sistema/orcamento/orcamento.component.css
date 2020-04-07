@@ -1,6 +1,8 @@
 body{
   overflow: hidden;
+  font-family: 'Karla', sans-serif;
 }
+
 h3{
   font-size: 20px;
   color: #404A51;
@@ -26,10 +28,10 @@ h3{
 }
 
 /* Fonte da Hora */
-::ng-deep .ngx-timepicker-control .ngx-timepicker-control__input{
+.ngx-timepicker-control .ngx-timepicker-control__input{
   font-size: 16px !important;
 }
 
-::ng-deep .mat-form-field label {
+.mat-form-field label {
   font-size: 20px;
 }
