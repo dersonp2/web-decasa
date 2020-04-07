@@ -1,5 +1,5 @@
 <!-- Menu horizontal -->
-<app-nav-horizontal></app-nav-horizontal>
+<!-- <app-nav-horizontal></app-nav-horizontal> -->
 <div class="offset-md-2  col-md-10 float-md-right col-12 ml-auto component-scroll">
   <div class="container-fluid mt-5 color-gray">
     <form>
@@ -11,23 +11,27 @@
             <label for="inputEmail4">Atendimento em domicilio?</label>
             <div class="form-check form-check-inline m-2">
               <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"
-              (change)="handleChange($event)">
+                (change)="handleChange($event)">
               <label class="form-check-label" for="inlineRadio1">Sim</label>
             </div>
             <div class="form-check form-check-inline">
               <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"
-              (change)="handleChange($event)">
-              <label class="form-check-label" for="inlineRadio2"
-              >Não</label>
+                (change)="handleChange($event)">
+              <label class="form-check-label" for="inlineRadio2">Não</label>
             </div>
-            <p [hidden]="domicile">Para contratar ou compartilhar sua proposta, favor preencha o endereço de onde será executado o serviço
+            <p *ngIf="domicile == 1">Para contratar ou compartilhar sua proposta, favor preencha o endereço de onde será
+              executado o serviço
+            </p>
+            <p *ngIf="domicile == 2">Informe o seu endereço para carregarmos no mapa os Prestadores de Serviços mais
+              próximos <br /> Após o pagamento você visualizará o perfil de todos com endereço e telefone
             </p>
           </h2>
-        </div> <!--Atendimento domiliar-->
+        </div>
+        <!--Atendimento domiliar-->
       </div>
 
       <!-- Segunda linha -->
-      <div class="form-row" [hidden]="domicile">
+      <div class="form-row" *ngIf="domicile != 0">
         <div class="form-group col-md-2">
           <label for="inputCEP">CEP</label>
           <input type="text" class="form-control" id="inputCEP">
@@ -43,7 +47,7 @@
       </div>
 
       <!-- Terceira Linha -->
-      <div class="form-row" [hidden]="domicile">
+      <div class="form-row" *ngIf="domicile != 0">
 
         <div class="form-group col-md-2">
           <label for="inputEstado">Pais</label>
@@ -71,9 +75,21 @@
           <input type="text" class="form-control" id="inputComplemento" placeholder="Ex: Cond.">
         </div>
       </div>
+
+      <!-- Buscar Prestadores de serviços -->
+      <p class="text-center" *ngIf="domicile == 2">
+        <a (click)="searchServiceProviders()" class="btn btn-secondary" style="color:white"> Buscar Prestadores de Serviços <i class="ml-2 fas fa-search-location"></i></a>
+      </p>
+
+      <!-- Texto com a quantidade de prestadores de serviços -->
+      <p class="text-center" *ngIf="qtdPrestadores">
+        Na área assinalada no mapa existem XX Prestadores de Servçios credenciados em nossa plataforma
+      </p>
     </form> <!-- Formulario-->
 
-    <app-tabela-proposta [hidden]="domicile"></app-tabela-proposta>
+    <app-tabela-proposta *ngIf="domicile != 0"></app-tabela-proposta>
 
-  </div><!--Container-->
-</div><!--Coluna -->
+  </div>
+  <!--Container-->
+</div>
+<!--Coluna -->

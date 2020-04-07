@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatStepper } from '@angular/material/stepper';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-nav-horizontal',
@@ -16,10 +17,19 @@ export class NavHorizontalComponent implements OnInit, OnDestroy {
   constructor(private router: Router) { }
 
   ngOnInit() {
-    console.log('Nav horizontal');
-    this.href = this.router.url;
-    console.log(this.href);
-    this.displayBtnContratar();
+    if (isPlatformBrowser) {
+      this.router.events
+        .subscribe(() => {
+          this.href = this.router.routerState.snapshot.url;
+          console.log('Rota' + this.href);
+          this.displayBtnContratar();
+          document.body.classList.add('overflow-hidden');
+        });
+    }
+    // console.log('Nav horizontal');
+    // this.href = this.router.url;
+    // console.log('Rota' + this.href);
+    // this.displayBtnContratar();
 
     // Retirar a barra de rolagem
     document.body.classList.add('overflow-hidden');

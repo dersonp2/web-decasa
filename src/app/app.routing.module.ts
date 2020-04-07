@@ -13,7 +13,7 @@ import { ModuleWithProviders } from '@angular/core';
 
 const appRoutes: Routes = [
   { path: 'home', component: IndexComponent  },
-  { path: '', component: OrcamentoComponent  },
+  { path: '', component: IndexComponent  },
   { path: 'criar-conta', component: CadastroComponent  },
   { path: 'orcamento', component: OrcamentoComponent  },
   { path: 'quantidade', component: QuantidadeComponent  },

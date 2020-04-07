@@ -7,7 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PropostaComponent implements OnInit {
 
-  domicile = true;
+  // 0 - Tela iniciada
+  // 1 - Atendimento em domicilio
+  // 2 - Não é em domicilio
+  domicile = 0;
+
+  qtdPrestadores: boolean = false;
 
   constructor() { }
 
@@ -16,13 +21,15 @@ export class PropostaComponent implements OnInit {
 
   handleChange(evt) {
     console.log(evt.target);
-    if (evt.target.value === 'option1'){
-      this.domicile = false;
+    if (evt.target.value === 'option1') {
+      this.domicile = 1;
     } else {
-      this.domicile = true;
+      this.domicile = 2;
     }
   }
 
-    // this.domicile = !this.domicile;
+  searchServiceProviders() {
+    this.qtdPrestadores = true;
+  }
 
 }

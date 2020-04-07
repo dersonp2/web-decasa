@@ -37,7 +37,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import { registerLocaleData } from '@angular/common';
 import ptBr from '@angular/common/locales/pt';
 import { QuantidadeComponent } from './sistema/quantidade/quantidade.component';
-import { TabelaQuantidadeComponent } from './sistema/tabela-quantidade/tabela-quantidade.component';
+import { TabelaQuantidadeComponent } from './sistema/quantidade/tabela-quantidade/tabela-quantidade.component';
 import { PropostaComponent } from './sistema/proposta/proposta.component';
 import { TabelaPropostaComponent } from './sistema/proposta/tabela-proposta/tabela-proposta.component';
 import { MapPropostaComponent } from './sistema/proposta/map-proposta/map-proposta.component';

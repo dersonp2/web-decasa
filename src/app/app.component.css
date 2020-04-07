@@ -1,0 +1,87 @@
+
+.overflow-hidden{
+  overflow: hidden;
+}
+
+
+.img-logo{
+  width: 80x;
+  height: 80px;
+}
+
+.redes-sociais{
+  color: #404A51;
+  text-decoration: none;
+}
+
+#login{
+  text-decoration: none;
+  color:#404A51;
+}
+.login{
+  position: absolute;
+  bottom: 0;
+}
+
+.active{
+  font-size: 20px;
+  font-weight: bold;
+}
+.lista{
+  background-color: rgba(99, 225, 253, 0.3);
+}
+
+#barra {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+li {
+  float: left;
+}
+
+li p {
+  display: block;
+  color: #404A51;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.center{
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.font-btn-nav{
+  font-size: 16px !important;
+}
+.mat-horizontal-steppe{
+  background-color: none !important;
+}
+::ng-deep .mat-stepper-horizontal{
+  background-color:#D1F6FF;
+}
+
+::ng-deep .mat-horizontal-content-container{
+  display: none;
+}
+
+::ng-deep .mat-step-header .mat-step-icon-selected {
+  background-color:white;
+  color: #404A51;
+}
+::ng-deep .mat-step-header .mat-step-icon-state-edit{
+  background-color: #0A68AE;
+}
+::ng-deep .mat-step-header {
+  font-size: 16px;
+}
+
+::ng-deep .mat-step-label{
+  font-size: 16px;
+}
+
+
