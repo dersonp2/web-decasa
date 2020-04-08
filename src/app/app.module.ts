@@ -1,3 +1,4 @@
+import { NavVerticalUsuarioComponent } from './sistema/nav-vertical-usuario/nav-vertical-usuario.component';
 import { NotFoundComponent } from './sistema/not-found/not-found.component';
 import { AppRoutingModule } from './app.routing.module';
 import { BrowserModule } from '@angular/platform-browser';
@@ -68,7 +69,8 @@ import { TextMaskModule } from 'angular2-text-mask';
     NavPagamentoComponent,
     CadastroComponent,
     LoginComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    NavVerticalUsuarioComponent
   ],
   imports: [
     BrowserModule,
