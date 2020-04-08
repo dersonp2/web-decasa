@@ -1,8 +1,10 @@
 
-.overflow-hidden{
-  overflow: hidden;
-}
+.menu{
 
+}
+/* .overflow-hidden{
+  background-color: red;
+} */
 
 .img-logo{
   width: 80x;
@@ -85,4 +87,15 @@ li p {
   font-size: 16px;
 }
 
-
+@media (max-width: 767px) {
+  .img-logo{
+    /* width: 40x;
+    height: 40px;
+    float: left; */
+    display: none;
+  }
+  .overflow-hidden{
+    background-color: red;;
+    overflow: auto !important;
+  }
+}

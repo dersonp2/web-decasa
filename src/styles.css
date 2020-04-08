@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 body{
   font-family: 'Karla', sans-serif;
-  /* overflow: hidden; */
+  /* overflow: auto; */
 }
 .btn-icon{
   color: #404A51;
@@ -41,4 +41,8 @@ body{
   font-size: 16px;;
 }
 
+.style-link{
+  text-decoration: none;
+  color: #404A51;
+}
 /* AIzaSyAoVvj5lM77pVqV4EyRzJwIHoBK83MGumU */

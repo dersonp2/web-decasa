@@ -9,15 +9,15 @@
 <!-- <app-nav-horizontal></app-nav-horizontal> -->
 
 <!-- MENU -->
-<div class="container-fluid" [hidden]="displayTemplate">
-  <div class="row">
+<div class="container-fluid" [hidden]="displayTemplate" >
+  <div class="row menu" >
     <!-- Login-->
     <div class="col-12  col-md-2 background-primary float-left" (click)="toggleDisplay()" style="cursor:pointer">
       <a id="login">
-        <div class="justify-content-center d-flex mt-5">
+        <div class="justify-content-center d-flex mt-2 mt-md-5">
           <img class="img-logo rounded-circle" src="/assets/sistema/nav-horizontal/user.png" alt="Imagem Perfil">
         </div>
-        <p class="center mt-3">
+        <p class="center mt-md-3 mt-1">
           <!-- <i class="fas fa-user mr-2"></i> -->
           Fazer login
         </p>
@@ -55,18 +55,30 @@
         <div class=" col-md-10 col-12">
           <!-- Teste-->
           <mat-horizontal-stepper #stepper>
-            <mat-step>
-              <ng-template matStepLabel> <a style="text-decoration: none;" [routerLink]="['/orcamento']">Selecione
-                  Serviços</a></ng-template>
+            <mat-step [routerLink]="['/orcamento']">
+              <ng-template matStepLabel> <a class="style-link" [routerLink]="['/orcamento']"> <span class="d-none d-sm-block">Selecione
+                Serviços</span></a></ng-template>
             </mat-step>
             <mat-step>
-              <ng-template matStepLabel>Inserir Quantidades</ng-template>
+              <ng-template matStepLabel>
+                <a class="style-link" [routerLink]="['/quantidade']">
+                  <span class="d-none d-sm-block">Inserir Quantidades</span>
+                </a>
+              </ng-template>
             </mat-step>
             <mat-step>
-              <ng-template matStepLabel>Proposta de Preço</ng-template>
+              <ng-template matStepLabel>
+                <a class="style-link" [routerLink]="['/proposta']">
+                  <span class="d-none d-sm-block">Proposta de Preço</span>
+                </a>
+              </ng-template>
             </mat-step>
             <mat-step>
-              <ng-template matStepLabel>Pagamento</ng-template>
+              <ng-template matStepLabel>
+                <a class="style-link" [routerLink]="['/pagamento']">
+                  <span class="d-none d-sm-block">Pagamento</span>
+                </a>
+              </ng-template>
             </mat-step>
           </mat-horizontal-stepper>
         </div>

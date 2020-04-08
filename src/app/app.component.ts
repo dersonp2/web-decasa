@@ -34,7 +34,7 @@ export class AppComponent implements OnInit, OnDestroy {
     // this.displayBtnContratar();
 
     // Retirar a barra de rolagem
-    document.body.classList.add('overflow-hidden');
+    // document.body.classList.add('overflow-hidden');
   }
 
   ngOnDestroy() {
