@@ -47,6 +47,8 @@ import { CadastroComponent } from './sistema/cadastro/cadastro.component';
 import { LoginComponent } from './sistema/login/login.component';
 registerLocaleData(ptBr);
 
+// Mask
+import { TextMaskModule } from 'angular2-text-mask';
 
 @NgModule({
   declarations: [
@@ -86,6 +88,7 @@ registerLocaleData(ptBr);
     MatSelectModule,
     MatRadioModule,
     AppRoutingModule,
+    TextMaskModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyAoVvj5lM77pVqV4EyRzJwIHoBK83MGumU'
     })

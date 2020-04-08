@@ -1,11 +1,4 @@
 
-.menu{
-
-}
-/* .overflow-hidden{
-  background-color: red;
-} */
-
 .img-logo{
   width: 80x;
   height: 80px;
@@ -94,8 +87,8 @@ li p {
     float: left; */
     display: none;
   }
-  .overflow-hidden{
-    background-color: red;;
+  .overflow{
+    background-color: red;
     overflow: auto !important;
   }
 }

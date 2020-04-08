@@ -7,7 +7,8 @@ import { Component, OnInit} from '@angular/core';
 })
 export class NavPagamentoComponent implements OnInit {
 
-
+  public mesMask = [/\d/, /\d/];
+  numeroMask = [/\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/, ' '];
   constructor() { }
 
   ngOnInit(): void {

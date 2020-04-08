@@ -13,7 +13,7 @@ export class PropostaComponent implements OnInit {
   domicile = 0;
 
   qtdPrestadores: boolean = false;
-
+  public cepMask = [/\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/];
   constructor() { }
 
   ngOnInit(): void {

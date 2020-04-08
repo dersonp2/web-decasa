@@ -5,9 +5,6 @@ table {
   font-size: 14px;
   width: 100%;
 }
-.form-check-input:checked + div {
-  background-color: red;
-}
 
 /* overwrite the checkbox background */
 ::ng-deep .mat-checkbox-checked .mat-checkbox-background, .mat-checkbox-indeterminate .mat-checkbox-background {
@@ -32,6 +29,7 @@ table {
 ::ng-deep .mat-cell {
   font-size: 16px;
 }
+
 ::ng-deep .mat-header-cell{
   font-size: 16px;
   color: black;
@@ -41,6 +39,9 @@ table {
 .btn-adicionar{
   color:white;
   background-color: #0A68AE !important;
+}
+.btn-adicionar:hover{
+  color:white;
 }
 .mat-header-cell a:hover{
   background-color: #0D84DB !important;

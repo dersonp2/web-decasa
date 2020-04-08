@@ -9,6 +9,7 @@ export class OrcamentoComponent implements OnInit {
 
   // Data minima para o calendário
   minDate = new Date();
+  public dateMask = [/\d/, /\d/, '/', /\d/, /\d/, '/', /\d/, /\d/, /\d/, /\d/];
   constructor() { }
 
   ngOnInit(): void {

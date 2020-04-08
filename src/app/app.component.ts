@@ -24,7 +24,7 @@ export class AppComponent implements OnInit, OnDestroy {
           this.href = this.router.routerState.snapshot.url;
           console.log('Rota' + this.href);
           this.displayBtnContratar();
-          document.body.classList.add('overflow-hidden');
+          document.body.classList.add('overflow-page');
           this.pages();
         });
     }
@@ -34,7 +34,7 @@ export class AppComponent implements OnInit, OnDestroy {
     // this.displayBtnContratar();
 
     // Retirar a barra de rolagem
-    // document.body.classList.add('overflow-hidden');
+    document.body.classList.add('overflow-page');
   }
 
   ngOnDestroy() {
@@ -43,7 +43,7 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   removeOverflowHidden() {
-    document.body.classList.remove('overflow-hidden');
+    document.body.classList.remove('overflow-page');
   }
 
   displayBtnContratar() {

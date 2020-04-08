@@ -37,6 +37,15 @@ body{
   margin-left: auto !important;
 }
 
+.overflow-page{
+  overflow: hidden;
+}
+@media (max-width: 767px) {
+  .overflow-page{
+    overflow: auto;
+  }
+}
+
 .font-size-area{
   font-size: 16px;;
 }
