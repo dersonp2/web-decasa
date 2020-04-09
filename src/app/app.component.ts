@@ -74,7 +74,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
   pages() {
     console.log('page ' + this.href);
-    if (this.href === '/orcamento' || this.href === '/quantidade' || this.href === '/proposta' || this.href === '/pagamento') {
+    if (this.href === '/orcamento' || this.href === '/quantidade' || this.href === '/proposta' || this.href === '/pagamento' || this.href === '/escolher') {
       this.displayTemplate = false;
     } else {
       this.displayTemplate = true;

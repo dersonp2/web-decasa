@@ -1,18 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
 body{
-  font-family: 'Karla', sans-serif;
+  font-family: 'Karla', sans-serif !important;
   /* overflow: auto; */
 }
+body, html{
+  height: 100% !important;
+}
+
+.scroll-auto{
+  height: calc(100vh - 116px);
+  overflow: auto;
+}
+
 .btn-icon{
   color: #404A51;
   background-color: white;
   border: none !important;
 }
+
+.background-primary{
+  background-color:#63E1FD;
+}
+
 .background-secondary{
   background-color: rgba(99, 225, 253, 0.3);
 }
-.background-primary{
-  background-color:#63E1FD;
+.background-tertiary{
+  background-color: rgba(99, 225, 253, 0.15);
 }
 
 .background-blue-logo{

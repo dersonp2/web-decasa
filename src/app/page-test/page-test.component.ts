@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PageTestComponent implements OnInit {
 
+  panelOpenState = false;
+
   constructor() { }
 
   ngOnInit(): void {
   }
+
 
 }

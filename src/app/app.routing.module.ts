@@ -1,3 +1,4 @@
+import { SelecionarFornecedorComponent } from './sistema/selecionar-fornecedor/selecionar-fornecedor.component';
 import { PageTestComponent } from './page-test/page-test.component';
 import { PagamentoComponent } from './sistema/pagamento/pagamento.component';
 import { PropostaComponent } from './sistema/proposta/proposta.component';
@@ -19,6 +20,7 @@ const appRoutes: Routes = [
   { path: 'quantidade', component: QuantidadeComponent  },
   { path: 'proposta', component: PropostaComponent  },
   { path: 'pagamento', component: PagamentoComponent  },
+  { path: 'escolher', component: SelecionarFornecedorComponent  },
   { path: 'teste', component: PageTestComponent  },
   { path: '**', component: NotFoundComponent}
 ];

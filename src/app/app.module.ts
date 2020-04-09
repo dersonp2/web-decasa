@@ -1,3 +1,4 @@
+import { SelecionarFornecedorComponent } from './sistema/selecionar-fornecedor/selecionar-fornecedor.component';
 import { NavVerticalUsuarioComponent } from './sistema/nav-vertical-usuario/nav-vertical-usuario.component';
 import { NotFoundComponent } from './sistema/not-found/not-found.component';
 import { AppRoutingModule } from './app.routing.module';
@@ -22,6 +23,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import {MatRadioModule} from '@angular/material/radio';
+import {MatCardModule} from '@angular/material/card';
 // AGM - MAPS
 import { AgmCoreModule } from '@agm/core';
 //Data
@@ -51,6 +53,7 @@ registerLocaleData(ptBr);
 // Mask
 import { TextMaskModule } from 'angular2-text-mask';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -70,7 +73,8 @@ import { TextMaskModule } from 'angular2-text-mask';
     CadastroComponent,
     LoginComponent,
     NotFoundComponent,
-    NavVerticalUsuarioComponent
+    NavVerticalUsuarioComponent,
+    SelecionarFornecedorComponent
   ],
   imports: [
     BrowserModule,
@@ -91,6 +95,7 @@ import { TextMaskModule } from 'angular2-text-mask';
     MatRadioModule,
     AppRoutingModule,
     TextMaskModule,
+    MatCardModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyAoVvj5lM77pVqV4EyRzJwIHoBK83MGumU'
     })
