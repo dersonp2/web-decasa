@@ -1,3 +1,6 @@
+import { ComentariosComponent } from './sistema/selecionar-fornecedor/comentarios/comentarios.component';
+import { PortifolioComponent } from './sistema/selecionar-fornecedor/portifolio/portifolio.component';
+import { PageTestComponent } from './page-test/page-test.component';
 import { NavVerticalComponent } from './sistema/nav-vertical/nav-vertical.component';
 import { OrcamentoComponent } from './sistema/orcamento/orcamento.component';
 import { TabelaComponent } from './sistema/orcamento/tabela-orcamento/tabela.component';
@@ -26,6 +29,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatCardModule} from '@angular/material/card';
+
 
 //Data
 import {MatDatepickerModule} from '@angular/material/datepicker';
@@ -73,7 +77,10 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     NavVerticalUsuarioComponent,
     SelecionarFornecedorComponent,
     TabelaComponent,
-    OrcamentoComponent
+    OrcamentoComponent,
+    PageTestComponent,
+    PortifolioComponent,
+    ComentariosComponent
   ],
   imports: [
     PropostaModule,
