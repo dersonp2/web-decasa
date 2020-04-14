@@ -9,6 +9,18 @@
   text-decoration: none;
 }
 
+.nav-link{
+  color: #404A51;
+  text-decoration: none;
+}
+.nav-link:hover{
+  color:#0A68AE;
+}
+
+.active{
+  color:#0A68AE;
+}
+
 
 #login{
   text-decoration: none;
