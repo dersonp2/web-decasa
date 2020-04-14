@@ -1,0 +1,8 @@
+<h2>Comentários</h2>
+<ul class="list-group list-group-flush">
+  <li class="list-group-item" *ngFor="let comentario of listComentarios">
+    <b>{{comentario.usuario}} </b> <br />
+    {{comentario.comentario}}
+    <ngx-star-rating [filledColor]="'#ffa500'" [readonly]="true" [rating]="[comentario.rating]"></ngx-star-rating>
+</ul>
+<a href="#" onClick="return false;">Ver mais</a>

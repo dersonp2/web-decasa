@@ -51,7 +51,7 @@ export class PortifolioComponent implements OnInit {
       src: 'https://i.picsum.photos/id/400/400/250.jpg',
       alt: 'Image_3',
       title: 'Produção de plantas',
-      desc: 'Nunc tempus ullamcorper dictum. Aenean a magna in leo posuere porta. Maecenas ligula nisi, placerat sed molestie in, faucibus vitae enim.'
+      desc: 'Nunc tempus ullamcorper dictum. Aenean a magna in leo posuere porta. Maecenas ligula nisi, placerat sed molestie in.'
     },
     {
       id: 4,

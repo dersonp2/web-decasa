@@ -1,0 +1,11 @@
+::ng-deep .mat-header-cell, .mat-cell{
+  font-size: 16px;
+  color: black;
+  background-color:rgba(99, 225, 253,  0.09) !important;
+}
+.pedidos{
+  background-color: rgba(99, 225, 253, 0.15);
+}
+::ng-deep .mat-form-field{
+  width:100% !important;
+}

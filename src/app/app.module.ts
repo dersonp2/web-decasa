@@ -1,12 +1,18 @@
-import { ComentariosComponent } from './sistema/selecionar-fornecedor/comentarios/comentarios.component';
-import { PortifolioComponent } from './sistema/selecionar-fornecedor/portifolio/portifolio.component';
+import { EscreverComentarioComponent } from './sistema/servicos/escrever-comentario/escrever-comentario.component';
+import { AvaliacaoComponent } from './sistema/servicos/avaliacao/avaliacao.component';
+import { FinalizadosComponent } from './sistema/servicos/finalizados/finalizados.component';
+import { CardFuncionarioComponent } from './sistema/servicos/card-funcionario/card-funcionario.component';
+import { EmailComponent } from './sistema/servicos/email/email.component';
+import { AgendadoComponent } from './sistema/servicos/agendado/agendado.component';
+import { DetalhePerfilComponent } from './sistema/servicos/detalhe-perfil/detalhe-perfil.component';
+import { NPedidosComponent } from './sistema/servicos/n-pedidos/n-pedidos.component';
 import { PageTestComponent } from './page-test/page-test.component';
 import { NavVerticalComponent } from './sistema/nav-vertical/nav-vertical.component';
 import { OrcamentoComponent } from './sistema/orcamento/orcamento.component';
 import { TabelaComponent } from './sistema/orcamento/tabela-orcamento/tabela.component';
 import { PropostaModule } from './sistema/proposta/proposta.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SelecionarFornecedorComponent } from './sistema/selecionar-fornecedor/selecionar-fornecedor.component';
+
 import { NavVerticalUsuarioComponent } from './sistema/nav-vertical-usuario/nav-vertical-usuario.component';
 import { NotFoundComponent } from './sistema/not-found/not-found.component';
 import { AppRoutingModule } from './app.routing.module';
@@ -29,6 +35,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatCardModule} from '@angular/material/card';
+import {MatChipsModule} from '@angular/material/chips';
 
 
 //Data
@@ -52,13 +59,19 @@ import { CadastroComponent } from './sistema/cadastro/cadastro.component';
 import { LoginComponent } from './sistema/login/login.component';
 registerLocaleData(ptBr);
 
-// Orçamento
-
+// Rating module
+import { StarRatingModule } from '@sreyaj/ng-star-rating';
 
 // Mask
 import { TextMaskModule } from 'angular2-text-mask';
 // OWL CAROUSEL
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { PortifolioComponent } from './sistema/servicos/portifolio/portifolio.component';
+import { ComentariosComponent } from './sistema/servicos/comentarios/comentarios.component';
+import { DadosServicoComponent } from './sistema/servicos/dados-servico/dados-servico.component';
+import { PerfilComponent } from './sistema/servicos/perfil/perfil.component';
+import { SelecionarFornecedorComponent } from './sistema/servicos/selecionar-fornecedor/selecionar-fornecedor.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -75,12 +88,22 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     LoginComponent,
     NotFoundComponent,
     NavVerticalUsuarioComponent,
-    SelecionarFornecedorComponent,
     TabelaComponent,
     OrcamentoComponent,
     PageTestComponent,
+    SelecionarFornecedorComponent,
     PortifolioComponent,
-    ComentariosComponent
+    ComentariosComponent,
+    DadosServicoComponent,
+    PerfilComponent,
+    NPedidosComponent,
+    DetalhePerfilComponent,
+    AgendadoComponent,
+    EmailComponent,
+    CardFuncionarioComponent,
+    FinalizadosComponent,
+    AvaliacaoComponent,
+    EscreverComentarioComponent
   ],
   imports: [
     PropostaModule,
@@ -104,6 +127,9 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     NgxMaterialTimepickerModule,
     BrowserAnimationsModule,
     CarouselModule,
+    StarRatingModule,
+    MatChipsModule,
+    FormsModule
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'pt' }],
   bootstrap: [AppComponent]

@@ -1,0 +1,9 @@
+.width-btn{
+  width : 9em !important
+}
+
+
+.mat-raised-button.mat-autorizar {
+  color: #f0fff3;
+  background-color:  #0A68AE;
+}

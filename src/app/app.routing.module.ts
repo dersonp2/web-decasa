@@ -1,4 +1,6 @@
-import { SelecionarFornecedorComponent } from './sistema/selecionar-fornecedor/selecionar-fornecedor.component';
+import { FinalizadosComponent } from './sistema/servicos/finalizados/finalizados.component';
+import { AgendadoComponent } from './sistema/servicos/agendado/agendado.component';
+
 import { PageTestComponent } from './page-test/page-test.component';
 import { PagamentoComponent } from './sistema/pagamento/pagamento.component';
 import { PropostaComponent } from './sistema/proposta/proposta.component';
@@ -11,6 +13,7 @@ import { CadastroComponent } from './sistema/cadastro/cadastro.component';
 import { IndexComponent } from './index/index.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ModuleWithProviders } from '@angular/core';
+import { SelecionarFornecedorComponent } from './sistema/servicos/selecionar-fornecedor/selecionar-fornecedor.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: IndexComponent  },
@@ -21,6 +24,8 @@ const appRoutes: Routes = [
   { path: 'proposta', component: PropostaComponent  },
   { path: 'pagamento', component: PagamentoComponent  },
   { path: 'escolher', component: SelecionarFornecedorComponent  },
+  { path: 'agendados', component: AgendadoComponent  },
+  { path: 'finalizados', component: FinalizadosComponent  },
   { path: 'teste', component: PageTestComponent  },
   { path: '**', component: NotFoundComponent}
 ];
