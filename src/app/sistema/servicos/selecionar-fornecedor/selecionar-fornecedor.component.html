@@ -26,25 +26,15 @@
       <hr />
 
       <!-- Detalhes do Prestador de Serviço -->
-      <app-detalhe-perfil></app-detalhe-perfil>
+      <app-detalhe-perfil [displayBtn]="'1'" #detalhePerfil></app-detalhe-perfil>
 
-      <hr />
+      <app-certificados [display]="detalhePerfil.displayCertificados"></app-certificados>
 
       <!-- Portifólio -->
-      <div class="row">
-        <div class="col-12">
-          <app-portifolio></app-portifolio>
-        </div>
-      </div>
-
-      <hr />
+      <app-portifolio [display]="detalhePerfil.displayPortifolio"></app-portifolio>
 
       <!-- Comentários -->
-      <div class="row">
-        <div class="col-12">
-          <app-comentarios></app-comentarios>
-        </div>
-      </div>
+      <app-comentarios [display]="detalhePerfil.displayComentario"></app-comentarios>
 
       <br />
       <br />

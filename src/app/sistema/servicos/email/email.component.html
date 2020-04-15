@@ -1,27 +1,39 @@
-<div class="float-left">
-  <h2>Email</h2>
-</div>
-<div class="text-center">
-<a href="" class="mr-2">Recebidos </a>
-<a href="" class="mr-5">Enviados</a>
-</div>
+<div *ngIf="display">
+<hr/>
+  <!-- Email -->
+  <div class="row">
+    <div class="col-12">
+      <div class="float-left">
+        <h2>Email</h2>
+      </div>
+      <div class="text-center">
+        <a href="" class="mr-2">Recebidos </a>
+        <a href="" class="mr-5">Enviados</a>
+      </div>
 
-<div class="col-7" style="clear: both;">
-  <mat-form-field appearance="legacy">
-    <mat-label>De: </mat-label>
-    <input matInput value="email_do_colaborador@gmail.com" placeholder="usuario@exemplo.com">
-  </mat-form-field>
-  <br>
-  <mat-form-field appearance="legacy">
-    <mat-label>Para: </mat-label>
-    <input matInput value="email_do_prestador@gmail.com" placeholder="prestador@exemplo.com">
-  </mat-form-field>
-</div>
-<div class="col-11">
-  <mat-form-field>
-    <mat-label>Mensagem</mat-label>
-    <textarea matInput placeholder="Escreva sua mensagem" cdkTextareaAutosize #autosize="cdkTextareaAutosize"
-      cdkAutosizeMinRows="3"></textarea>
-  </mat-form-field>
-  <button mat-raised-button class="font-btn-nav width-btn">Enviar</button>
+      <div class="col-7" style="clear: both;">
+        <mat-form-field appearance="legacy">
+          <mat-label>De: </mat-label>
+          <input matInput value="email_do_colaborador@gmail.com" placeholder="usuario@exemplo.com">
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="legacy">
+          <mat-label>Para: </mat-label>
+          <input matInput value="email_do_prestador@gmail.com" placeholder="prestador@exemplo.com">
+        </mat-form-field>
+        <mat-form-field appearance="legacy">
+          <mat-label>Assunto </mat-label>
+          <input matInput placeholder="Informe o assunto">
+        </mat-form-field>
+      </div>
+      <div class="col-11">
+        <mat-form-field>
+          <mat-label>Mensagem</mat-label>
+          <textarea matInput placeholder="Escreva sua mensagem" cdkTextareaAutosize #autosize="cdkTextareaAutosize"
+            cdkAutosizeMinRows="3"></textarea>
+        </mat-form-field>
+        <button mat-raised-button class="font-btn-nav width-btn" >Enviar</button>
+      </div>
+    </div>
+  </div>
 </div>

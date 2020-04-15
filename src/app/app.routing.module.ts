@@ -1,3 +1,4 @@
+import { AndamentoComponent } from './sistema/servicos/andamento/andamento.component';
 import { FinalizadosComponent } from './sistema/servicos/finalizados/finalizados.component';
 import { AgendadoComponent } from './sistema/servicos/agendado/agendado.component';
 
@@ -26,6 +27,7 @@ const appRoutes: Routes = [
   { path: 'escolher', component: SelecionarFornecedorComponent  },
   { path: 'agendados', component: AgendadoComponent  },
   { path: 'finalizados', component: FinalizadosComponent  },
+  { path: 'andamento', component: AndamentoComponent  },
   { path: 'teste', component: PageTestComponent  },
   { path: '**', component: NotFoundComponent}
 ];

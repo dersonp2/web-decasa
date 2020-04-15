@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-dados-servico',
@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DadosServicoComponent implements OnInit {
 
+  // 4 - Finalizar
+  @Input() displayBtn;
+  displayEmail = false;
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  setDisplayEmail() {
+    this.displayEmail = !this.displayEmail;
+  }
 }

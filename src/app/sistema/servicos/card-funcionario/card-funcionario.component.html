@@ -1,13 +1,21 @@
-<h2>Funcionário(s)</h2>
-<div class="row">
-  <div class="col-3" *ngFor="let funcionario of funcionarios">
-    <mat-card class="example-card m-2">
-      <mat-card-header>
-        <mat-card-title align="center">{{funcionario.nome}}</mat-card-title>
-      </mat-card-header>
-      <p align="center">
-        <img src="https://randomuser.me/api/portraits/men/{{funcionario.id}}.jpg">
-      </p>
-    </mat-card>
+<div *ngIf="display">
+  <hr />
+
+  <div class="row">
+    <div class="col-12">
+      <h2>Funcionário(s)</h2>
+      <div class="row">
+        <div class="col-3" *ngFor="let funcionario of funcionarios">
+          <mat-card class="example-card m-2">
+            <mat-card-header>
+              <mat-card-title align="center">{{funcionario.nome}}</mat-card-title>
+            </mat-card-header>
+            <p align="center">
+              <img src="https://randomuser.me/api/portraits/men/{{funcionario.id}}.jpg">
+            </p>
+          </mat-card>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

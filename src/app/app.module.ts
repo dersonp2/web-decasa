@@ -1,3 +1,5 @@
+import { CertificadosComponent } from './sistema/servicos/certificados/certificados.component';
+import { AndamentoComponent } from './sistema/servicos/andamento/andamento.component';
 import { EscreverComentarioComponent } from './sistema/servicos/escrever-comentario/escrever-comentario.component';
 import { AvaliacaoComponent } from './sistema/servicos/avaliacao/avaliacao.component';
 import { FinalizadosComponent } from './sistema/servicos/finalizados/finalizados.component';
@@ -36,6 +38,7 @@ import { MatSelectModule } from '@angular/material/select';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatCardModule} from '@angular/material/card';
 import {MatChipsModule} from '@angular/material/chips';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 //Data
@@ -103,7 +106,9 @@ import { FormsModule } from '@angular/forms';
     CardFuncionarioComponent,
     FinalizadosComponent,
     AvaliacaoComponent,
-    EscreverComentarioComponent
+    EscreverComentarioComponent,
+    AndamentoComponent,
+    CertificadosComponent
   ],
   imports: [
     PropostaModule,
@@ -129,7 +134,8 @@ import { FormsModule } from '@angular/forms';
     CarouselModule,
     StarRatingModule,
     MatChipsModule,
-    FormsModule
+    FormsModule,
+    MatDialogModule
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'pt' }],
   bootstrap: [AppComponent]

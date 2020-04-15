@@ -1,7 +1,11 @@
 .width-btn{
   width : 9em !important
 }
+.width-btn-pay{
+  width : 12em !important;
+  background-color:  #06a94d !important;
 
+}
 
 .mat-raised-button.mat-autorizar {
   color: #f0fff3;

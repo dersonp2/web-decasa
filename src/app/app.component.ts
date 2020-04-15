@@ -37,11 +37,11 @@ export class AppComponent implements OnInit, OnDestroy {
     nav: true
   };
 
-  isLinear = false;
   btnContratar = true;
   isDisplay = true;
   href = '';
   displayTemplate = false;
+  navBarServico = false;
 
   constructor(private router: Router) { }
 
@@ -102,7 +102,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
   pages() {
     console.log('page ' + this.href);
-    if (this.href === '/orcamento' || this.href === '/quantidade' || this.href === '/proposta' || this.href === '/pagamento' || this.href === '/escolher' || this.href === '/agendados' || this.href === '/finalizados') {
+    if (this.href === '/orcamento' || this.href === '/quantidade' || this.href === '/proposta' || this.href === '/pagamento' || this.href === '/escolher' || this.href === '/agendados' || this.href === '/andamento' || this.href === '/finalizados') {
       this.displayTemplate = false;
     } else {
       this.displayTemplate = true;
@@ -110,7 +110,6 @@ export class AppComponent implements OnInit, OnDestroy {
     }
   }
 
-teste(){}
 
   toggleDisplay() {
     this.isDisplay = !this.isDisplay;

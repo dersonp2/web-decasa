@@ -6,37 +6,35 @@
       <app-n-pedidos></app-n-pedidos>
     </div>
 
-     <!--Divisão 2 -->
+    <!--Divisão 2 -->
     <div class="col-10 scroll-auto">
       <div class="ml-3">
-      <!--Dados do serviço-->
-      <app-dados-servico></app-dados-servico>
+        <!--Dados do serviço-->
+        <app-dados-servico #dadosServicos [displayBtn]="'4'"></app-dados-servico>
 
-      <hr />
+        <!-- Email -->
+        <app-email [display]="dadosServicos.displayEmail"></app-email>
 
-      <!-- Avaliação -->
-      <div class="row">
-        <div class="col-12">
-          <app-avaliacao></app-avaliacao>
+        <!-- Avaliação -->
+
+        <app-avaliacao></app-avaliacao>
+
+        <hr />
+
+        <!-- Funcionarios -->
+        <div class="row">
+          <div class="col-12">
+            <app-escrever-comentario></app-escrever-comentario>
+          </div>
         </div>
-      </div>
 
-      <hr />
-
-      <!-- Funcionarios -->
-      <div class="row">
-        <div class="col-12">
-         <app-escrever-comentario></app-escrever-comentario>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
       </div>
-      </div>
-
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
     </div>
-  </div>
   </div>
 </div>

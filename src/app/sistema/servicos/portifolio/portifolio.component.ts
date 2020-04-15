@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 
 @Component({
@@ -62,6 +62,7 @@ export class PortifolioComponent implements OnInit {
     }
   ];
 
+  @Input() display;
   constructor() { }
 
   ngOnInit(): void {
