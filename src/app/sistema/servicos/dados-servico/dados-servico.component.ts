@@ -7,8 +7,9 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class DadosServicoComponent implements OnInit {
 
-  // 4 - Finalizar
+  // 1- Excolher | 3- Agendamento | 4 - Finalizar
   @Input() displayBtn;
+
   displayEmail = false;
 
   constructor() { }
