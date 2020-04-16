@@ -69,3 +69,6 @@ body, html{
   color: #404A51;
 }
 
+.cursor{
+  cursor:pointer;
+}

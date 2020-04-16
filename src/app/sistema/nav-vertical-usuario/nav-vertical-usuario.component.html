@@ -8,34 +8,30 @@
   <div class="menu-list mt-4">
     <ul id="menu-content" class="menu-content collapse out">
 
-      <li data-toggle="collapse" data-target="#products" class="collapsed">
-        <a class="ml-3">Perfil do usuário<span
-            class="arrow"></span></a>
+      <li [routerLink]="['/perfil']" routerLinkActive="active" data-toggle="collapse" data-target="#products" class="collapsed">
+        <a class="ml-3">Perfil do usuário<span class="arrow"></span></a>
       </li>
 
-      <li data-toggle="collapse" data-target="#service" class="collapsed">
-        <a class="ml-3">Serviços <span
-            class="arrow"></span></a>
-      </li>
-
-      <li data-toggle="collapse" data-target="#products" class="collapsed">
-        <a class="ml-3">Boletos e Notas<span
+      <li data-toggle="collapse" [routerLink]="['/escolher']" routerLinkActive="active" data-target="#service" class="collapsed">
+        <a class="ml-3" >Serviços <span
             class="arrow"></span></a>
       </li>
 
       <li data-toggle="collapse" data-target="#products" class="collapsed">
-        <a class="ml-3">Fale comigo!<span
-            class="arrow"></span></a>
+        <a class="ml-3">Boletos e Notas<span class="arrow"></span></a>
       </li>
-<!--
+
+      <li data-toggle="collapse" data-target="#products" class="collapsed">
+        <a class="ml-3">Fale comigo!<span class="arrow"></span></a>
+      </li>
+      <!--
       <li data-toggle="collapse" data-target="#products" class="collapsed">
         <a class="ml-3">Blog DeCasa<span
             class="arrow"></span></a>
       </li> -->
 
       <li data-toggle="collapse" data-target="#service" class="collapsed">
-        <a class="ml-3">Legal<span
-            class="arrow"></span></a>
+        <a class="ml-3">Legal<span class="arrow"></span></a>
       </li>
 
     </ul>

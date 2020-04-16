@@ -1,20 +1,31 @@
-import { Component, OnInit, Input } from '@angular/core';
-
+import { DialogMembrosComponent } from './../dialog/dialog-membros/dialog-membros.component';
+import { Component, Input } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogAnexarComponent } from '../dialog/dialog-anexar/dialog-anexar.component';
 @Component({
   selector: 'app-dados-servico',
   templateUrl: './dados-servico.component.html',
   styleUrls: ['./dados-servico.component.css']
 })
-export class DadosServicoComponent implements OnInit {
+export class DadosServicoComponent  {
 
   // 1- Excolher | 3- Agendamento | 4 - Finalizar
   @Input() displayBtn;
 
   displayEmail = false;
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
-  ngOnInit(): void {
+  openDialogMembros() {
+    this.dialog.open(DialogMembrosComponent, {
+      width: '50%',
+    });
+  }
+
+  openDialogAnexar() {
+    this.dialog.open(DialogAnexarComponent, {
+      width: '50%',
+    });
   }
 
   setDisplayEmail() {

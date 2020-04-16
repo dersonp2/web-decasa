@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class DetalhePerfilComponent implements OnInit {
 
-  //1 - Escolher | 2-Agendado | 3 - Andamento
+  // 1 - Escolher | 2-Agendado | 3 - Andamento
   @Input() displayBtn;
 
   displayCertificados = false;
@@ -15,7 +15,8 @@ export class DetalhePerfilComponent implements OnInit {
   displayComentario = false;
   displayFuncionarios = false;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
@@ -23,12 +24,15 @@ export class DetalhePerfilComponent implements OnInit {
   setDisplayCertificados() {
     this.displayCertificados = !this.displayCertificados;
   }
+
   setDisplayPortifolio() {
     this.displayPortifolio = !this.displayPortifolio;
   }
+
   setDisplayComentario() {
     this.displayComentario = !this.displayComentario;
   }
+
   setDisplayFuncionarios() {
     this.displayFuncionarios = !this.displayFuncionarios;
   }

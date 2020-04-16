@@ -1,3 +1,8 @@
+import { SenhaComponent } from './sistema/perfil-usuario/meu-perfil/senha/senha.component';
+import { DadosPessoaisComponent } from './sistema/perfil-usuario/meu-perfil/dados-pessoais/dados-pessoais.component';
+import { NavVerticalPerfilComponent } from './sistema/perfil-usuario/nav-vertical-perfil/nav-vertical-perfil.component';
+import { DialogMembrosComponent } from './sistema/servicos/dialog/dialog-membros/dialog-membros.component';
+import { DialogExemploComponent } from './dialog-exemplo/dialog-exemplo.component';
 import { CertificadosComponent } from './sistema/servicos/certificados/certificados.component';
 import { AndamentoComponent } from './sistema/servicos/andamento/andamento.component';
 import { EscreverComentarioComponent } from './sistema/servicos/escrever-comentario/escrever-comentario.component';
@@ -39,19 +44,21 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatCardModule} from '@angular/material/card';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 
-//Data
+
+// Data
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
-//Hora
+// Hora
 import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
-//Stepper
+// Stepper
 import { MatStepperModule } from '@angular/material/stepper';
-//Tolltip
+// Tolltip
 import {MatTooltipModule} from '@angular/material/tooltip';
-//Brasil
+// Brasil
 import { registerLocaleData } from '@angular/common';
 import ptBr from '@angular/common/locales/pt';
 import { QuantidadeComponent } from './sistema/quantidade/quantidade.component';
@@ -74,7 +81,13 @@ import { ComentariosComponent } from './sistema/servicos/comentarios/comentarios
 import { DadosServicoComponent } from './sistema/servicos/dados-servico/dados-servico.component';
 import { PerfilComponent } from './sistema/servicos/perfil/perfil.component';
 import { SelecionarFornecedorComponent } from './sistema/servicos/selecionar-fornecedor/selecionar-fornecedor.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { DialogAnexarComponent } from './sistema/servicos/dialog/dialog-anexar/dialog-anexar.component';
+
+// Scroll
+import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
+
 
 @NgModule({
   declarations: [
@@ -108,7 +121,13 @@ import { FormsModule } from '@angular/forms';
     AvaliacaoComponent,
     EscreverComentarioComponent,
     AndamentoComponent,
-    CertificadosComponent
+    CertificadosComponent,
+    DialogExemploComponent,
+    DialogMembrosComponent,
+    DialogAnexarComponent,
+    NavVerticalPerfilComponent,
+    DadosPessoaisComponent,
+    SenhaComponent
   ],
   imports: [
     PropostaModule,
@@ -135,8 +154,14 @@ import { FormsModule } from '@angular/forms';
     StarRatingModule,
     MatChipsModule,
     FormsModule,
-    MatDialogModule
+    ReactiveFormsModule,
+    MatAutocompleteModule,
+    MatDialogModule,
+    MatToolbarModule,
+    ScrollToModule.forRoot()
   ],
+  entryComponents: [DialogMembrosComponent,
+    DialogAnexarComponent],
   providers: [{ provide: LOCALE_ID, useValue: 'pt' }],
   bootstrap: [AppComponent]
 })

@@ -102,7 +102,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
   pages() {
     console.log('page ' + this.href);
-    if (this.href === '/orcamento' || this.href === '/quantidade' || this.href === '/proposta' || this.href === '/pagamento' || this.href === '/escolher' || this.href === '/agendados' || this.href === '/andamento' || this.href === '/finalizados') {
+    if (this.href === '/orcamento' || this.href === '/quantidade' || this.href === '/proposta' || this.href === '/pagamento' || this.href === '/escolher' || this.href === '/agendados' || this.href === '/andamento' || this.href === '/finalizados' || this.href === '/perfil') {
       this.displayTemplate = false;
     } else {
       this.displayTemplate = true;

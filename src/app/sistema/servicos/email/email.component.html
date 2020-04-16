@@ -1,5 +1,5 @@
 <div *ngIf="display">
-<hr/>
+  <hr />
   <!-- Email -->
   <div class="row">
     <div class="col-12">
@@ -12,15 +12,35 @@
       </div>
 
       <div class="col-7" style="clear: both;">
+
+        <!-- De -->
         <mat-form-field appearance="legacy">
           <mat-label>De: </mat-label>
-          <input matInput value="email_do_colaborador@gmail.com" placeholder="usuario@exemplo.com">
+          <input disabled matInput value="email_do_colaborador@gmail.com" placeholder="usuario@exemplo.com">
         </mat-form-field>
         <br>
+
+        <!-- Para -->
         <mat-form-field appearance="legacy">
-          <mat-label>Para: </mat-label>
-          <input matInput value="email_do_prestador@gmail.com" placeholder="prestador@exemplo.com">
+          <mat-chip-list #chipList aria-label="Email para: ">
+            <mat-chip *ngFor="let contato of contatoPrestador" [selectable]="selectable" [removable]="removable"
+              (removed)="remove(contato)">
+              {{contato}}
+              <span matChipRemove *ngIf="removable"><i class="fas fa-times"></i></span>
+            </mat-chip>
+            <input placeholder="Para: " #contatoInput [formControl]="contatoCtrl" [matAutocomplete]="auto"
+              [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+              (matChipInputTokenEnd)="add($event)">
+          </mat-chip-list>
+          <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+            <mat-option *ngFor="let contato of filtroContato | async" [value]="contato">
+              {{contato}}
+            </mat-option>
+          </mat-autocomplete>
         </mat-form-field>
+
+
+
         <mat-form-field appearance="legacy">
           <mat-label>Assunto </mat-label>
           <input matInput placeholder="Informe o assunto">
@@ -32,7 +52,7 @@
           <textarea matInput placeholder="Escreva sua mensagem" cdkTextareaAutosize #autosize="cdkTextareaAutosize"
             cdkAutosizeMinRows="3"></textarea>
         </mat-form-field>
-        <button mat-raised-button class="font-btn-nav width-btn" >Enviar</button>
+        <button mat-raised-button class="font-btn-nav width-btn">Enviar</button>
       </div>
     </div>
   </div>

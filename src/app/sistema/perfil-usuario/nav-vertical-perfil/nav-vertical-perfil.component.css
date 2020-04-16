@@ -2,7 +2,7 @@
   overflow: auto;
   font-size: 16px;
   font-weight: 200;
-  background-color:#D1F6FF;
+  background-color: #e8fbff;
   position: fixed;
   /* width: 218px; */
   height: 100%;
@@ -11,7 +11,7 @@
   padding: 0 !important;
 }
 .nav-side-menu .brand {
-  background-color:#D1F6FF;
+  background-color:#e8fbff;
   line-height: 50px;
   display: block;
   text-align: center;
@@ -30,16 +30,19 @@
 .nav-side-menu ul :not(collapsed) .arrow:before,
 .nav-side-menu li :not(collapsed) .arrow:before {
   font-family: FontAwesome;
-  content: "\f054";
+  content: "\f078";
   display: inline-block;
   padding-left: 10px;
   padding-right: 10px;
   vertical-align: middle;
   float: right;
 }
+.nav-side-menu{
+  width: 20%;
+}
 .nav-side-menu ul .active,
 .nav-side-menu li .active {
-  background-color:#63E1FD ;
+  background-color:#d0f6fe ;
 }
 .nav-side-menu ul .sub-menu li.active,
 .nav-side-menu li .sub-menu li.active {
@@ -51,19 +54,19 @@
 }
 .nav-side-menu ul .sub-menu li,
 .nav-side-menu li .sub-menu li {
-  background-color: rgba(99, 225, 253, 0.3);
+  background-color: #e8fbff;
   border: none;
   line-height: 28px;
   margin-left: 0px;
 }
 .nav-side-menu ul .sub-menu li:hover,
 .nav-side-menu li .sub-menu li:hover {
-  background-color: #63E1FD;
+  background-color: #d0f6fe;
 }
 .nav-side-menu ul .sub-menu li:before,
 .nav-side-menu li .sub-menu li:before {
   font-family: FontAwesome;
-  content: "\f107";
+  content: "\f054";
   display: inline-block;
   padding-left: 10px;
   padding-right: 10px;
@@ -84,7 +87,7 @@
 .nav-side-menu li:hover {
   font-weight: bold;
   border-left: 3px solid black;
-  background-color: #63E1FD;
+  background-color: #d0f6fe;
   -webkit-transition: all 1s ease;
   -moz-transition: all 1s ease;
   -o-transition: all 1s ease;
