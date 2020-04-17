@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DadosPessoaisComponent implements OnInit {
 
+  public dateMask = [/\d/, /\d/, '/', /\d/, /\d/, '/', /\d/, /\d/, /\d/, /\d/];
+
   constructor() { }
 
   ngOnInit(): void {
