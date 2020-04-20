@@ -1,0 +1,78 @@
+<app-nav-vertical-usuario></app-nav-vertical-usuario>
+
+<div class="col-md-10 float-md-right col-12 ml-auto orcamento">
+  <div class="row ">
+    <div class="col-md-3 col-12 pedidos">
+      <!-- Pedidos -->
+      <app-nav-vertical-perfil></app-nav-vertical-perfil>
+    </div>
+
+    <div class="col-12 col-md-9 scroll-auto container-fluid">
+
+      <!-- Botões direitos -->
+      <div class="float-right mr-4 mt-2 mb-3">
+        <button (click)="display('1')" mat-raised-button class="mr-3"><i class="fas fa-paper-plane mr-2"></i>Convidar </button>
+        <button mat-raised-button (click)="display('2')"><i class="fas fa-user-plus mr-2"></i> Adiconar Membro</button>
+      </div>
+
+      <form id="formFuncionario">
+
+        <!-- Enviar Convite -->
+        <div class="form-row" *ngIf="displayComponent == 1">
+          <!-- Nome -->
+          <div class="form-group col-md-6">
+            <label for="inputNome">Nome</label>
+            <input type="text" class="form-control" id="inputNome" placeholder="Nome">
+          </div>
+
+          <!-- Email -->
+          <div class="form-group col-md-6">
+            <label for="inputEmail4">Email</label>
+            <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+          </div>
+
+          <!-- Telefone -->
+          <div class="form-group col-md-3 col-4">
+            <label for="inputEmail4">Telefone</label>
+            <input [textMask]="{mask: phoneMask}" type="text" class="form-control" id="inputEmail"
+              placeholder="(DD)_____-_____">
+          </div>
+        </div> <!-- Row-->
+
+        <!-- Buscar Membro -->
+        <div class="form-row" *ngIf="displayComponent == 2 ||  displayComponent == 3">
+          <!-- cpf -->
+          <div class="form-group col-md-4">
+            <label for="cpf">CPF</label>
+            <input type="text" [textMask]="{mask: cpfMask}" class="form-control" id="cpf" placeholder="   .   .   -  ">
+          </div>
+
+          <div class="form-group">
+            <button mat-raised-button class="btn-search ml-3" (click)="display('3')"><i class="fas fa-search mr-3"></i>Buscar </button>
+          </div>
+        </div> <!-- Row Membro-->
+
+        <!-- Mostrar informações do membro -->
+        <!-- Informações a serem mostrada ao buscar o membro -->
+        <div class="form-group" *ngIf="displayComponent == 3">
+          <span>Nome: <b>Jose Carlos</b>
+            | Email: <b>josecarlos@gmail.com</b>
+            | Telefone: <b>(99) 99999-9999</b>
+            <button mat-raised-button class="btn-search ml-3"  (click)="display('0')"><i class="fas fa-check mr-2"></i>Confirmar</button>
+          </span>
+        </div>
+
+        <button mat-raised-button class="mr-3" *ngIf="displayComponent == 1">Enviar Convite </button>
+      </form>
+
+      <app-tabela-membro></app-tabela-membro>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+
+    </div>
+  </div>
+
+</div>

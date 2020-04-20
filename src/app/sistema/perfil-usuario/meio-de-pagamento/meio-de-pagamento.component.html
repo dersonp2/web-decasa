@@ -1,0 +1,67 @@
+<app-nav-vertical-usuario></app-nav-vertical-usuario>
+
+<div class="col-md-10 float-md-right col-12 ml-auto orcamento">
+  <div class="row">
+    <div class="col-md-3 col-12 pedidos">
+      <!-- Pedidos -->
+      <app-nav-vertical-perfil></app-nav-vertical-perfil>
+    </div>
+
+    <div class="col-12 col-md-9 scroll-auto container-fluid mt-4">
+      <!--Nav Tav-->
+      <ul class="nav nav-tabs nav-fill">
+        <li class="nav-item">
+          <a class="nav-link active" href="#cartao" role="tab" data-toggle="tab">Cartões</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#prepago" role="tab" data-toggle="tab">Pré Pago</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#pospago" role="tab" data-toggle="tab">Pós Pago</a>
+        </li>
+      </ul>
+
+      <!--Conteudo de cada Nav-Item-->
+      <div class="tab-content mt-3 mb-3 ml-2">
+        <!-- Cartão-->
+        <div role="tabpanel" class="tab-pane active" id="cartao">
+          <div class="ml-3 mt-2 mb-3">
+            <button mat-raised-button><i class="far fa-credit-card mr-2"></i>Novo Cartão</button>
+          </div>
+          <div class="col-12 clear mt-3 col-md-6">
+            <app-tabela-cartoes></app-tabela-cartoes>
+          </div>
+          <!--Linha-->
+        </div>
+        <!--Tab Cartão -->
+
+
+        <!-- Pre Pago -->
+        <div role="tabpanel" class="tab-pane" id="prepago">
+          <div class="ml-3 mt-2 mb-3">
+            <button mat-raised-button><i class="fas fa-plus mr-2"></i>  Cupom Desconto</button>
+          </div>
+          <div class="col-12 clear mt-3 ">
+            <app-tabela-prepago></app-tabela-prepago>
+          </div>
+        </div>
+
+        <!-- Pos Pago -->
+        <div role="tabpanel" class="tab-pane" id="pospago">
+          <div class="ml-3 mt-2 mb-3">
+            <button mat-raised-button><i class="fas fa-plus mr-2"></i>Crédito</button>
+          </div>
+          <div class="col-12 clear mt-3 ">
+            <app-tabela-prepago></app-tabela-prepago>
+          </div>
+        </div>
+
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+
+    </div>
+  </div>
+</div>

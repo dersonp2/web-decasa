@@ -1,0 +1,45 @@
+<app-nav-vertical-usuario></app-nav-vertical-usuario>
+
+<div class="col-md-10 float-md-right col-12 ml-auto orcamento">
+  <div class="row">
+    <div class="col-md-3 col-12 pedidos">
+      <!-- Pedidos -->
+      <app-nav-vertical-perfil></app-nav-vertical-perfil>
+    </div>
+
+    <div class="col-12 col-md-9 scroll-auto container-fluid">
+      <form>
+        <div class="form-row mt-4">
+          <!-- Nome -->
+          <div class="form-group col-md-6">
+            <label for="inputNome">Empresa</label>
+            <input type="text" class="form-control" id="inputNome" placeholder="Nome da Empresa">
+          </div>
+
+          <!-- Email -->
+          <div class="form-group col-md-6">
+            <label for="inputEmail4">Email</label>
+            <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+          </div>
+
+
+          <!-- CNPJ -->
+          <div class="form-group col-md-4">
+            <label for="cnpj">CNPJ</label>
+            <input type="text" [textMask]="{mask: cnpjMask}" class="form-control" id="cnpj" placeholder="  .   .   /    -  ">
+          </div>
+
+          <!-- Telefone -->
+          <div class="form-group col-md-3">
+            <label for="inputEmail4">Telefone</label>
+            <input [textMask]="{mask: phoneMask}" type="text" class="form-control" id="inputEmail"
+              placeholder="(DD)_____-_____">
+          </div>
+
+
+        </div> <!-- Row-->
+        <button mat-raised-button> <i class="fas fa-pencil-alt mr-2"></i>Editar</button>
+      </form>
+    </div>
+  </div>
+</div>

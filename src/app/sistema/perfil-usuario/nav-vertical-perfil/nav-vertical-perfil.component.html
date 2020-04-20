@@ -8,37 +8,36 @@
       <li data-toggle="collapse" data-target="#perfil" class="collapsed">
         <a><i class="fas fa-user"></i> Meu Perfil<span class="arrow"></span></a>
       </li>
-      <ul class="sub-menu collapse" id="perfil">
-        <li class="active"><a>Dados Pessoais</a></li>
-        <li><a>Permissões</a></li>
-        <li><a>Senha</a></li>
+      <ul class="sub-menu collapse ml-md-2 ml-0" id="perfil">
+        <li class="active" [routerLink]="['/dados-pessoais']" routerLinkActive="active" ><a>Dados Pessoais</a></li>
+        <!-- <li><a>Permissões</a></li> -->
+        <li [routerLink]="['/senha']" routerLinkActive="active"><a>Senha</a></li>
       </ul>
 
 
       <li data-toggle="collapse" data-target="#empresa" class="collapsed">
         <a><i class="fas fa-briefcase"></i> Empresa <span class="arrow"></span></a>
       </li>
-      <ul class="sub-menu collapse" id="empresa">
-        <li><a>Dados Cadastrais</a></li>
-        <li><a>Outros membros</a></li>
+      <ul class="sub-menu collapse ml-md-2 ml-0" id="empresa">
+        <li [routerLink]="['/dados-cadastrais']" routerLinkActive="active"><a>Dados Cadastrais</a></li>
+        <li [routerLink]="['/outros-membros']" routerLinkActive="active"><a>Outros membros</a></li>
       </ul>
 
-
-      <li data-toggle="collapse" data-target="#endereco" class="collapsed">
-        <a><i class="fas fa-map-marker-alt"></i> Endereços <span class="arrow"></span></a>
+      <li class="collapsed" [routerLink]="['/endereco']" routerLinkActive="active">
+        <a><i class="fas fa-map-marker-alt"></i> Endereços</a>
       </li>
-      <ul class="sub-menu collapse" id="endereco">
+
+      <!-- <li data-toggle="collapse" data-target="#endereco" class="collapsed">
+        <a><i class="fas fa-map-marker-alt"></i> Endereços</a>
+      </li>
+      <ul class="sub-menu collapse ml-md-2 ml-0" id="endereco">
         <li><a>Principal</a></li>
         <li><a>Outros endereços</a></li>
-      </ul>
+      </ul> -->
 
-      <li data-toggle="collapse" data-target="#pay" class="collapsed">
-        <a><i class="far fa-credit-card"></i> Meios de Pagamento <span class="arrow"></span></a>
+      <li class="collapsed" [routerLink]="['/meios-de-pagamento']" routerLinkActive="active">
+        <a><i class="far fa-credit-card"></i> Meios de Pagamento</a>
       </li>
-      <ul class="sub-menu collapse" id="pay">
-        <li><a>Cartões Cadastrados</a></li>
-        <li><a>Cupons de desconto</a></li>
-      </ul>
 
     </ul>
   </div>

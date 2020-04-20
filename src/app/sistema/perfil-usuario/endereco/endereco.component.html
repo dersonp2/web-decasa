@@ -1,0 +1,98 @@
+<app-nav-vertical-usuario></app-nav-vertical-usuario>
+
+<div class="col-md-10 float-md-right col-12 ml-auto orcamento">
+  <div class="row">
+    <div class="col-md-3 col-12 pedidos">
+      <!-- Pedidos -->
+      <app-nav-vertical-perfil></app-nav-vertical-perfil>
+    </div>
+
+    <div class="col-12 col-md-9 scroll-auto container-fluid">
+      <div class="float-right mr-4 mt-2">
+        <button mat-raised-button (click)="display()"><i class="fas fa-map-marker-alt mr-2"></i>Novo Endereço</button>
+      </div>
+
+      <!-- Form de cadastro -->
+      <form id="formFuncionario" *ngIf="displayForm">
+
+        <!-- Cep -->
+        <div class="row mt-2">
+          <div class="form-group col-md-2 col-6">
+            <label for="cep">CEP</label>
+            <input type="text" class="form-control" id="cep" placeholder="Cep">
+          </div>
+
+          <div class="mt-2 form-group col-md-10 d-md-block d-none">
+            <button type="button" (click)="display()" class="close" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Rua -->
+        <div class="row">
+          <div class="form-group col-md-6 col-10">
+            <label for="rua">Rua</label>
+            <input type="text" class="form-control" id="Rua" placeholder="Ex. R. Osvaldo">
+          </div>
+          <div class="form-group col-md-2 col-2">
+            <label for="n">Nº</label>
+            <input type="number" class="form-control" id="n">
+          </div>
+        </div>
+
+        <!-- Bairro -->
+        <div class="row">
+          <div class="form-group col-md-6 col-10">
+            <label for="bairro">Bairro</label>
+            <input type="text" class="form-control" id="bairro" placeholder="Informe seu bairro">
+          </div>
+          <div class="form-group col-md-4 col-10">
+            <label for="cidade">Cidade</label>
+            <input type="text" class="form-control" id="cidade" placeholder="Informe a cidade">
+          </div>
+          <div class="form-group col-md-2 col-10">
+            <label for="uf">UF</label>
+            <select id="uf" class="form-control">
+              <option selected>...</option>
+              <option>MA</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-group col-md-6 col-10">
+            <label for="complemento">Complemento</label>
+            <input type="text" class="form-control" id="complemento" placeholder="Ex. Cond. bl. apto.">
+          </div>
+          <div class="form-group col-md-2 col-10">
+            <label for="pais">País</label>
+            <select id="pais" class="form-control">
+              <option selected>BRA</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
+            <label class="form-check-label" for="invalidCheck2">
+              Definir como Endereço Principal
+            </label>
+          </div>
+        </div>
+
+        <button mat-raised-button class="mr-2"> <i class="fas fa-check mr-2"></i>Cadastrar</button>
+      </form> <!-- Form de cadastros-->
+
+      <app-lista-enderecos></app-lista-enderecos>
+
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+    </div>
+  </div>
+</div>

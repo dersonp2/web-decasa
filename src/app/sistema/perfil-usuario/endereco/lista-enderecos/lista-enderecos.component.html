@@ -1,0 +1,72 @@
+<div class="clear mt-4"></div>
+<p>Lista de Endereços</p>
+<hr/>
+
+<!-- Form de cadastro -->
+<form >
+
+  <!-- Cep -->
+  <div class="row mt-2">
+    <div class="form-group col-md-2 col-6">
+      <label for="cep">CEP</label>
+      <input type="text" class="form-control" id="cep" placeholder="Cep" disabled>
+    </div>
+  </div>
+
+  <!-- Rua -->
+  <div class="row">
+    <div class="form-group col-md-6 col-10">
+      <label for="rua">Rua</label>
+      <input type="text" class="form-control" id="Rua" placeholder="Ex. R. Osvaldo" disabled>
+    </div>
+    <div class="form-group col-md-2 col-2">
+      <label for="n">Nº</label>
+      <input type="number" class="form-control" id="n" disabled>
+    </div>
+  </div>
+
+  <!-- Bairro -->
+  <div class="row">
+    <div class="form-group col-md-6 col-10">
+      <label for="bairro">Bairro</label>
+      <input type="text" class="form-control" id="bairro" placeholder="Informe seu bairro" disabled>
+    </div>
+    <div class="form-group col-md-4 col-10">
+      <label for="cidade">Cidade</label>
+      <input type="text" class="form-control" id="cidade" placeholder="Informe a cidade" disabled>
+    </div>
+    <div class="form-group col-md-2 col-10">
+      <label for="uf">UF</label>
+      <select id="uf" class="form-control" disabled>
+        <option selected>...</option>
+        <option>MA</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col-md-6 col-10">
+      <label for="complemento">Complemento</label>
+      <input type="text" class="form-control" id="complemento" placeholder="Ex. Cond. bl. apto." disabled>
+    </div>
+    <div class="form-group col-md-2 col-10">
+      <label for="pais">País</label>
+      <select id="pais" class="form-control" disabled>
+        <option selected>BRA</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required disabled>
+      <label class="form-check-label" for="invalidCheck2">
+        Definir como Endereço Principal
+      </label>
+    </div>
+  </div>
+
+  <button mat-raised-button class="mr-2"> <i class="fas fa-pencil-alt mr-2"></i>Editar</button>
+
+  <button mat-raised-button class="mr-2 float-right" (click)="openDialogServicos()">Serviços prestados nesse local</button>
+</form> <!-- Form de cadastros-->

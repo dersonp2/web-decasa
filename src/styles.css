@@ -72,3 +72,14 @@ body, html{
 .cursor{
   cursor:pointer;
 }
+
+/* Cor da tabela */
+::ng-deep .mat-header-cell{
+  font-size: 16px;
+  color: black;
+  background-color:rgba(99, 225, 253, 0.1) !important;
+}
+
+.clear{
+  clear: both;
+}

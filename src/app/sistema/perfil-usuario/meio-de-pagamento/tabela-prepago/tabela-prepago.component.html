@@ -1,0 +1,40 @@
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 mt-4">
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="data">
+    <th mat-header-cell *matHeaderCellDef> Data</th>
+    <td mat-cell *matCellDef="let element"> {{element.data}}</td>
+  </ng-container>
+
+  <!-- qntd Column -->
+  <ng-container matColumnDef="valorInfo">
+    <th mat-header-cell *matHeaderCellDef> Valor (A) Informado </th>
+    <td mat-cell *matCellDef="let element"> {{element.valorInfo}}</td>
+  </ng-container>
+
+  <!-- Unidade Column -->
+  <ng-container matColumnDef="valorConf">
+    <th mat-header-cell *matHeaderCellDef> Valor (B) Informado  </th>
+    <td mat-cell *matCellDef="let element"> {{element.valorConf}} </td>
+  </ng-container>
+
+    <!-- Unidade Column -->
+    <ng-container matColumnDef="pedido">
+      <th mat-header-cell *matHeaderCellDef> Pedido </th>
+      <td mat-cell *matCellDef="let element"> {{element.pedido}} </td>
+    </ng-container>
+
+      <!-- Unidade Column -->
+  <ng-container matColumnDef="usuario">
+    <th mat-header-cell *matHeaderCellDef> Usuário </th>
+    <td mat-cell *matCellDef="let element"> {{element.usuario}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="opc">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let element"> {{element.opc}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

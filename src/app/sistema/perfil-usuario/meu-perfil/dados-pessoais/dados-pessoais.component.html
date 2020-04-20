@@ -9,7 +9,7 @@
 
     <div class="col-12 col-md-9 scroll-auto container-fluid">
       <form>
-        <div class="form-row mt-4">
+        <div class="row mt-4">
           <!-- Nome -->
           <div class="form-group col-md-6">
             <label for="inputNome">Nome</label>
@@ -17,26 +17,47 @@
           </div>
 
           <!-- Pontos -->
-          <div class="form-group offset-3 col-md-2">
-            <h2><span class="badge   btn-outline-secondary float-right" data-toggle="popover" data-trigger="hover"
-                data-content="Sua quantidade de pontos acomulados">Pontos: 50</span></h2>
+          <div class="form-group offset-md-3 offset-0 col-md-2 justify-content-center d-flex">
+            <h2> <span class="badge badge-pill color-orange-logo float-right" data-toggle="popover" data-trigger="hover"
+                data-content="Sua quantidade de pontos acomulados">
+                Pontos<br /> 50.89
+              </span>
+            </h2>
           </div>
 
-          <!-- Email -->
-          <div class="form-group col-md-6">
-            <label for="inputEmail4">Email</label>
-            <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+          <!-- cpf -->
+          <div class="form-group col-md-4">
+            <label for="cpf">CPF</label>
+            <input type="text" [textMask]="{mask: cpfMask}"  class="form-control" id="cpf" placeholder="   .   .   -  ">
           </div>
+        </div> <!-- Row-->
+
+        <!-- Email -->
+        <div class="row">
+            <div class="form-group col-md-6">
+              <label for="inputEmail4">Email</label>
+              <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+            </div>
+        </div>
+
+        <div class="row">
+          <!-- Telefone -->
+          <div class="form-group col-md-3 col-4">
+            <label for="inputEmail4">Telefone</label>
+            <input [textMask]="{mask: phoneMask}" type="text" class="form-control" id="inputEmail"
+              placeholder="(DD)_____-_____">
+          </div>
+
 
           <!-- Data de Nascimento -->
-          <div class="form-group col-md-2">
+          <div class="form-group col-md-2  col-4">
             <label for="inputEmail4">Data de Nasc.</label>
-            <input title="Data de Nascimento" type="text" class="form-control" id="inputEmail4"
-            placeholder="dia/mês/ano" [textMask]="{mask: dateMask}">
+            <input title="Data de Nascimento" type="text" class="form-control" id="inputEmail4" placeholder="  / /    "
+              [textMask]="{mask: dateMask}">
           </div>
 
           <!-- Sexo -->
-          <div class="form-group col-md-2">
+          <div class="form-group col-md-3 col-4">
             <label for="inlineFormCustomSelectPref">Sexo</label>
             <select class="custom-select" id="inlineFormCustomSelectPref">
               <option selected>Escolha</option>
@@ -44,33 +65,28 @@
               <option value="2">Feminino</option>
             </select>
           </div>
+        </div>
 
-           <!-- Plano -->
-           <div class="form-group col-md-3">
+        <div class="row">
+          <!-- Plano -->
+          <div class="form-group col-md-3">
             <label for="plano">Plano</label>
             <select class="custom-select" id="plano">
               <option selected>Escolha</option>
-              <option value="1">Gratuito</option>
+              <option value="1">Individual</option>
               <option value="2">Empresarial</option>
             </select>
           </div>
 
           <!-- Idioma -->
-          <div class="form-group col-md-2">
+          <div class="form-group col-md-3">
             <label for="plano">Idioma</label>
             <select class="custom-select" id="plano">
               <option selected>Português</option>
             </select>
           </div>
+        </div>
 
-             <!-- Idioma -->
-             <div class="form-group col-md-2">
-              <label for="plano">Time Zone</label>
-              <select class="custom-select" id="plano">
-                <option selected>Brasília</option>
-              </select>
-            </div>
-        </div> <!-- Row-->
         <button mat-raised-button> <i class="fas fa-pencil-alt mr-2"></i>Editar</button>
       </form>
     </div>

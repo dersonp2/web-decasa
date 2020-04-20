@@ -1,8 +1,16 @@
+import { TabelaPospagoComponent } from './sistema/perfil-usuario/meio-de-pagamento/tabela-pospago/tabela-pospago.component';
+import { TabelaPrepagoComponent } from './sistema/perfil-usuario/meio-de-pagamento/tabela-prepago/tabela-prepago.component';
+import { TabelaCartoesComponent } from './sistema/perfil-usuario/meio-de-pagamento/tabela-cartoes/tabela-cartoes.component';
+import { MeioDePagamentoComponent } from './sistema/perfil-usuario/meio-de-pagamento/meio-de-pagamento.component';
+import { DialogServicosComponent } from './sistema/perfil-usuario/endereco/dialog-servicos/dialog-servicos.component';
+import { ListaEnderecosComponent } from './sistema/perfil-usuario/endereco/lista-enderecos/lista-enderecos.component';
+import { TabelaMembroComponent } from './sistema/perfil-usuario/empresa/outros-membros/tabela-membro/tabela-membro.component';
+import { EnderecoComponent } from './sistema/perfil-usuario/endereco/endereco.component';
+import { OutrosMembrosComponent } from './sistema/perfil-usuario/empresa/outros-membros/outros-membros.component';
 import { SenhaComponent } from './sistema/perfil-usuario/meu-perfil/senha/senha.component';
 import { DadosPessoaisComponent } from './sistema/perfil-usuario/meu-perfil/dados-pessoais/dados-pessoais.component';
 import { NavVerticalPerfilComponent } from './sistema/perfil-usuario/nav-vertical-perfil/nav-vertical-perfil.component';
 import { DialogMembrosComponent } from './sistema/servicos/dialog/dialog-membros/dialog-membros.component';
-import { DialogExemploComponent } from './dialog-exemplo/dialog-exemplo.component';
 import { CertificadosComponent } from './sistema/servicos/certificados/certificados.component';
 import { AndamentoComponent } from './sistema/servicos/andamento/andamento.component';
 import { EscreverComentarioComponent } from './sistema/servicos/escrever-comentario/escrever-comentario.component';
@@ -87,6 +95,7 @@ import { DialogAnexarComponent } from './sistema/servicos/dialog/dialog-anexar/d
 
 // Scroll
 import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
+import { DadosCadastraisComponent } from './sistema/perfil-usuario/empresa/dados-cadastrais/dados-cadastrais.component';
 
 
 @NgModule({
@@ -122,12 +131,21 @@ import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
     EscreverComentarioComponent,
     AndamentoComponent,
     CertificadosComponent,
-    DialogExemploComponent,
     DialogMembrosComponent,
     DialogAnexarComponent,
     NavVerticalPerfilComponent,
     DadosPessoaisComponent,
-    SenhaComponent
+    SenhaComponent,
+    DadosCadastraisComponent,
+    OutrosMembrosComponent,
+    EnderecoComponent,
+    TabelaMembroComponent,
+    ListaEnderecosComponent,
+    DialogServicosComponent,
+    MeioDePagamentoComponent,
+    TabelaCartoesComponent,
+    TabelaPrepagoComponent,
+    TabelaPospagoComponent
   ],
   imports: [
     PropostaModule,
@@ -161,7 +179,7 @@ import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
     ScrollToModule.forRoot()
   ],
   entryComponents: [DialogMembrosComponent,
-    DialogAnexarComponent],
+    DialogAnexarComponent, DialogServicosComponent],
   providers: [{ provide: LOCALE_ID, useValue: 'pt' }],
   bootstrap: [AppComponent]
 })

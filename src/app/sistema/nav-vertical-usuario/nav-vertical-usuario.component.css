@@ -40,6 +40,7 @@
 .nav-side-menu ul .active,
 .nav-side-menu li .active {
   background-color:#63E1FD ;
+  font-weight: bold;
 }
 .nav-side-menu ul .sub-menu li.active,
 .nav-side-menu li .sub-menu li.active {
