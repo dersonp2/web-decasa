@@ -1,0 +1,16 @@
+<mat-toolbar>
+  <span>Anexar Comprovante</span>
+  <span class="spacer"></span>
+  <a (click)="close()" class="cursor"><i class="fas fa-times"></i></a>
+</mat-toolbar>
+<div class="custom-file mt-3">
+  <input type="file" class="custom-file-input" id="customFile">
+  <label class="custom-file-label" for="customFile" id="fileLabel">Selecione o comprovante</label>
+</div>
+<div class="row">
+  <div class="mt-3 col-md-3 col-sm-6">
+    <label for="idV">Valor:</label>
+    <input type="number" class="form-control" id="idV">
+  </div>
+</div>
+<button mat-raised-button class="mt-3">Enviar</button>

@@ -1,3 +1,5 @@
+import { DialogCartaoComponent } from './sistema/perfil-usuario/meio-de-pagamento/dialog/dialog-cartao/dialog-cartao.component';
+import { DialogCreditoComponent } from './sistema/perfil-usuario/meio-de-pagamento/dialog/dialog-credito/dialog-credito.component';
 import { BoletosNotasComponent } from './sistema/boletos-notas/boletos-notas.component';
 import { TabelaPospagoComponent } from './sistema/perfil-usuario/meio-de-pagamento/tabela-pospago/tabela-pospago.component';
 import { TabelaPrepagoComponent } from './sistema/perfil-usuario/meio-de-pagamento/tabela-prepago/tabela-prepago.component';
@@ -97,6 +99,7 @@ import { DialogAnexarComponent } from './sistema/servicos/dialog/dialog-anexar/d
 // Scroll
 import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 import { DadosCadastraisComponent } from './sistema/perfil-usuario/empresa/dados-cadastrais/dados-cadastrais.component';
+import { DialogComprovanteComponent } from './sistema/perfil-usuario/meio-de-pagamento/dialog/dialog-comprovante/dialog-comprovante.component';
 
 
 @NgModule({
@@ -147,7 +150,10 @@ import { DadosCadastraisComponent } from './sistema/perfil-usuario/empresa/dados
     TabelaCartoesComponent,
     TabelaPrepagoComponent,
     TabelaPospagoComponent,
-    BoletosNotasComponent
+    BoletosNotasComponent,
+    DialogComprovanteComponent,
+    DialogCreditoComponent,
+    DialogCartaoComponent
   ],
   imports: [
     PropostaModule,
@@ -181,7 +187,9 @@ import { DadosCadastraisComponent } from './sistema/perfil-usuario/empresa/dados
     ScrollToModule.forRoot()
   ],
   entryComponents: [DialogMembrosComponent,
-    DialogAnexarComponent, DialogServicosComponent],
+    DialogAnexarComponent, DialogServicosComponent,
+    DialogComprovanteComponent,
+    DialogCreditoComponent, DialogCartaoComponent],
   providers: [{ provide: LOCALE_ID, useValue: 'pt' }],
   bootstrap: [AppComponent]
 })

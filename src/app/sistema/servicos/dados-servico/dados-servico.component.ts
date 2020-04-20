@@ -7,7 +7,7 @@ import { DialogAnexarComponent } from '../dialog/dialog-anexar/dialog-anexar.com
   templateUrl: './dados-servico.component.html',
   styleUrls: ['./dados-servico.component.css']
 })
-export class DadosServicoComponent  {
+export class DadosServicoComponent {
 
   // 1- Excolher | 3- Agendamento | 4 - Finalizar
   @Input() displayBtn;

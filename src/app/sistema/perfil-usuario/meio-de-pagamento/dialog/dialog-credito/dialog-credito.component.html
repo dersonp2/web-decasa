@@ -1,0 +1,12 @@
+<mat-toolbar>
+  <span>Solicitar Crédito</span>
+  <span class="spacer"></span>
+  <a (click)="close()" class="cursor"><i class="fas fa-times"></i></a>
+</mat-toolbar>
+<div class="mt-3">
+<h3>Esta é uma solicitação formal de pedido de crédito para a sua empresa consumir em nossa plataforma. O pagamento da fatura será mensal. Você confirma?</h3>
+</div>
+<div mat-dialog-actions align="end">
+  <button mat-button mat-raised-button (click)="close()">Cancela</button>
+  <button mat-button mat-raised-button  cdkFocusInitial>Confirma</button>
+</div>
