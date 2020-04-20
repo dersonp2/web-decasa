@@ -1,3 +1,4 @@
+import { BoletosNotasComponent } from './sistema/boletos-notas/boletos-notas.component';
 import { TabelaPospagoComponent } from './sistema/perfil-usuario/meio-de-pagamento/tabela-pospago/tabela-pospago.component';
 import { TabelaPrepagoComponent } from './sistema/perfil-usuario/meio-de-pagamento/tabela-prepago/tabela-prepago.component';
 import { TabelaCartoesComponent } from './sistema/perfil-usuario/meio-de-pagamento/tabela-cartoes/tabela-cartoes.component';
@@ -145,7 +146,8 @@ import { DadosCadastraisComponent } from './sistema/perfil-usuario/empresa/dados
     MeioDePagamentoComponent,
     TabelaCartoesComponent,
     TabelaPrepagoComponent,
-    TabelaPospagoComponent
+    TabelaPospagoComponent,
+    BoletosNotasComponent
   ],
   imports: [
     PropostaModule,

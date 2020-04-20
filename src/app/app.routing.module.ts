@@ -1,3 +1,4 @@
+import { BoletosNotasComponent } from './sistema/boletos-notas/boletos-notas.component';
 import { MeioDePagamentoComponent } from './sistema/perfil-usuario/meio-de-pagamento/meio-de-pagamento.component';
 import { EnderecoComponent } from './sistema/perfil-usuario/endereco/endereco.component';
 import { OutrosMembrosComponent } from './sistema/perfil-usuario/empresa/outros-membros/outros-membros.component';
@@ -40,6 +41,7 @@ const appRoutes: Routes = [
   { path: 'outros-membros', component: OutrosMembrosComponent  },
   { path: 'endereco', component: EnderecoComponent  },
   { path: 'meios-de-pagamento', component: MeioDePagamentoComponent},
+  { path: 'boletos-notas', component: BoletosNotasComponent},
   { path: 'teste', component: PageTestComponent },
   { path: '**', component: NotFoundComponent }
 ];

@@ -1,0 +1,40 @@
+import { Component, OnInit } from '@angular/core';
+
+export interface PeriodicElement {
+  mes: string;
+  total: string;
+  valorPago: string;
+  valorPagar: string;
+  status: string;
+}
+
+const ELEMENT_DATA: PeriodicElement[] = [
+  {mes: 'jan/2020', total: 'R$ 99.000,00', valorPago: '95.000,00', valorPagar: 'R$ 3.000,00', status: 'OK'},
+  {mes: 'fev/2020', total: 'R$ 99.000,00', valorPago: '95.000,00', valorPagar: 'R$ 3.000,00', status: 'Pend'},
+  {mes: 'mar/2020', total: '', valorPago: '', valorPagar: '', status: ''},
+  {mes: 'abr/2020', total: '', valorPago: '', valorPagar: '', status: ''},
+  {mes: 'maio/2020', total: '', valorPago: '', valorPagar: '', status: ''},
+  {mes: 'jun/2020', total: '', valorPago: '', valorPagar: '', status: ''},
+  {mes: 'jul/2020', total: '', valorPago: '', valorPagar: '', status: ''},
+  {mes: 'ago/2020', total: '', valorPago: '', valorPagar: '', status: ''},
+  {mes: 'set/2020', total: '', valorPago: '', valorPagar: '', status: ''},
+  {mes: 'out/2020', total: '', valorPago: '', valorPagar: '', status: ''},
+  {mes: 'nov/2020', total: '', valorPago: '', valorPagar: '', status: ''},
+  {mes: 'dez/2020', total: '', valorPago: '', valorPagar: '', status: ''},
+];
+@Component({
+  selector: 'app-boletos-notas',
+  templateUrl: './boletos-notas.component.html',
+  styleUrls: ['./boletos-notas.component.css']
+})
+export class BoletosNotasComponent implements OnInit {
+
+  displayedColumns: string[] = ['mes', 'total', 'valorPago', 'valorPagar', 'status', 'nfe', 'extrato'];
+  dataSource = ELEMENT_DATA;
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+}

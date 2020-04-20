@@ -3,14 +3,14 @@ export interface PeriodicElement {
   data: string;
   valorInfo: string;
   valorConf: string;
-  pedido: string;
+  status: string;
   usuario: string;
   opc: string;
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
-  { data: '21/02/2020', valorInfo: 'R$ 24.000,00', valorConf: 'R$ 24.000,00', pedido: '', usuario: 'William', opc: '+' },
-  { data: '21/02/2020', valorInfo: '', valorConf: 'R$ -5.000,00', pedido: 'BRA2345UF', usuario: 'Anderson', opc: '-' },
+  { data: '21/02/2020', valorInfo: 'R$ 24.000,00', valorConf: 'R$ 24.000,00', status: 'Confirmado', usuario: 'William', opc: '+' },
+  { data: '21/02/2020', valorInfo: '', valorConf: 'R$ -5.000,00', status: 'BRA2345UF', usuario: 'Anderson', opc: '-' },
 ];
 
 @Component({
@@ -20,7 +20,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class TabelaPrepagoComponent implements OnInit {
 
-  displayedColumns: string[] = ['data', 'valorInfo', 'valorConf', 'pedido', 'usuario', 'opc'];
+  displayedColumns: string[] = ['data', 'valorInfo', 'valorConf', 'status', 'usuario', 'opc', 'visualizar'];
   dataSource = ELEMENT_DATA;
 
   constructor() { }

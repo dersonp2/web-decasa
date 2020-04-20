@@ -1,0 +1,12 @@
+table {
+  width: 100%;
+}
+/* Cor da tabela */
+::ng-deep .mat-header-cell{
+  font-size: 16px;
+  color: black;
+  background-color:rgba(99, 225, 253, 0.1) !important;
+}
+tr.mat-footer-row {
+  font-weight: bold;
+}
