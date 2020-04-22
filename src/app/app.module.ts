@@ -1,6 +1,10 @@
-import { DialogModule } from './themes/decasa/blocos/dialog/dialog.module';
-import { OrcamentoComponent } from './themes/decasa/pages/sistema/comprar-servicos/orcamento/orcamento.component';
+import { BlocosModule } from './themes/decasa/blocos/blocos.module';
 
+// Modulos
+import { DialogModule } from './themes/decasa/blocos/dialog/dialog.module';
+import { NavModule } from './themes/decasa/blocos/nav/nav.module';
+
+import { OrcamentoComponent } from './themes/decasa/pages/sistema/comprar-servicos/orcamento/orcamento.component';
 import { BoletosNotasComponent } from './themes/decasa/pages/sistema/boletos-notas/boletos-notas.component';
 import { TabelaPospagoComponent } from './themes/decasa/pages/sistema/perfil-usuario/meio-de-pagamento/tabela-pospago/tabela-pospago.component';
 import { TabelaPrepagoComponent } from './themes/decasa/pages/sistema/perfil-usuario/meio-de-pagamento/tabela-prepago/tabela-prepago.component';
@@ -13,7 +17,6 @@ import { EnderecoComponent } from './themes/decasa/pages/sistema/perfil-usuario/
 import { OutrosMembrosComponent } from './themes/decasa/pages/sistema/perfil-usuario/empresa/outros-membros/outros-membros.component';
 import { SenhaComponent } from './themes/decasa/pages/sistema/perfil-usuario/meu-perfil/senha/senha.component';
 import { DadosPessoaisComponent } from './themes/decasa/pages/sistema/perfil-usuario/meu-perfil/dados-pessoais/dados-pessoais.component';
-import { NavVerticalPerfilComponent } from './themes/decasa/blocos/nav/nav-vertical-perfil/nav-vertical-perfil.component';
 import { CertificadosComponent } from './themes/decasa/pages/sistema/servicos/shared/certificados/certificados.component';
 import { AndamentoComponent } from './themes/decasa/pages/sistema/servicos/andamento/andamento.component';
 import { EscreverComentarioComponent } from './themes/decasa/pages/sistema/servicos/finalizados/escrever-comentario/escrever-comentario.component';
@@ -25,12 +28,10 @@ import { AgendadoComponent } from './themes/decasa/pages/sistema/servicos/agenda
 import { DetalhePerfilComponent } from './themes/decasa/pages/sistema/servicos/shared/detalhe-perfil/detalhe-perfil.component';
 import { NPedidosComponent } from './themes/decasa/pages/sistema/servicos/shared/n-pedidos/n-pedidos.component';
 import { PageTestComponent } from './themes/decasa/pages/page-test/page-test.component';
-import { NavVerticalComponent } from './themes/decasa/blocos/nav/nav-vertical/nav-vertical.component';
 import { TabelaComponent } from './themes/decasa/pages/sistema/comprar-servicos/orcamento/tabela-orcamento/tabela.component';
 import { PropostaModule } from './themes/decasa/pages/sistema/comprar-servicos/proposta/proposta.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { NavVerticalUsuarioComponent } from './themes/decasa/blocos/nav/nav-vertical-usuario/nav-vertical-usuario.component';
 import { NotFoundComponent } from './themes/decasa/pages/not-found/not-found.component';
 import { AppRoutingModule } from './app.routing.module';
 import { BrowserModule } from '@angular/platform-browser';
@@ -42,7 +43,6 @@ import { IndexComponent } from './themes/decasa/pages/index/index.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ModalComponent } from './themes/decasa/pages/index/modal/modal.component';
 
-import { NavHorizontalComponent } from './themes/decasa/blocos/nav/nav-horizontal/nav-horizontal.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 
 // Angular material
@@ -53,7 +53,6 @@ import { MatSelectModule } from '@angular/material/select';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatCardModule} from '@angular/material/card';
 import {MatChipsModule} from '@angular/material/chips';
-// import {MatDialogModule} from '@angular/material/dialog';
 import {MatToolbarModule} from '@angular/material/toolbar';
 
 
@@ -76,7 +75,6 @@ import { TabelaQuantidadeComponent } from './themes/decasa/pages/sistema/comprar
 import { PagamentoComponent } from './themes/decasa/pages/sistema/comprar-servicos/pagamento/pagamento.component';
 import { NavPagamentoComponent } from './themes/decasa/pages/sistema/comprar-servicos/pagamento/nav-pagamento/nav-pagamento.component';
 import { CadastroComponent } from './themes/decasa/pages/sistema/cadastro/cadastro.component';
-import { LoginComponent } from './themes/decasa/blocos/login/login.component';
 registerLocaleData(ptBr);
 
 // Rating module
@@ -105,16 +103,12 @@ import { DadosCadastraisComponent } from './themes/decasa/pages/sistema/perfil-u
     AppComponent,
     IndexComponent,
     ModalComponent,
-    NavHorizontalComponent,
-    NavVerticalComponent,
     QuantidadeComponent,
     TabelaQuantidadeComponent,
     PagamentoComponent,
     NavPagamentoComponent,
     CadastroComponent,
-    LoginComponent,
     NotFoundComponent,
-    NavVerticalUsuarioComponent,
     TabelaComponent,
     OrcamentoComponent,
     PageTestComponent,
@@ -133,7 +127,6 @@ import { DadosCadastraisComponent } from './themes/decasa/pages/sistema/perfil-u
     EscreverComentarioComponent,
     AndamentoComponent,
     CertificadosComponent,
-    NavVerticalPerfilComponent,
     DadosPessoaisComponent,
     SenhaComponent,
     DadosCadastraisComponent,
@@ -150,9 +143,10 @@ import { DadosCadastraisComponent } from './themes/decasa/pages/sistema/perfil-u
   imports: [
     BrowserModule,
 
-    DialogModule,
     PropostaModule,
-
+    BlocosModule,
+    // DialogModule,
+    // NavModule,
 
     TabViewModule,
     HttpClientModule,
