@@ -1,4 +1,9 @@
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { TextMaskModule } from 'angular2-text-mask';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
 import { MatDialogModule } from '@angular/material/dialog';
 import { NgModule } from '@angular/core';
@@ -10,7 +15,9 @@ import { DialogComprovanteComponent } from './dialog-comprovante/dialog-comprova
 import { DialogCreditoComponent } from './dialog-credito/dialog-credito.component';
 import { DialogMembrosComponent } from './dialog-membros/dialog-membros.component';
 import { DialogServicosComponent } from './dialog-servicos/dialog-servicos.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
+// Angular material
+import {MatButtonModule} from '@angular/material/button';
 
 
 
@@ -28,7 +35,14 @@ import { FormsModule } from '@angular/forms';
     MatDialogModule,
     FormsModule,
     MatTableModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatInputModule,
+    TextMaskModule,
+    MatCheckboxModule,
+    ReactiveFormsModule,
+    MatButtonModule
   ],
   exports: [
     DialogAnexarComponent,
