@@ -1,27 +1,26 @@
-import { BoletosNotasComponent } from './sistema/boletos-notas/boletos-notas.component';
-import { MeioDePagamentoComponent } from './sistema/perfil-usuario/meio-de-pagamento/meio-de-pagamento.component';
-import { EnderecoComponent } from './sistema/perfil-usuario/endereco/endereco.component';
-import { OutrosMembrosComponent } from './sistema/perfil-usuario/empresa/outros-membros/outros-membros.component';
-import { DadosPessoaisComponent } from './sistema/perfil-usuario/meu-perfil/dados-pessoais/dados-pessoais.component';
-import { AndamentoComponent } from './sistema/servicos/andamento/andamento.component';
-import { FinalizadosComponent } from './sistema/servicos/finalizados/finalizados.component';
-import { AgendadoComponent } from './sistema/servicos/agendado/agendado.component';
-import { SenhaComponent } from './sistema/perfil-usuario/meu-perfil/senha/senha.component';
+import { IndexComponent } from './themes/decasa/pages/index/index.component';
+import { BoletosNotasComponent } from './themes/decasa/pages/sistema/boletos-notas/boletos-notas.component';
+import { MeioDePagamentoComponent } from './themes/decasa/pages/sistema/perfil-usuario/meio-de-pagamento/meio-de-pagamento.component';
+import { EnderecoComponent } from './themes/decasa/pages/sistema/perfil-usuario/endereco/endereco.component';
+import { OutrosMembrosComponent } from './themes/decasa/pages/sistema/perfil-usuario/empresa/outros-membros/outros-membros.component';
+import { DadosPessoaisComponent } from './themes/decasa/pages/sistema/perfil-usuario/meu-perfil/dados-pessoais/dados-pessoais.component';
+import { AndamentoComponent } from './themes/decasa/pages/sistema/servicos/andamento/andamento.component';
+import { FinalizadosComponent } from './themes/decasa/pages/sistema/servicos/finalizados/finalizados.component';
+import { AgendadoComponent } from './themes/decasa/pages/sistema/servicos/agendado/agendado.component';
+import { SenhaComponent } from './themes/decasa/pages/sistema/perfil-usuario/meu-perfil/senha/senha.component';
 
-import { PageTestComponent } from './page-test/page-test.component';
-import { PagamentoComponent } from './sistema/pagamento/pagamento.component';
-import { PropostaComponent } from './sistema/proposta/proposta.component';
-import { QuantidadeComponent } from './sistema/quantidade/quantidade.component';
-import { NotFoundComponent } from './sistema/not-found/not-found.component';
+import { PageTestComponent } from './themes/decasa/pages/page-test/page-test.component';
+import { PagamentoComponent } from './themes/decasa/pages/sistema/pagamento/pagamento.component';
+import { PropostaComponent } from './themes/decasa/pages/sistema/proposta/proposta.component';
+import { QuantidadeComponent } from './themes/decasa/pages/sistema/quantidade/quantidade.component';
+import { NotFoundComponent } from './themes/decasa/pages/sistema/not-found/not-found.component';
 import { NgModule } from '@angular/core';
 
-import { OrcamentoComponent } from './sistema/orcamento/orcamento.component';
-import { CadastroComponent } from './sistema/cadastro/cadastro.component';
-import { IndexComponent } from './index/index.component';
+import { OrcamentoComponent } from './themes/decasa/pages/sistema/orcamento/orcamento.component';
+import { CadastroComponent } from './themes/decasa/pages/sistema/cadastro/cadastro.component';
 import { RouterModule, Routes } from '@angular/router';
-import { ModuleWithProviders } from '@angular/core';
-import { SelecionarFornecedorComponent } from './sistema/servicos/selecionar-fornecedor/selecionar-fornecedor.component';
-import { DadosCadastraisComponent } from './sistema/perfil-usuario/empresa/dados-cadastrais/dados-cadastrais.component';
+import { SelecionarFornecedorComponent } from './themes/decasa/pages/sistema/servicos/selecionar-fornecedor/selecionar-fornecedor.component';
+import { DadosCadastraisComponent } from './themes/decasa/pages/sistema/perfil-usuario/empresa/dados-cadastrais/dados-cadastrais.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: IndexComponent },

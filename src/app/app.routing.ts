@@ -1,6 +1,6 @@
-import { OrcamentoComponent } from './sistema/orcamento/orcamento.component';
-import { CadastroComponent } from './sistema/cadastro/cadastro.component';
-import { IndexComponent } from './index/index.component';
+import { OrcamentoComponent } from './themes/decasa/pages/sistema/orcamento/orcamento.component';
+import { CadastroComponent } from './themes/decasa/pages/sistema/cadastro/cadastro.component';
+import { IndexComponent } from './themes/decasa/pages/index/index.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ModuleWithProviders } from '@angular/core';
 
