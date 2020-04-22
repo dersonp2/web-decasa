@@ -1,26 +1,23 @@
+
 // Modulos
 import { BlocosModule } from './themes/decasa/blocos/blocos.module';
 import {PagesModule} from './themes/decasa/pages/pages.module';
+
+import { HeaderComponent } from './themes/decasa/core/header/header.component';
+import { NavbarComponent } from './themes/decasa/core/navbar/navbar.component';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID, Component } from '@angular/core';
 import { registerLocaleData } from '@angular/common';
 import ptBr from '@angular/common/locales/pt';
 registerLocaleData(ptBr);
-
-
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-
 import { AppRoutingModule } from './app.routing.module';
-
-
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
-
-import { MatCheckboxModule } from '@angular/material/checkbox';
 
 // Angular material
+import { HttpClientModule } from '@angular/common/http';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule} from '@angular/material/button';
 import {MatTableModule} from '@angular/material/table';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -65,7 +62,9 @@ import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
