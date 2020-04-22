@@ -1,4 +1,4 @@
-import { DialogServicosComponent } from './../dialog-servicos/dialog-servicos.component';
+import { DialogServicosComponent } from '../../../../../blocos/dialog/dialog-servicos/dialog-servicos.component';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 

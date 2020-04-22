@@ -1,7 +1,7 @@
-import { DialogMembrosComponent } from './../dialog/dialog-membros/dialog-membros.component';
+import { DialogMembrosComponent } from '../../../../../blocos/dialog/dialog-membros/dialog-membros.component';
 import { Component, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { DialogAnexarComponent } from '../dialog/dialog-anexar/dialog-anexar.component';
+import { DialogAnexarComponent } from '../../../../../blocos/dialog/dialog-anexar/dialog-anexar.component';
 @Component({
   selector: 'app-dados-servico',
   templateUrl: './dados-servico.component.html',

@@ -10,13 +10,13 @@ import { AgendadoComponent } from './themes/decasa/pages/sistema/servicos/agenda
 import { SenhaComponent } from './themes/decasa/pages/sistema/perfil-usuario/meu-perfil/senha/senha.component';
 
 import { PageTestComponent } from './themes/decasa/pages/page-test/page-test.component';
-import { PagamentoComponent } from './themes/decasa/pages/sistema/pagamento/pagamento.component';
-import { PropostaComponent } from './themes/decasa/pages/sistema/proposta/proposta.component';
-import { QuantidadeComponent } from './themes/decasa/pages/sistema/quantidade/quantidade.component';
-import { NotFoundComponent } from './themes/decasa/pages/sistema/not-found/not-found.component';
+import { PagamentoComponent } from './themes/decasa/pages/sistema/comprar-servicos/pagamento/pagamento.component';
+import { PropostaComponent } from './themes/decasa/pages/sistema/comprar-servicos/proposta/proposta.component';
+import { QuantidadeComponent } from './themes/decasa/pages/sistema/comprar-servicos/quantidade/quantidade.component';
+import { NotFoundComponent } from './themes/decasa/pages/not-found/not-found.component';
 import { NgModule } from '@angular/core';
 
-import { OrcamentoComponent } from './themes/decasa/pages/sistema/orcamento/orcamento.component';
+import { OrcamentoComponent } from './themes/decasa/pages/sistema/comprar-servicos/orcamento/orcamento.component';
 import { CadastroComponent } from './themes/decasa/pages/sistema/cadastro/cadastro.component';
 import { RouterModule, Routes } from '@angular/router';
 import { SelecionarFornecedorComponent } from './themes/decasa/pages/sistema/servicos/selecionar-fornecedor/selecionar-fornecedor.component';

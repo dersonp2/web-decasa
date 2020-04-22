@@ -1,38 +1,38 @@
-import { OrcamentoComponent } from './themes/decasa/pages/sistema/orcamento/orcamento.component';
-import { DialogCartaoComponent } from './themes/decasa/pages/sistema/perfil-usuario/meio-de-pagamento/dialog/dialog-cartao/dialog-cartao.component';
-import { DialogCreditoComponent } from './themes/decasa/pages/sistema/perfil-usuario/meio-de-pagamento/dialog/dialog-credito/dialog-credito.component';
+import { OrcamentoComponent } from './themes/decasa/pages/sistema/comprar-servicos/orcamento/orcamento.component';
+import { DialogCartaoComponent } from './themes/decasa/blocos/dialog/dialog-cartao/dialog-cartao.component';
+import { DialogCreditoComponent } from './themes/decasa/blocos/dialog/dialog-credito/dialog-credito.component';
 import { BoletosNotasComponent } from './themes/decasa/pages/sistema/boletos-notas/boletos-notas.component';
 import { TabelaPospagoComponent } from './themes/decasa/pages/sistema/perfil-usuario/meio-de-pagamento/tabela-pospago/tabela-pospago.component';
 import { TabelaPrepagoComponent } from './themes/decasa/pages/sistema/perfil-usuario/meio-de-pagamento/tabela-prepago/tabela-prepago.component';
 import { TabelaCartoesComponent } from './themes/decasa/pages/sistema/perfil-usuario/meio-de-pagamento/tabela-cartoes/tabela-cartoes.component';
 import { MeioDePagamentoComponent } from './themes/decasa/pages/sistema/perfil-usuario/meio-de-pagamento/meio-de-pagamento.component';
-import { DialogServicosComponent } from './themes/decasa/pages/sistema/perfil-usuario/endereco/dialog-servicos/dialog-servicos.component';
+import { DialogServicosComponent } from './themes/decasa/blocos/dialog/dialog-servicos/dialog-servicos.component';
 import { ListaEnderecosComponent } from './themes/decasa/pages/sistema/perfil-usuario/endereco/lista-enderecos/lista-enderecos.component';
 import { TabelaMembroComponent } from './themes/decasa/pages/sistema/perfil-usuario/empresa/outros-membros/tabela-membro/tabela-membro.component';
 import { EnderecoComponent } from './themes/decasa/pages/sistema/perfil-usuario/endereco/endereco.component';
 import { OutrosMembrosComponent } from './themes/decasa/pages/sistema/perfil-usuario/empresa/outros-membros/outros-membros.component';
 import { SenhaComponent } from './themes/decasa/pages/sistema/perfil-usuario/meu-perfil/senha/senha.component';
 import { DadosPessoaisComponent } from './themes/decasa/pages/sistema/perfil-usuario/meu-perfil/dados-pessoais/dados-pessoais.component';
-import { NavVerticalPerfilComponent } from './themes/decasa/pages/sistema/perfil-usuario/nav-vertical-perfil/nav-vertical-perfil.component';
-import { DialogMembrosComponent } from './themes/decasa/pages/sistema/servicos/dialog/dialog-membros/dialog-membros.component';
-import { CertificadosComponent } from './themes/decasa/pages/sistema/servicos/certificados/certificados.component';
+import { NavVerticalPerfilComponent } from './themes/decasa/blocos/nav/nav-vertical-perfil/nav-vertical-perfil.component';
+import { DialogMembrosComponent } from './themes/decasa/blocos/dialog/dialog-membros/dialog-membros.component';
+import { CertificadosComponent } from './themes/decasa/pages/sistema/servicos/shared/certificados/certificados.component';
 import { AndamentoComponent } from './themes/decasa/pages/sistema/servicos/andamento/andamento.component';
 import { EscreverComentarioComponent } from './themes/decasa/pages/sistema/servicos/escrever-comentario/escrever-comentario.component';
-import { AvaliacaoComponent } from './themes/decasa/pages/sistema/servicos/avaliacao/avaliacao.component';
+import { AvaliacaoComponent } from './themes/decasa/pages/sistema/servicos/finalizados/avaliacao/avaliacao.component';
 import { FinalizadosComponent } from './themes/decasa/pages/sistema/servicos/finalizados/finalizados.component';
-import { CardFuncionarioComponent } from './themes/decasa/pages/sistema/servicos/card-funcionario/card-funcionario.component';
-import { EmailComponent } from './themes/decasa/pages/sistema/servicos/email/email.component';
+import { CardFuncionarioComponent } from './themes/decasa/pages/sistema/servicos/shared/card-funcionario/card-funcionario.component';
+import { EmailComponent } from './themes/decasa/pages/sistema/servicos/shared/email/email.component';
 import { AgendadoComponent } from './themes/decasa/pages/sistema/servicos/agendado/agendado.component';
-import { DetalhePerfilComponent } from './themes/decasa/pages/sistema/servicos/detalhe-perfil/detalhe-perfil.component';
-import { NPedidosComponent } from './themes/decasa/pages/sistema/servicos/n-pedidos/n-pedidos.component';
+import { DetalhePerfilComponent } from './themes/decasa/pages/sistema/servicos/shared/detalhe-perfil/detalhe-perfil.component';
+import { NPedidosComponent } from './themes/decasa/pages/sistema/servicos/shared/n-pedidos/n-pedidos.component';
 import { PageTestComponent } from './themes/decasa/pages/page-test/page-test.component';
-import { NavVerticalComponent } from './themes/decasa/pages/sistema/nav-vertical/nav-vertical.component';
-import { TabelaComponent } from './themes/decasa/pages/sistema/orcamento/tabela-orcamento/tabela.component';
-import { PropostaModule } from './themes/decasa/pages/sistema/proposta/proposta.module';
+import { NavVerticalComponent } from './themes/decasa/blocos/nav/nav-vertical/nav-vertical.component';
+import { TabelaComponent } from './themes/decasa/pages/sistema/comprar-servicos/orcamento/tabela-orcamento/tabela.component';
+import { PropostaModule } from './themes/decasa/pages/sistema/comprar-servicos/proposta/proposta.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { NavVerticalUsuarioComponent } from './themes/decasa/pages/sistema/nav-vertical-usuario/nav-vertical-usuario.component';
-import { NotFoundComponent } from './themes/decasa/pages/sistema/not-found/not-found.component';
+import { NavVerticalUsuarioComponent } from './themes/decasa/blocos/nav/nav-vertical-usuario/nav-vertical-usuario.component';
+import { NotFoundComponent } from './themes/decasa/pages/not-found/not-found.component';
 import { AppRoutingModule } from './app.routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID, Component } from '@angular/core';
@@ -43,7 +43,7 @@ import { IndexComponent } from './themes/decasa/pages/index/index.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ModalComponent } from './themes/decasa/pages/index/modal/modal.component';
 
-import { NavHorizontalComponent } from './themes/decasa/pages/sistema/nav-horizontal/nav-horizontal.component';
+import { NavHorizontalComponent } from './themes/decasa/blocos/nav/nav-horizontal/nav-horizontal.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 
 // Angular material
@@ -72,12 +72,12 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 // Brasil
 import { registerLocaleData } from '@angular/common';
 import ptBr from '@angular/common/locales/pt';
-import { QuantidadeComponent } from './themes/decasa/pages/sistema/quantidade/quantidade.component';
-import { TabelaQuantidadeComponent } from './themes/decasa/pages/sistema/quantidade/tabela-quantidade/tabela-quantidade.component';
-import { PagamentoComponent } from './themes/decasa/pages/sistema/pagamento/pagamento.component';
-import { NavPagamentoComponent } from './themes/decasa/pages/sistema/pagamento/nav-pagamento/nav-pagamento.component';
+import { QuantidadeComponent } from './themes/decasa/pages/sistema/comprar-servicos/quantidade/quantidade.component';
+import { TabelaQuantidadeComponent } from './themes/decasa/pages/sistema/comprar-servicos/quantidade/tabela-quantidade/tabela-quantidade.component';
+import { PagamentoComponent } from './themes/decasa/pages/sistema/comprar-servicos/pagamento/pagamento.component';
+import { NavPagamentoComponent } from './themes/decasa/pages/sistema/comprar-servicos/pagamento/nav-pagamento/nav-pagamento.component';
 import { CadastroComponent } from './themes/decasa/pages/sistema/cadastro/cadastro.component';
-import { LoginComponent } from './themes/decasa/pages/sistema/login/login.component';
+import { LoginComponent } from './themes/decasa/blocos/login/login.component';
 registerLocaleData(ptBr);
 
 // Rating module
@@ -87,19 +87,19 @@ import { StarRatingModule } from '@sreyaj/ng-star-rating';
 import { TextMaskModule } from 'angular2-text-mask';
 // OWL CAROUSEL
 import { CarouselModule } from 'ngx-owl-carousel-o';
-import { PortifolioComponent } from './themes/decasa/pages/sistema/servicos/portifolio/portifolio.component';
-import { ComentariosComponent } from './themes/decasa/pages/sistema/servicos/comentarios/comentarios.component';
-import { DadosServicoComponent } from './themes/decasa/pages/sistema/servicos/dados-servico/dados-servico.component';
-import { PerfilComponent } from './themes/decasa/pages/sistema/servicos/perfil/perfil.component';
+import { PortifolioComponent } from './themes/decasa/pages/sistema/servicos/shared/portifolio/portifolio.component';
+import { ComentariosComponent } from './themes/decasa/pages/sistema/servicos/shared/comentarios/comentarios.component';
+import { DadosServicoComponent } from './themes/decasa/pages/sistema/servicos/shared/dados-servico/dados-servico.component';
+import { PerfilComponent } from './themes/decasa/pages/sistema/servicos/shared/perfil/perfil.component';
 import { SelecionarFornecedorComponent } from './themes/decasa/pages/sistema/servicos/selecionar-fornecedor/selecionar-fornecedor.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
-import { DialogAnexarComponent } from './themes/decasa/pages/sistema/servicos/dialog/dialog-anexar/dialog-anexar.component';
+import { DialogAnexarComponent } from './themes/decasa/blocos/dialog/dialog-anexar/dialog-anexar.component';
 
 // Scroll
 import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 import { DadosCadastraisComponent } from './themes/decasa/pages/sistema/perfil-usuario/empresa/dados-cadastrais/dados-cadastrais.component';
-import { DialogComprovanteComponent } from './themes/decasa/pages/sistema/perfil-usuario/meio-de-pagamento/dialog/dialog-comprovante/dialog-comprovante.component';
+import { DialogComprovanteComponent } from './themes/decasa/blocos/dialog/dialog-comprovante/dialog-comprovante.component';
 
 
 @NgModule({

@@ -1,8 +1,8 @@
-import { DialogCartaoComponent } from './dialog/dialog-cartao/dialog-cartao.component';
-import { DialogCreditoComponent } from './dialog/dialog-credito/dialog-credito.component';
+import { DialogCartaoComponent } from '../../../../blocos/dialog/dialog-cartao/dialog-cartao.component';
+import { DialogCreditoComponent } from '../../../../blocos/dialog/dialog-credito/dialog-credito.component';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { DialogComprovanteComponent } from './dialog/dialog-comprovante/dialog-comprovante.component';
+import { DialogComprovanteComponent } from '../../../../blocos/dialog/dialog-comprovante/dialog-comprovante.component';
 @Component({
   selector: 'app-meio-de-pagamento',
   templateUrl: './meio-de-pagamento.component.html',
