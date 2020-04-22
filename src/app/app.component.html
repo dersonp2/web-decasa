@@ -45,7 +45,7 @@
       <div class="row lista">
         <div class=" col-md-10 col-12">
 
-          <ul class="nav justify-content-center nav-fill" [hidden]="navBarServico">
+          <!-- <ul class="nav justify-content-center nav-fill" [hidden]="navBarServico">
             <li class="nav-item">
               <a class="nav-link" href="#" [routerLink]="['/escolher']" routerLinkActive="active">
                 Escolher<br/>
@@ -70,10 +70,10 @@
                 <small> 1 Serviço</small>
               </a>
             </li>
-          </ul>
+          </ul> -->
           <!-- Step -->
-          <!-- <mat-horizontal-stepper #stepper> -->
-            <!-- <mat-step [routerLink]="['/orcamento']">
+          <mat-horizontal-stepper #stepper>
+             <mat-step [routerLink]="['/orcamento']">
               <ng-template matStepLabel> <a class="style-link" [routerLink]="['/orcamento']"> <span class="d-none d-sm-block">Selecione
                 Serviços</span></a></ng-template>
             </mat-step>
@@ -98,7 +98,7 @@
                 </a>
               </ng-template>
             </mat-step>
-          </mat-horizontal-stepper> -->
+          </mat-horizontal-stepper>
         </div>
         <div class="col-12 col-md-2">
           <!-- <div class="justify-content-md-end text-center text-md-right d-block mt-md-3 mt-2 mb-2 mr-md-4 mr-0">
