@@ -11,14 +11,15 @@ import { SharedModule } from './shared/shared.module';
 
 import { StarRatingModule } from '@sreyaj/ng-star-rating';
 import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
-import { MatButtonModule} from '@angular/material/button';
-import {MatTableModule} from '@angular/material/table';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatCardModule} from '@angular/material/card';
-import {MatChipsModule} from '@angular/material/chips';
+import { MatButtonModule } from '@angular/material/button';
+import { MatTableModule } from '@angular/material/table';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatCardModule } from '@angular/material/card';
+import { MatChipsModule } from '@angular/material/chips';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
-import {TextFieldModule} from '@angular/cdk/text-field';
+import { TextFieldModule } from '@angular/cdk/text-field';
+import { MatInputModule } from '@angular/material/input';
 
 
 @NgModule({
@@ -34,7 +35,7 @@ import {TextFieldModule} from '@angular/cdk/text-field';
     CommonModule,
     SharedModule,
     StarRatingModule,
-    ScrollToModule,
+    ScrollToModule.forRoot(),
     MatButtonModule,
     MatTableModule,
     MatFormFieldModule,
@@ -44,6 +45,7 @@ import {TextFieldModule} from '@angular/cdk/text-field';
     ReactiveFormsModule,
     MatSelectModule,
     TextFieldModule,
+    MatInputModule,
 
     BlocosModule
   ]

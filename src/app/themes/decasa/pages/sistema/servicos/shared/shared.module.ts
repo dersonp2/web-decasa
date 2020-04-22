@@ -45,7 +45,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     MatButtonModule,
     CarouselModule,
     StarRatingModule,
-    ScrollToModule,
+    ScrollToModule.forRoot(),
     MatButtonModule,
     MatTableModule,
     MatFormFieldModule,

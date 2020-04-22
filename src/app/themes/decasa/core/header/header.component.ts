@@ -57,22 +57,22 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   // Ir para próxima tela
-  goTo(stepper: MatStepper) {
-    switch (this.href) {
-      case '/orcamento':
-        this.router.navigate(['/quantidade']);
-        stepper.next();
-        break;
-      case '/quantidade':
-        this.router.navigate(['/proposta']);
-        stepper.next();
-        break;
-      case '/proposta':
-        this.router.navigate(['/pagamento']);
-        stepper.next();
-        break;
-    }
-  }
+  // goTo(stepper: MatStepper) {
+  //   switch (this.href) {
+  //     case '/orcamento':
+  //       this.router.navigate(['/quantidade']);
+  //       stepper.next();
+  //       break;
+  //     case '/quantidade':
+  //       this.router.navigate(['/proposta']);
+  //       stepper.next();
+  //       break;
+  //     case '/proposta':
+  //       this.router.navigate(['/pagamento']);
+  //       stepper.next();
+  //       break;
+  //   }
+  // }
 
   pages() {
     console.log('page ' + this.href);
