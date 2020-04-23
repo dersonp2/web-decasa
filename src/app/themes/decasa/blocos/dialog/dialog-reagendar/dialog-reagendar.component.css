@@ -1,10 +1,6 @@
 .spacer {
   flex: 1 1 auto !important;
 }
-.mat-form-field {
-  width: 100%;
-}
-
 .font-padrao{
   font-size: 18px !important;
 }

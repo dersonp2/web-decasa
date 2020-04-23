@@ -9,7 +9,7 @@
   fornecedores para você
 </h3>
 <div class="row">
-  <div class="col-md-6 col-12 justify-content-md-end justify-content-center d-flex">
+  <div class="col-md-4 col-12 justify-content-md-end justify-content-center d-flex">
 
     <mat-form-field class="font-padrao">
       <mat-label mask='{dd/MM/y}'>Selecione a data </mat-label>
@@ -19,15 +19,16 @@
     </mat-form-field>
 
   </div>
-  <div class="col-md-6 col-12 justify-content-md-start justify-content-center d-flex">
 
-    <div class="font-padrao font-padrao d-md-flex justify-content-center d-inline-block">
-      <ngx-timepicker-field class="font-padrao" [format]="24"></ngx-timepicker-field>
-    </div>
+
+  <div class=" col-md-4 col-12 font-padrao font-padrao d-md-flex justify-content-center d-inline-block">
+
+    <ngx-timepicker-field class="font-padrao" [format]="24" [controlOnly]="true"></ngx-timepicker-field>
   </div>
-</div>
 
-<div mat-dialog-actions align="end" class="mt-3">
-  <button mat-button mat-raised-button (click)="close()">Cancelar</button>
-  <button mat-button mat-raised-button  cdkFocusInitial>Reagendar</button>
+  <div mat-dialog-actions align="end" class="col-4 mb-2">
+    <button mat-button mat-raised-button >Reagendar</button>
+    <button mat-button mat-raised-button (click)="close()">Cancelar</button>
+  </div>
+
 </div>
