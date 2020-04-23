@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
@@ -6,14 +6,12 @@ import { MatDialogRef } from '@angular/material/dialog';
   templateUrl: './dialog-credito.component.html',
   styleUrls: ['./dialog-credito.component.css']
 })
-export class DialogCreditoComponent implements OnInit {
+export class DialogCreditoComponent {
 
   constructor(public dialogRef: MatDialogRef<DialogCreditoComponent>) { }
 
   close(): void {
     this.dialogRef.close();
-  }
-  ngOnInit(): void {
   }
 
 }

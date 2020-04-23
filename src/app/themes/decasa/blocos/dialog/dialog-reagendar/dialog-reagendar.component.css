@@ -1,0 +1,17 @@
+.spacer {
+  flex: 1 1 auto !important;
+}
+.mat-form-field {
+  width: 100%;
+}
+
+.font-padrao{
+  font-size: 18px !important;
+}
+/* Fonte da Hora */
+.ngx-timepicker-control .ngx-timepicker-control__input{
+  font-size: 16px !important;
+}
+.mat-form-field label {
+  font-size: 20px;
+}

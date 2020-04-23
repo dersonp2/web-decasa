@@ -11,6 +11,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
 import { MatDialogModule } from '@angular/material/dialog';
+import { AgmCoreModule } from '@agm/core';
 
 import { DialogAnexarComponent } from './dialog-anexar/dialog-anexar.component';
 import { DialogCartaoComponent } from './dialog-cartao/dialog-cartao.component';
@@ -18,6 +19,14 @@ import { DialogCreditoComponent } from './dialog-credito/dialog-credito.componen
 import { DialogMembrosComponent } from './dialog-membros/dialog-membros.component';
 import { DialogServicosComponent } from './dialog-servicos/dialog-servicos.component';
 import { DialogComprovanteComponent } from './dialog-comprovante/dialog-comprovante.component';
+import { DialogReagendarComponent } from './dialog-reagendar/dialog-reagendar.component';
+import { DialogEditarComponent } from './dialog-editar/dialog-editar.component';
+import { DialogRastrearComponent } from './dialog-rastrear/dialog-rastrear.component';
+import { DialogRescindirComponent } from './dialog-rescindir/dialog-rescindir.component';
+import { DialogCancelarComponent } from './dialog-cancelar/dialog-cancelar.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 
 @NgModule({
   declarations: [
@@ -26,7 +35,12 @@ import { DialogComprovanteComponent } from './dialog-comprovante/dialog-comprova
     DialogComprovanteComponent,
     DialogCreditoComponent,
     DialogMembrosComponent,
-    DialogServicosComponent
+    DialogServicosComponent,
+    DialogReagendarComponent,
+    DialogEditarComponent,
+    DialogRastrearComponent,
+    DialogRescindirComponent,
+    DialogCancelarComponent
   ],
   imports: [
     CommonModule,
@@ -40,7 +54,13 @@ import { DialogComprovanteComponent } from './dialog-comprovante/dialog-comprova
     MatInputModule,
     TextMaskModule,
     MatCheckboxModule,
-    MatButtonModule
+    MatButtonModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    NgxMaterialTimepickerModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAoVvj5lM77pVqV4EyRzJwIHoBK83MGumU'
+    }),
   ],
   exports: [
     DialogAnexarComponent,
@@ -50,9 +70,17 @@ import { DialogComprovanteComponent } from './dialog-comprovante/dialog-comprova
     DialogMembrosComponent,
     DialogServicosComponent
   ],
-  entryComponents: [DialogMembrosComponent,
-    DialogAnexarComponent, DialogServicosComponent,
+  entryComponents: [DialogAnexarComponent,
+    DialogCartaoComponent,
     DialogComprovanteComponent,
-    DialogCreditoComponent, DialogCartaoComponent],
+    DialogCreditoComponent,
+    DialogMembrosComponent,
+    DialogServicosComponent,
+    DialogReagendarComponent,
+    DialogEditarComponent,
+    DialogRastrearComponent,
+    DialogRescindirComponent,
+    DialogCancelarComponent
+  ],
 })
 export class DialogModule { }

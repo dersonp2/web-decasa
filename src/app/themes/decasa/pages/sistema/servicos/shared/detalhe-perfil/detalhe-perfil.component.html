@@ -24,7 +24,7 @@
 
     <!-- <button mat-raised-button class="font-btn-nav mt-3 width-btn" *ngIf="displayBtn == 3">Recomendações</button> -->
 
-    <button mat-raised-button class="font-btn-nav mt-3 width-btn" *ngIf="displayBtn == 2">Rastrear</button>
+    <button mat-raised-button class="font-btn-nav mt-3 width-btn" *ngIf="displayBtn == 2" (click)="openDialogRastrear()">Rastrear</button>
 
     <button [ngx-scroll-to]="'#funcionarios'" mat-raised-button class="font-btn-nav mt-3 width-btn" *ngIf="displayBtn == 2 || displayBtn == 3" (click)="setDisplayFuncionarios()">Funcionários</button>
   </div>

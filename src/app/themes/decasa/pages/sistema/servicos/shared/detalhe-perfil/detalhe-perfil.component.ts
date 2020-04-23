@@ -1,4 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+
+import { DialogRastrearComponent } from 'src/app/themes/decasa/blocos/dialog/dialog-rastrear/dialog-rastrear.component';
 
 @Component({
   selector: 'app-detalhe-perfil',
@@ -15,7 +18,12 @@ export class DetalhePerfilComponent implements OnInit {
   displayComentario = false;
   displayFuncionarios = false;
 
-  constructor() {
+  constructor(public dialog: MatDialog) { }
+
+  openDialogRastrear() {
+    this.dialog.open(DialogRastrearComponent, {
+      width: '50%',
+    });
   }
 
   ngOnInit(): void {

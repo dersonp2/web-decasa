@@ -1,0 +1,9 @@
+<mat-toolbar>
+  <span>Rastrear</span>
+  <span class="spacer"></span>
+  <a (click)="close()" class="cursor"><i class="fas fa-times"></i></a>
+</mat-toolbar>
+Mapa
+<agm-map [latitude]="lat" [zoom]="zoom" [longitude]="lng">
+  <agm-marker  [latitude]="lat" [longitude]="lng"></agm-marker>
+</agm-map>
