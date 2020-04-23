@@ -19,7 +19,7 @@
   <div class="col-2">
     <div *ngIf="displayBtn != 4">
       <button mat-raised-button class="font-btn-nav width-btn"> Material</button>
-      <button mat-raised-button class="font-btn-nav mt-3 width-btn"> Editar</button>
+      <button mat-raised-button class="font-btn-nav mt-3 width-btn" (click)="openDialogEditar()"> Editar</button>
       <button mat-raised-button class="font-btn-nav mt-3 width-btn" *ngIf="displayBtn != 3" (click)="openDialogReagendar()">Reagendar</button>
       <button mat-raised-button class="font-btn-nav mt-3 width-btn" *ngIf="displayBtn != 3" (click)="openDialogCancelar()">Cancelar</button>
       <button mat-raised-button class="font-btn-nav mt-3 width-btn" *ngIf="displayBtn == 3" (click)="openDialogRescindir()">Rescindir</button>

@@ -1,3 +1,4 @@
+import { DialogEditarComponent } from './../../../../../blocos/dialog/dialog-editar/dialog-editar.component';
 import { Component, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
@@ -24,6 +25,12 @@ export class DadosServicoComponent {
   openDialogMembros() {
     this.dialog.open(DialogMembrosComponent, {
       width: '50%',
+    });
+  }
+
+  openDialogEditar() {
+    this.dialog.open(DialogEditarComponent, {
+      width: '100%',
     });
   }
 
