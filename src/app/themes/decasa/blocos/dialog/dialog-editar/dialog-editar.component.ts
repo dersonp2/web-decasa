@@ -8,7 +8,11 @@ import { MatDialogRef } from '@angular/material/dialog';
 })
 export class DialogEditarComponent  {
 
+  novoServico = false;
 
+  showNovoServico() {
+    this.novoServico = !this.novoServico;
+  }
   constructor(public dialogRef: MatDialogRef<DialogEditarComponent>) { }
 
   close(): void {

@@ -1,11 +1,22 @@
-<mat-toolbar>
-  <span>Editar</span>
-  <span class="spacer"></span>
-  <a (click)="close()" class="cursor"><i class="fas fa-times"></i></a>
-</mat-toolbar>
+<div class="scroll-auto">
+  <mat-toolbar>
+    <span>Editar</span>
+    <span class="spacer"></span>
+    <a (click)="close()" class="cursor"><i class="fas fa-times"></i></a>
+  </mat-toolbar>
 
-<div class="mt-3">
-<!-- <button mat-raised-button class="font-btn-nav mt-3 width-btn"> Editar Serviços</button> -->
+  <div class="mt-3">
 
-<button mat-raised-button class="font-btn-nav mt-3 width-btn"> Novo Serviço</button>
+    <app-tabela-servicos></app-tabela-servicos>
+
+    <div>
+    <a class="cursor float-right mt-3 mr-2" *ngIf="novoServico" (click)="showNovoServico()"><i class="fas fa-times fa-lg"></i></a>
+  </div>
+    <app-novo-servico *ngIf="novoServico"></app-novo-servico>
+
+    <div mat-dialog-actions align="end">
+      <button mat-raised-button class="font-btn-nav mt-3 width-btn" (click)="showNovoServico()" *ngIf="!novoServico"> Novo Serviço</button>
+      <button mat-raised-button class="font-btn-nav mt-3 width-btn"> Salvar</button>
+    </div>
+  </div>
 </div>

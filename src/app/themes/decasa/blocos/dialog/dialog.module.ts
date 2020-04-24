@@ -27,6 +27,8 @@ import { DialogCancelarComponent } from './dialog-cancelar/dialog-cancelar.compo
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
+import { TabelaServicosComponent } from './dialog-editar/tabela-servicos/tabela-servicos.component';
+import { NovoServicoComponent } from './dialog-editar/novo-servico/novo-servico.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,9 @@ import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
     DialogEditarComponent,
     DialogRastrearComponent,
     DialogRescindirComponent,
-    DialogCancelarComponent
+    DialogCancelarComponent,
+    TabelaServicosComponent,
+    NovoServicoComponent
   ],
   imports: [
     CommonModule,

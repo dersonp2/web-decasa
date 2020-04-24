@@ -1,0 +1,64 @@
+<!--Filtro Buscar serviços-->
+<div class="row mt-5">
+  <div class="col-8">
+    <mat-form-field  appearance="outline">
+      <mat-label><i class="fas fa-search"></i> Buscar serviço </mat-label>
+      <input type="text" matInput (keyup)="applyFilter($event)" placeholder="Ex. Manutenção hidráulica">
+      <mat-icon matSuffix></mat-icon>
+    </mat-form-field>
+  </div>
+  <div class="col-4 mt-3">
+    <a class="float-right btn btn-adicionar">
+      Adicionar
+      <i class="fa fa-shopping-cart fa-lg"></i>
+    </a>
+  </div>
+</div>
+<!-- Tabela-->
+<table mat-table [dataSource]="dataSource" class="">
+
+  <!-- Checkbox Column -->
+  <ng-container matColumnDef="select">
+    <th mat-header-cell *matHeaderCellDef>
+      <mat-checkbox (change)="$event ? masterToggle() : null" [checked]="selection.hasValue() && isAllSelected()"
+        [indeterminate]="selection.hasValue() && !isAllSelected()" [aria-label]="checkboxLabel()">
+      </mat-checkbox>
+    </th>
+    <td mat-cell *matCellDef="let row">
+      <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row) : null"
+        [checked]="selection.isSelected(row)" [aria-label]="checkboxLabel(row)">
+      </mat-checkbox>
+    </td>
+  </ng-container>
+
+
+  <!-- Descrição Column -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Descrição dos Serviços
+    </th>
+    <td mat-cell *matCellDef="let element"><span matTooltipPosition="right"
+        matTooltip="Informações sobre o serviço">{{element.name}} </span>
+    </td>
+  </ng-container>
+
+
+  <!-- qntd Column -->
+  <ng-container matColumnDef="qntd">
+    <th mat-header-cell *matHeaderCellDef> Quantidade </th>
+    <td mat-cell *matCellDef="let element">
+      <div>
+        <input type="number" min="0" class="qntd-input form-control" value="1">
+      </div>
+    </td>
+  </ng-container>
+
+  <!-- Unidade Column -->
+  <ng-container matColumnDef="uni">
+    <th mat-header-cell *matHeaderCellDef> Unidade </th>
+    <td mat-cell *matCellDef="let element"> {{element.uni}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selection.toggle(row)">
+  </tr>
+</table>
