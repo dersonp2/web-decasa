@@ -20,6 +20,6 @@ const ELEMENT_DATA: PeriodicElement[] = [
 export class TabelaQuantidadeComponent  {
 
   value = 'Clear me';
-  displayedColumns: string[] = ['name', 'qntd',  'uni',];
+  displayedColumns: string[] = ['name', 'qntd',  'uni', 'opc'];
   dataSource = ELEMENT_DATA;
 }

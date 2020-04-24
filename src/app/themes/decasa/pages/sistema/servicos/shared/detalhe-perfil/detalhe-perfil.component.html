@@ -12,7 +12,7 @@
   <!-- Botões laterais -->
   <div class="col-2">
 
-    <button mat-raised-button class="font-btn-nav width-btn" *ngIf="displayBtn == 1" (click)="setDisplayCertificados()"> Certificados</button>
+    <button mat-raised-button class="font-btn-nav width-btn" [ngx-scroll-to]="'#certificado'" *ngIf="displayBtn == 1" (click)="setDisplayCertificados()"> Certificados</button>
 
     <button [ngx-scroll-to]="'#portifolio'" mat-raised-button class="font-btn-nav mt-3 width-btn" *ngIf="displayBtn == 1" (click)="setDisplayPortifolio()"> Ver Portifólio</button>
 

@@ -11,6 +11,8 @@ registerLocaleData(ptBr);
 import { BlocosModule } from './themes/decasa/blocos/blocos.module';
 import { PagesModule } from './themes/decasa/pages/pages.module';
 import { CoreModule } from './themes/decasa/core/core.module';
+import { MatButtonModule } from '@angular/material/button';
+import { MatStepperModule } from '@angular/material/stepper';
 
 
 // TODO: Apagar depois
@@ -52,11 +54,11 @@ import { CoreModule } from './themes/decasa/core/core.module';
 
     // TODO: apagar
     // HttpClientModule,
-    // MatButtonModule,
+    MatButtonModule,
     // MatInputModule,
     // MatTableModule,
     // MatCheckboxModule,
-    // MatStepperModule,
+    MatStepperModule,
     // MatTooltipModule,
     // MatFormFieldModule,
     // MatSelectModule,
