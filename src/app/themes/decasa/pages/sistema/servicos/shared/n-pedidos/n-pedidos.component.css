@@ -9,3 +9,7 @@
 ::ng-deep .mat-form-field{
   width:100% !important;
 }
+
+.style-link:hover{
+  color: #0A68AE;
+}
