@@ -1,4 +1,3 @@
-import { DialogEditarComponent } from './../../../../../blocos/dialog/dialog-editar/dialog-editar.component';
 import { Component, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
@@ -7,6 +6,7 @@ import { DialogCancelarComponent } from 'src/app/themes/decasa/blocos/dialog/dia
 import { DialogRescindirComponent } from './../../../../../blocos/dialog/dialog-rescindir/dialog-rescindir.component';
 import { DialogReagendarComponent } from './../../../../../blocos/dialog/dialog-reagendar/dialog-reagendar.component';
 import { DialogMembrosComponent } from '../../../../../blocos/dialog/dialog-membros/dialog-membros.component';
+import { DialogEditarComponent } from './../../../../../blocos/dialog/dialog-editar/dialog-editar.component';
 
 @Component({
   selector: 'app-dados-servico',

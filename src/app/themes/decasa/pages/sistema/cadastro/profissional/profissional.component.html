@@ -146,12 +146,16 @@
             <h2>Profissão:</h2>
           </label>
           <div class="col-sm-4 col-md-3">
-            <select class="custom-select">
+            <select class="custom-select" (change)="onChange($event.target.value)">
               <option selected>Profissão</option>
               <option value="1">Engenheiro Elétrico</option>
               <option value="2">Programador</option>
               <option value="3">Diarista</option>
+              <option value="outra">Outra</option>
             </select>
+          </div>
+          <div class="col-sm-4 col-md-3" *ngIf="outraProfissao">
+            <input type="text" class="form-control  " id="inputEmail" placeholder="Informe a Profissão">
           </div>
         </div>
 
@@ -176,7 +180,7 @@
         </div>
 
         <div>
-          <button class="btn btn-primary">Criar conta</button>
+          <button class="btn btn-primary" [routerLink]="['/bem-vindo/profissional']" >Criar conta</button>
         </div>
       </div> <!-- Coluna-->
     </div> <!-- linha-->

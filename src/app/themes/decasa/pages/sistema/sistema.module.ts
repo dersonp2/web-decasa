@@ -14,12 +14,14 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { AppRoutingModule } from 'src/app/app.routing.module';
 import { ClienteComponent } from './cadastro/cliente/cliente.component';
 import { ProfissionalComponent } from './cadastro/profissional/profissional.component';
+import { BemVindoComponent } from './cadastro/profissional/bem-vindo/bem-vindo.component';
 
 @NgModule({
   declarations: [
     BoletosNotasComponent,
     ClienteComponent,
-    ProfissionalComponent
+    ProfissionalComponent,
+    BemVindoComponent
   ],
   imports: [
     CommonModule,

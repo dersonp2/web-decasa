@@ -22,12 +22,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { SelecionarFornecedorComponent } from './themes/decasa/pages/sistema/servicos/selecionar-fornecedor/selecionar-fornecedor.component';
 import { DadosCadastraisComponent } from './themes/decasa/pages/sistema/perfil-usuario/empresa/dados-cadastrais/dados-cadastrais.component';
 import { ClienteComponent } from './themes/decasa/pages/sistema/cadastro/cliente/cliente.component';
+import { BemVindoComponent } from './themes/decasa/pages/sistema/cadastro/profissional/bem-vindo/bem-vindo.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: IndexComponent },
   { path: '', component: IndexComponent },
   { path: 'criar-conta/cliente', component: ClienteComponent },
   { path: 'criar-conta/profissional', component: ProfissionalComponent },
+  { path: 'bem-vindo/profissional', component: BemVindoComponent },
   { path: 'orcamento', component: OrcamentoComponent },
   { path: 'quantidade', component: QuantidadeComponent },
   { path: 'proposta', component: PropostaComponent },
