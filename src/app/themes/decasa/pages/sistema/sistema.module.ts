@@ -1,5 +1,4 @@
 import { BlocosModule } from './../../blocos/blocos.module';
-import { CadastroComponent } from './cadastro/cadastro.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ServicosModule } from './servicos/servicos.module';
@@ -13,11 +12,14 @@ import { MatButtonModule} from '@angular/material/button';
 import {MatTableModule} from '@angular/material/table';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { AppRoutingModule } from 'src/app/app.routing.module';
+import { ClienteComponent } from './cadastro/cliente/cliente.component';
+import { ProfissionalComponent } from './cadastro/profissional/profissional.component';
 
 @NgModule({
   declarations: [
     BoletosNotasComponent,
-    CadastroComponent
+    ClienteComponent,
+    ProfissionalComponent
   ],
   imports: [
     CommonModule,

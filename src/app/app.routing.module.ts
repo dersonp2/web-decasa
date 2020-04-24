@@ -1,3 +1,4 @@
+import { ProfissionalComponent } from './themes/decasa/pages/sistema/cadastro/profissional/profissional.component';
 import { IndexComponent } from './themes/decasa/pages/index/index.component';
 import { BoletosNotasComponent } from './themes/decasa/pages/sistema/boletos-notas/boletos-notas.component';
 import { MeioDePagamentoComponent } from './themes/decasa/pages/sistema/perfil-usuario/meio-de-pagamento/meio-de-pagamento.component';
@@ -17,15 +18,16 @@ import { NotFoundComponent } from './themes/decasa/pages/not-found/not-found.com
 import { NgModule } from '@angular/core';
 
 import { OrcamentoComponent } from './themes/decasa/pages/sistema/comprar-servicos/orcamento/orcamento.component';
-import { CadastroComponent } from './themes/decasa/pages/sistema/cadastro/cadastro.component';
 import { RouterModule, Routes } from '@angular/router';
 import { SelecionarFornecedorComponent } from './themes/decasa/pages/sistema/servicos/selecionar-fornecedor/selecionar-fornecedor.component';
 import { DadosCadastraisComponent } from './themes/decasa/pages/sistema/perfil-usuario/empresa/dados-cadastrais/dados-cadastrais.component';
+import { ClienteComponent } from './themes/decasa/pages/sistema/cadastro/cliente/cliente.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: IndexComponent },
   { path: '', component: IndexComponent },
-  { path: 'criar-conta', component: CadastroComponent },
+  { path: 'criar-conta/cliente', component: ClienteComponent },
+  { path: 'criar-conta/profissional', component: ProfissionalComponent },
   { path: 'orcamento', component: OrcamentoComponent },
   { path: 'quantidade', component: QuantidadeComponent },
   { path: 'proposta', component: PropostaComponent },
