@@ -28,8 +28,8 @@
       $('[data-toggle="popover"]').popover()
     })
 
-    window.addEventListener("resize", show);
-    function myFunction() {
+    window.addEventListener("resize", scrollTop);
+    function scrollTop() {
       if (screen.width > 767) {
         window.scrollTo(0, 0);
       }
