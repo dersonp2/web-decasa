@@ -9,6 +9,6 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class PageTestComponent {
 
-  constructor(public dialog: MatDialog) { }
+  constructor() { }
 
 }

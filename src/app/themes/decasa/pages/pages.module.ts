@@ -9,6 +9,7 @@ import { PageTestComponent } from './page-test/page-test.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatButtonModule } from '@angular/material/button';
 import { AppRoutingModule } from 'src/app/app.routing.module';
+import { ListaGruposComponent } from './index/lista-grupos/lista-grupos.component';
 
 
 
@@ -17,7 +18,8 @@ import { AppRoutingModule } from 'src/app/app.routing.module';
     IndexComponent,
     NotFoundComponent,
     PageTestComponent,
-    ModalComponent
+    ModalComponent,
+    ListaGruposComponent
   ],
   imports: [
     CommonModule,

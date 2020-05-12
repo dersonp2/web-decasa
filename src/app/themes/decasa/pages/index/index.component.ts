@@ -11,18 +11,18 @@ export class IndexComponent implements OnInit {
 
   grupos: any [];
   isDisplay = true;
-  constructor(private gruposService: GruposService) { }
+  // private gruposService: GruposService
+  constructor() { }
 
   ngOnInit(): void {
     this.listarGrupos();
   }
 
-  toggleDisplay(){
+  toggleDisplay() {
     this.isDisplay = !this.isDisplay;
   }
 
   listarGrupos() {
-    this.gruposService.listarGrupos().subscribe(data => this.grupos = data);
-    console.log("clicou");
+    // this.gruposService.listarGrupos().subscribe(data => this.grupos = data);
   }
 }
