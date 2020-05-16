@@ -1,6 +1,7 @@
-import { UnidadeMedida } from './unidadeMedida';
-import { Classe } from './classe';
-export interface Servicos {
+import {Classe} from './classe.module';
+import {UnidadeMedida} from './unidade-medida.module';
+
+export class Servicos {
   id: number;
   descricao: string;
   composicao: string;

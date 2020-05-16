@@ -29,6 +29,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 import { TabelaServicosComponent } from './dialog-editar/tabela-servicos/tabela-servicos.component';
 import { NovoServicoComponent } from './dialog-editar/novo-servico/novo-servico.component';
+import { DialogLocalizacaoComponent } from './dialog-localizacao/dialog-localizacao.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { NovoServicoComponent } from './dialog-editar/novo-servico/novo-servico.
     DialogRescindirComponent,
     DialogCancelarComponent,
     TabelaServicosComponent,
-    NovoServicoComponent
+    NovoServicoComponent,
+    DialogLocalizacaoComponent
   ],
   imports: [
     CommonModule,

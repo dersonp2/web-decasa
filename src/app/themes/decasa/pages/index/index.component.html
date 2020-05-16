@@ -5,9 +5,12 @@
 
         <div class=" d-flex justify-content-center">
             <a href="#" class="redes-sociais" title="Blog DeCasa"><i class="fab fa-blogger-b"></i></a>
-            <a href="#" class="redes-sociais"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="redes-sociais"><i class="fab fa-instagram"></i></a>
-            <a href="#" class="redes-sociais"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.facebook.com/appdecasa" target="_blank" class="redes-sociais"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/appdecasa/" target="_blank" class="redes-sociais"><i class="fab fa-instagram"></i></a>
+
+            <a href="https://www.linkedin.com/company/appdecasa" target="_blank" class="redes-sociais"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.youtube.com/channel/UC9dxwa4abAEoWlJ_nfNJ1-A?view_as=subscriber" target="_blank" class="redes-sociais"><i class="fab fa-youtube"></i></a>
+            <!-- <a href="#" target="_blank" class="redes-sociais"><i class="fab fa-whatsapp"></i></a> -->
         </div>
 
         <p class="box mt-3 mb-3">
@@ -17,13 +20,22 @@
         <div class="d-flex justify-content-center">
             <ul class="navbar-nav mt-4">
                 <li class="nav-item">
-                    <button class="btn-icon mr-3" data-html="true" data-toggle="popover" data-trigger="focus" template="<div class='popover my-specific-popover'" title="Localização" data-placement="bottom" data-content="Informe a sua cidade para carregarmos os serviços disponíveis.
+                    <popover-content #myPopover title="Localização" placement="bottom" [animation]="true" [closeOnClickOutside]="false" [closeOnMouseOutside]="false">
+
+                        <p>Informe a sua cidade para carregarmos os serviços disponíveis.</p>
+                        <a (click)="openModal()" class="cursor" title="Informar Localização">Informar</a>
+                        <a class="float-right cursor" (click)="hidePopover()" title="Fechar">Fechar</a>
+                    </popover-content>
+
+                    <button [popoverOnHover]="false" [popover]="myPopover" class="btn-icon mr-3"><i class="fas fa-map-marker-alt"></i><br />?
+                  </button>
+                    <!-- <button class="btn-icon mr-3" id="popoverLocation" data-html="true" data-toggle="popover" data-trigger="focus" template="<div class='popover my-specific-popover'" title="Localização" data-placement="bottom" data-content="Informe a sua cidade para carregarmos os serviços disponíveis.
         <br/>
         <a class='btn'>Informar</a>
-        <a class= 'btn'>Fechar</a>"><i class="fas fa-map-marker-alt">
-          </i><br /> ?
-        </button>
-                    <button class="btn-icon mr-3"><i class="far fa-heart"></i> </button>
+        <a class='btn' onclick='fecharPopover()'>Fechar</a>"><i class="fas fa-map-marker-alt">
+          </i><br />?
+        </button> -->
+                    <button class="btn-icon mr-3" (click)="showPopover()"><i class="far fa-heart"></i> </button>
                     <button class="btn-icon mr-3"><i class="fa fa-shopping-cart"></i> </button>
                     <a class="redes-sociais" style="cursor:pointer" (click)="toggleDisplay()"><i class="fa fa-user"></i></a>
                 </li>

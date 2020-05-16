@@ -13,6 +13,10 @@ import { PagesModule } from './themes/decasa/pages/pages.module';
 import { CoreModule } from './themes/decasa/core/core.module';
 import { MatButtonModule } from '@angular/material/button';
 import { MatStepperModule } from '@angular/material/stepper';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+
+// Interceptor
+import { TokenInterceptor } from './events/http/intercepters/token.interceptor';
 
 
 // TODO: Apagar depois
@@ -51,14 +55,14 @@ import { MatStepperModule } from '@angular/material/stepper';
     AppRoutingModule,
     BrowserAnimationsModule,
     CoreModule,
+    MatButtonModule,
+    MatStepperModule,
 
     // TODO: apagar
     // HttpClientModule,
-    MatButtonModule,
     // MatInputModule,
     // MatTableModule,
     // MatCheckboxModule,
-    MatStepperModule,
     // MatTooltipModule,
     // MatFormFieldModule,
     // MatSelectModule,
@@ -75,7 +79,10 @@ import { MatStepperModule } from '@angular/material/stepper';
     // ScrollToModule.forRoot()
   ],
   entryComponents: [],
-  providers: [{ provide: LOCALE_ID, useValue: 'pt' }],
+  providers: [
+    { provide: LOCALE_ID, useValue: 'pt' },
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -2,6 +2,8 @@ import { ModalComponent } from './index/modal/modal.component';
 import { BlocosModule } from './../blocos/blocos.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { PopoverModule } from "ngx-smart-popover";
+
 import { SistemaModule } from './sistema/sistema.module';
 import { IndexComponent } from './index/index.component';
 import { NotFoundComponent } from './not-found/not-found.component';
@@ -24,6 +26,7 @@ import { ListaGruposComponent } from './index/lista-grupos/lista-grupos.componen
   imports: [
     CommonModule,
     SistemaModule,
+    PopoverModule,
 
     BlocosModule,
     HttpClientModule,

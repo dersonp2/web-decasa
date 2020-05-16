@@ -36,6 +36,7 @@
     "jquery": "^3.4.1",
     "ngx-material-timepicker": "^5.5.1",
     "ngx-owl-carousel-o": "^3.0.0",
+    "ngx-smart-popover": "^1.4.0",
     "path": "^0.12.7",
     "popper.js": "^1.16.1",
     "rxjs": "~6.5.4",

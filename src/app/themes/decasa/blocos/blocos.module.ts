@@ -6,6 +6,7 @@ import { AppRoutingModule } from 'src/app/app.routing.module';
 import { LoginComponent } from './login/login.component';
 import { DialogModule } from './dialog/dialog.module';
 import { NavModule } from './nav/nav.module';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { NavModule } from './nav/nav.module';
     CommonModule,
     NavModule,
     DialogModule,
+    MatSelectModule,
     AppRoutingModule
   ],
   exports: [
