@@ -24,15 +24,15 @@ export class AppComponent implements OnInit, OnDestroy {
       this.router.events
         .subscribe(() => {
           this.href = this.router.routerState.snapshot.url;
-          console.log('Rota' + this.href);
+          // console.log('Rota' + this.href);
           this.displayBtnContratar();
           document.body.classList.add('overflow-page');
           this.pages();
         });
     }
-    // console.log('Nav horizontal');
+    // // console.log('Nav horizontal');
     // this.href = this.router.url;
-    // console.log('Rota' + this.href);
+    // // console.log('Rota' + this.href);
     // this.displayBtnContratar();
     // Retirar a barra de rolagem
     document.body.classList.add('overflow-page');
@@ -74,7 +74,7 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   pages() {
-    console.log('page ' + this.href);
+    // console.log('page ' + this.href);
     if (this.href === '/orcamento' || this.href === '/quantidade' || this.href === '/proposta' || this.href === '/pagamento' || this.href === '/escolher' || this.href === '/agendados' || this.href === '/andamento' || this.href === '/finalizados' || this.href === '/dados-pessoais' || this.href === '/senha' || this.href === '/dados-cadastrais' || this.href === '/outros-membros' || this.href === '/endereco' || this.href === '/meios-de-pagamento' || this.href === '/boletos-notas') {
       this.displayTemplate = false;
     } else {
@@ -86,14 +86,14 @@ export class AppComponent implements OnInit, OnDestroy {
 
   displayNavbar() {
     if (this.href === '/orcamento' || this.href === '/quantidade' || this.href === '/proposta' || this.href === '/pagamento' ) {
-      console.log('Navbar 1');
+      // console.log('Navbar 1');
       this.displayNavBar = 1;
     } else if (this.href === '/escolher' || this.href === '/agendados' || this.href === '/andamento' || this.href === '/finalizados') {
       this.displayNavBar = 2;
-      console.log('Navbar 2');
+      // console.log('Navbar 2');
     } else {
       this.displayNavBar = 0;
-      console.log('Navbar 0');
+      // console.log('Navbar 0');
     }
   }
 

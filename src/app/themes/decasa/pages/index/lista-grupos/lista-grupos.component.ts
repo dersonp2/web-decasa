@@ -4,6 +4,8 @@ import { Classe } from './../../../../../model/classe.module';
 import { GrupoService } from './../../../../../services/grupo.service';
 import { TodosOsGruposEClassesResponse } from './../../../../../model/response/todos-os-grupos-classes-response.module';
 import { Component, OnInit } from '@angular/core';
+import { OwlOptions } from 'ngx-owl-carousel-o';
+
 
 @Component({
   selector: 'app-lista-grupos',
@@ -14,8 +16,30 @@ export class ListaGruposComponent implements OnInit {
 
   gruposClasses: TodosOsGruposEClassesResponse[];
   grupo: TodosOsGruposEClassesResponse;
-  classe: Classe;
-  classes: Classe[];
+
+  customOptions: OwlOptions = {
+    loop: true,
+    dots: false,
+    autoplay: false,
+    navSpeed: 900,
+    // tslint:disable-next-line:quotemark
+    navText: ["<i class='fa fa-chevron-left'></i>", "<i class='fa fa-chevron-right'></i>"],
+    responsive: {
+      0: {
+        items: 2
+      },
+      400: {
+        items: 3
+      },
+      740: {
+        items: 6
+      },
+      // 940: {
+      //   items: 4
+      // }
+    },
+    nav: true
+  };
 
   constructor(private grupoService: GrupoService, public dialog: MatDialog) { }
 
@@ -23,21 +47,13 @@ export class ListaGruposComponent implements OnInit {
     this.getGruposClasses();
   }
 
+  // this.gruposClasses = data;
   getGruposClasses() {
     this.grupoService.getGruposAllClasses().subscribe(
-      (data) => { this.gruposClasses = data; },
+      (data) => { this.gruposClasses = data; console.log('Teste' + this.gruposClasses[0].classes[0].descricao); },
       (error) => console.log(error)
     );
-  }
 
-  setGruposClasses() {
-    this.classe = new Classe();
-    this.classe.id = 1;
-    this.classe.descricao = 'Classe 1';
-    this.classes.push(this.classe);
-    this.grupo = new TodosOsGruposEClassesResponse();
-    this.grupo.descricao = 'Grupo 1';
-    this.grupo.classes = this.classes;
   }
 
   openModal() {

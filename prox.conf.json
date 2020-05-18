@@ -1,7 +1,7 @@
 {
-  "/v1/rest/decasa/*":{
-    "target":"http://homologacao.sistemadecasa.com.br",
-    "secure" : false,
-    "changeOrigin":true
+    "/v1/rest/decasa/*": {
+        "target": "http://homologacao.sistemadecasa.com.br",
+        "secure": false,
+        "changeOrigin": true
     }
 }

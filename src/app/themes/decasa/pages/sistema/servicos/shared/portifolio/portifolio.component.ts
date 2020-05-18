@@ -13,6 +13,7 @@ export class PortifolioComponent implements OnInit {
     dots: false,
     autoplay: true,
     navSpeed: 700,
+    // tslint:disable-next-line:quotemark
     navText: ["<i class='fa fa-chevron-left'></i>", "<i class='fa fa-chevron-right'></i>"],
     responsive: {
       0: {

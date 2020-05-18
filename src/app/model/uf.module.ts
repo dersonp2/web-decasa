@@ -1,4 +1,4 @@
-import { Pais } from './pais';
+import { Pais } from './pais.module';
 
 export class Uf {
   id: number;

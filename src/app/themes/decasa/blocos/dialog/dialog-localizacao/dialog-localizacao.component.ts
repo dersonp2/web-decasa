@@ -1,4 +1,5 @@
-import { Municipio } from './../../../../../model/municipio.module';
+import { UfService } from './../../../../../services/uf.service';
+import { Uf } from './../../../../../model/uf.module';
 import { MunicipioService } from './../../../../../services/municipio.service';
 import { Observable } from 'rxjs';
 import { MatDialogRef } from '@angular/material/dialog';
@@ -16,24 +17,19 @@ interface Estado {
   templateUrl: './dialog-localizacao.component.html',
   styleUrls: ['./dialog-localizacao.component.css']
 })
-export class DialogLocalizacaoComponent {
+export class DialogLocalizacaoComponent implements OnInit {
   selectedEstado: string;
   selectedCidade: string;
 
-  estados: Estado[] = [
-    {value: 'steak-0', viewValue: 'Ma'},
-    {value: 'pizza-1', viewValue: 'PI'},
-    {value: 'tacos-2', viewValue: 'RJ'}
-  ];
-  cidades: Estado[] = [
-    {value: 'steak-0', viewValue: 'São Luís'},
-    {value: 'pizza-1', viewValue: 'Codo'},
-    {value: 'tacos-2', viewValue: 'Barra do Corda'}
-  ];
+  estados: Uf[];
 
   municipios: Municipio[];
 
-  constructor(public dialogRef: MatDialogRef<DialogLocalizacaoComponent>, private municipioService: MunicipioService) { }
+  constructor(public dialogRef: MatDialogRef<DialogLocalizacaoComponent>, private municipioService: MunicipioService, private ufService: UfService ) { }
+
+  ngOnInit(): void {
+    this.getEstados();
+  }
 
   getMunicipios() {
     this.municipioService.buscarMunicipiosAtivos().subscribe(
@@ -44,6 +40,11 @@ export class DialogLocalizacaoComponent {
   getMunicipiosUf() {
     this.municipioService.buscarMunicipiosUfAtivos(this.selectedEstado).subscribe(
       (data) => {this.municipios = data; },
+    );
+  }
+  getEstados() {
+    this.ufService.getAllUf().subscribe(
+      (data) => { (this.estados = data); }
     );
   }
 
