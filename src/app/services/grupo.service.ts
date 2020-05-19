@@ -13,9 +13,14 @@ export class GrupoService {
   apiUrl = environment.API_URL;
   constructor(private http: HttpClient) {}
 
-  // Retorna Todos os Grupos e suas classes
+  // Retorna Todos os Grupos e suas classes ativas
   getGruposAllClasses(): Observable<TodosOsGruposEClassesResponse[]> {
     return this.http.get<TodosOsGruposEClassesResponse[]>
     (`${this.apiUrl}/grupos/classes`).pipe(take(1));
+  }
+
+  // Retornna todos os grupos e classes ativas por municipio
+  getGruposClassesByMunicipio(municipioId: number): Observable<TodosOsGruposEClassesResponse[]> {
+    return this.http.get<TodosOsGruposEClassesResponse[]>(`${this.apiUrl}/web/grupos/classes/${municipioId}`).pipe(take(1));
   }
 }

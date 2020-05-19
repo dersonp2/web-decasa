@@ -9,19 +9,19 @@
 
 <mat-form-field>
     <mat-label>Estado</mat-label>
-    <mat-select [(ngModel)]="selectedEstado" name="estado">
-        <mat-option *ngFor="let estado of estados" [value]="estado.value">
+    <mat-select name="estado" (selectionChange)="getMunicipiosUf($event.value)">
+        <mat-option *ngFor="let estado of estados" [value]="estado.id">
             {{estado.sigla}}
         </mat-option>
     </mat-select>
 </mat-form-field>
 
-<!-- <mat-form-field class="ml-5">
+<mat-form-field class="ml-5">
     <mat-label>Cidade</mat-label>
-    <mat-select [(ngModel)]="selectedCidade" name="cidade">
-        <mat-option *ngFor="let cidade of cidades" [value]="cidade.value">
-            {{cidade.viewValue}}
+    <mat-select name="municipio" [(ngModel)]="municipio">
+        <mat-option *ngFor="let municipio of municipios" [value]="municipio">
+            {{municipio.nome}}
         </mat-option>
     </mat-select>
-</mat-form-field> -->
-<button class="d-block mt-2" mat-button mat-raised-button>Selecionar</button>
+</mat-form-field>
+<button class="d-block mt-2" mat-button mat-raised-button (click)="selecionar()">Selecionar</button>

@@ -1,3 +1,5 @@
+import { Municipio } from './../../../../model/municipio.module';
+import { ListaGruposComponent } from './lista-grupos/lista-grupos.component';
 import { DialogLocalizacaoComponent } from './../../blocos/dialog/dialog-localizacao/dialog-localizacao.component';
 import { MatDialog } from '@angular/material/dialog';
 import { Component, OnInit, ViewChild } from '@angular/core';
@@ -11,21 +13,29 @@ import { PopoverContentComponent } from 'ngx-smart-popover';
 })
 export class IndexComponent implements OnInit {
 
-  grupos: any [];
+  municipio: Municipio;
+  grupos: any[];
   isDisplay = true;
+  @ViewChild(ListaGruposComponent ) listaGrupos: ListaGruposComponent;
+
   @ViewChild('myPopover') myPopover: PopoverContentComponent;
   // private gruposService: GruposService
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
-    this.listarGrupos();
   }
 
   openModal() {
-    this.dialog.open(DialogLocalizacaoComponent, {
+    const dialogRef = this.dialog.open(DialogLocalizacaoComponent, {
       width: '50%',
     });
     this.hidePopover();
+
+    dialogRef.afterClosed().subscribe(res => {
+      console.log(res.data);
+      this.municipio = res.data;    // Recebe o id do município.
+      this.listaGrupos.getGruposClassesByMunicipio(this.municipio.id);
+    });
   }
 
 
@@ -42,7 +52,4 @@ export class IndexComponent implements OnInit {
     this.myPopover.show();
   }
 
-  listarGrupos() {
-    // this.gruposService.listarGrupos().subscribe(data => this.grupos = data);
-  }
 }

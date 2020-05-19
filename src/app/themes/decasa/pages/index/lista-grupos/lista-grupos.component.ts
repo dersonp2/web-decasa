@@ -50,10 +50,20 @@ export class ListaGruposComponent implements OnInit {
   // this.gruposClasses = data;
   getGruposClasses() {
     this.grupoService.getGruposAllClasses().subscribe(
-      (data) => { this.gruposClasses = data; console.log('Teste' + this.gruposClasses[0].classes[0].descricao); },
+      (data) => {
+        this.gruposClasses = data;
+      },
       (error) => console.log(error)
     );
+  }
 
+  // Grupos e classes por municipio
+  public getGruposClassesByMunicipio(municipioId) {
+    console.log('Carregaou grupos  e classes');
+    this.grupoService.getGruposClassesByMunicipio(municipioId).subscribe(
+      (data) => { this.gruposClasses = data; },
+      (error) => console.log(error)
+    );
   }
 
   openModal() {

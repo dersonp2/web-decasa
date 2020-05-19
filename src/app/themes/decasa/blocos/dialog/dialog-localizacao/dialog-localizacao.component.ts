@@ -1,16 +1,12 @@
+import { Municipio } from './../../../../../model/municipio.module';
 import { UfService } from './../../../../../services/uf.service';
 import { Uf } from './../../../../../model/uf.module';
 import { MunicipioService } from './../../../../../services/municipio.service';
 import { Observable } from 'rxjs';
-import { MatDialogRef } from '@angular/material/dialog';
-import { Component, OnInit } from '@angular/core';
-import { Municipio } from 'src/app/model/municipio.module';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Component, OnInit, Inject } from '@angular/core';
 import { take } from 'rxjs/operators';
 
-interface Estado {
-  value: string;
-  viewValue: string;
-}
 
 @Component({
   selector: 'app-dialog-localizacao',
@@ -18,28 +14,25 @@ interface Estado {
   styleUrls: ['./dialog-localizacao.component.css']
 })
 export class DialogLocalizacaoComponent implements OnInit {
-  selectedEstado: string;
-  selectedCidade: string;
 
+  idMunicipio: number;
+  municipio: Municipio;
   estados: Uf[];
 
   municipios: Municipio[];
 
-  constructor(public dialogRef: MatDialogRef<DialogLocalizacaoComponent>, private municipioService: MunicipioService, private ufService: UfService ) { }
+  constructor(public dialogRef: MatDialogRef<DialogLocalizacaoComponent>, private municipioService: MunicipioService, private ufService: UfService, @Inject(MAT_DIALOG_DATA) public data: string) { }
 
   ngOnInit(): void {
-    this.getEstados();
+    // this.getEstados();
+    this.getMunicipiosUf(10);
   }
 
-  getMunicipios() {
-    this.municipioService.buscarMunicipiosAtivos().subscribe(
-      (data) => { }
-    );
-  }
-
-  getMunicipiosUf() {
-    this.municipioService.buscarMunicipiosUfAtivos(this.selectedEstado).subscribe(
-      (data) => {this.municipios = data; },
+// this.municipios = data;
+  getMunicipiosUf(idUf: number) {
+    console.log('Id do uf' + idUf);
+    this.municipioService.buscarMunicipiosUfAtivos(idUf).subscribe(
+      (data) => {(this.municipios = data); },
     );
   }
   getEstados() {
@@ -49,7 +42,11 @@ export class DialogLocalizacaoComponent implements OnInit {
   }
 
   close(): void {
-    this.dialogRef.close();
+    this.dialogRef.close({ data: false });
+  }
+
+  selecionar(): void {
+    this.dialogRef.close({data: this.municipio});
   }
 
 }
