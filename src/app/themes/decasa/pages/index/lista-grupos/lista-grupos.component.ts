@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { DialogLocalizacaoComponent } from './../../../blocos/dialog/dialog-localizacao/dialog-localizacao.component';
 import { MatDialog } from '@angular/material/dialog';
 import { Classe } from './../../../../../model/classe.module';
@@ -5,6 +6,7 @@ import { GrupoService } from './../../../../../services/grupo.service';
 import { TodosOsGruposEClassesResponse } from './../../../../../model/response/todos-os-grupos-classes-response.module';
 import { Component, OnInit } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { state } from '@angular/animations';
 
 
 @Component({
@@ -16,7 +18,7 @@ export class ListaGruposComponent implements OnInit {
 
   gruposClasses: TodosOsGruposEClassesResponse[];
   grupo: TodosOsGruposEClassesResponse;
-
+  municipioId: number;
   customOptions: OwlOptions = {
     loop: true,
     dots: false,
@@ -41,7 +43,7 @@ export class ListaGruposComponent implements OnInit {
     nav: true
   };
 
-  constructor(private grupoService: GrupoService, public dialog: MatDialog) { }
+  constructor(private grupoService: GrupoService, public dialog: MatDialog, private router: Router) { }
 
   ngOnInit(): void {
     this.getGruposClasses();
@@ -59,7 +61,7 @@ export class ListaGruposComponent implements OnInit {
 
   // Grupos e classes por municipio
   public getGruposClassesByMunicipio(municipioId) {
-    console.log('Carregaou grupos  e classes');
+    this.municipioId = municipioId;
     this.grupoService.getGruposClassesByMunicipio(municipioId).subscribe(
       (data) => { this.gruposClasses = data; },
       (error) => console.log(error)
@@ -70,6 +72,11 @@ export class ListaGruposComponent implements OnInit {
     this.dialog.open(DialogLocalizacaoComponent, {
       width: '50%',
     });
+  }
+
+  // TODO: mudar para this.municipioID
+  goToOrcamento(classeId) {
+    this.router.navigateByUrl('/orcamento', {state: {municipioId : 2, classe: classeId }});
   }
 
 }

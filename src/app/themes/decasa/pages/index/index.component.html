@@ -25,7 +25,8 @@
                         <a class="float-right cursor" (click)="hidePopover()" title="Fechar">Fechar</a>
                     </popover-content>
 
-                    <button [popoverOnHover]="false" [popover]="myPopover" class="btn-icon mr-3"><i class="fas fa-map-marker-alt"></i><br />?
+                    <button [popoverOnHover]="false" [popover]="myPopover" class="btn-icon mr-3"><i class="fas fa-map-marker-alt"></i><br />
+                      <span *ngIf="municipio">{{municipio.nome}}</span>
                   </button>
                     <!-- <button class="btn-icon mr-3" id="popoverLocation" data-html="true" data-toggle="popover" data-trigger="focus" template="<div class='popover my-specific-popover'" title="Localização" data-placement="bottom" data-content="Informe a sua cidade para carregarmos os serviços disponíveis.
         <br/>

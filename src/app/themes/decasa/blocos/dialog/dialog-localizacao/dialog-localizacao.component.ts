@@ -47,6 +47,7 @@ export class DialogLocalizacaoComponent implements OnInit {
 
   selecionar(): void {
     this.dialogRef.close({data: this.municipio});
+    localStorage.setItem('municipioId', this.municipio.id.toString());
   }
 
 }

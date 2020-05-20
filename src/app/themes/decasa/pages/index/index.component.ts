@@ -2,7 +2,7 @@ import { Municipio } from './../../../../model/municipio.module';
 import { ListaGruposComponent } from './lista-grupos/lista-grupos.component';
 import { DialogLocalizacaoComponent } from './../../blocos/dialog/dialog-localizacao/dialog-localizacao.component';
 import { MatDialog } from '@angular/material/dialog';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { PopoverContentComponent } from 'ngx-smart-popover';
 
 
@@ -11,7 +11,7 @@ import { PopoverContentComponent } from 'ngx-smart-popover';
   templateUrl: './index.component.html',
   styleUrls: ['./index.component.css']
 })
-export class IndexComponent implements OnInit {
+export class IndexComponent implements OnInit, AfterViewInit {
 
   municipio: Municipio;
   grupos: any[];
@@ -21,6 +21,10 @@ export class IndexComponent implements OnInit {
   @ViewChild('myPopover') myPopover: PopoverContentComponent;
   // private gruposService: GruposService
   constructor(public dialog: MatDialog) { }
+
+  ngAfterViewInit(): void {
+    this.showPopover();
+  }
 
   ngOnInit(): void {
   }

@@ -6,7 +6,7 @@
                     <a href="#"><span><i class="fas fa-chevron-down mr-2"></i>{{grupo.descricao}}</span></a>
                     <ul>
                         <div class="sub-wrapper">
-                            <li *ngFor="let classe of grupo.classes"><a [routerLink]="['/orcamento']">{{classe.descricao}}</a></li>
+                            <li *ngFor="let classe of grupo.classes"><a (click)="goToOrcamento(classe.id)">{{classe.descricao}}</a></li>
                         </div>
                     </ul>
                 </li>

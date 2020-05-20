@@ -1,6 +1,23 @@
-<h2 id="portifolio">Portifólio</h2>
-<owl-carousel-o [options]="customOptions">
-    <ng-template carouselSlide *ngFor="let slide of slidesStore" [id]="slide.id">
-        {{slide.title}} Descrição: {{slide.desc}}
-    </ng-template>
-</owl-carousel-o>
+<!-- Menu Vertical -->
+<div class="menu-vertical nav-side-menu">
+    <div class="mt-2">
+        <div id="categoria"><b>Categorias</b></div>
+        <br/>
+        <ul>
+            <li class="collapsed">
+                <h3>Informática <span class="arrow"></span></h3>
+                <ul class="sub-menu">
+                    <li><a href="#">Manutenção</a></li>
+                    <li><a href="#">Redes</a></li>
+                </ul>
+            </li>
+            <!-- we will keep this LI open by default -->
+            <li class="collapsed">
+                <h3>Obras e Reformas<span class="arrow"></span></h3>
+                <ul class="sub-menu">
+                    <li><a href="#">Elétrica</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
