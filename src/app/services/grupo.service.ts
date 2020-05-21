@@ -11,6 +11,7 @@ import { take } from 'rxjs/operators';
 export class GrupoService {
 
   apiUrl = environment.API_URL;
+
   constructor(private http: HttpClient) {}
 
   // Retorna Todos os Grupos e suas classes ativas

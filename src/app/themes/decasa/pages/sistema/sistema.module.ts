@@ -7,6 +7,8 @@ import { BoletosNotasComponent } from './boletos-notas/boletos-notas.component';
 import { ComprarServicosModule } from './comprar-servicos/comprar-servicos.module';
 
 import { TextMaskModule } from 'angular2-text-mask';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+
 
 import { MatButtonModule} from '@angular/material/button';
 import {MatTableModule} from '@angular/material/table';
@@ -31,6 +33,7 @@ import { BemVindoComponent } from './cadastro/profissional/bem-vindo/bem-vindo.c
     MatFormFieldModule,
     AppRoutingModule,
     TextMaskModule,
+    MatSnackBarModule,
 
     BlocosModule,
     ComprarServicosModule,

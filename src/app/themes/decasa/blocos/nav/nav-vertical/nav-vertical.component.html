@@ -14,7 +14,7 @@
                 <ul class="sub-menu" *ngIf="menuId === grupo.id">
                     <li *ngFor="let classe of grupo.classes">
                         <div class="ml-4">
-                            <a href="">{{classe.descricao}}</a>
+                            <a (click)="loadServicos(classe.id)">{{classe.descricao}}</a>
                         </div>
                     </li>
                 </ul>

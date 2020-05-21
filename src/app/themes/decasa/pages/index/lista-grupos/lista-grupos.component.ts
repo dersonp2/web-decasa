@@ -1,12 +1,10 @@
 import { Router } from '@angular/router';
 import { DialogLocalizacaoComponent } from './../../../blocos/dialog/dialog-localizacao/dialog-localizacao.component';
 import { MatDialog } from '@angular/material/dialog';
-import { Classe } from './../../../../../model/classe.module';
 import { GrupoService } from './../../../../../services/grupo.service';
 import { TodosOsGruposEClassesResponse } from './../../../../../model/response/todos-os-grupos-classes-response.module';
 import { Component, OnInit } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
-import { state } from '@angular/animations';
 
 
 @Component({

@@ -1,91 +1,116 @@
 /* You can add global styles to this file, and also import other style files */
-body{
-  font-family: 'Karla', sans-serif !important;
-  /* overflow: auto; */
-}
-body, html{
-  height: 100% !important;
+
+body {
+    font-family: 'Karla', sans-serif !important;
+    /* overflow: auto; */
 }
 
-.scroll-auto{
-  height: calc(100vh - 116px);
-  overflow: auto;
+body,
+html {
+    height: 100% !important;
 }
 
-.btn-icon{
-  color: #404A51;
-  background-color: white;
-  border: none !important;
-}
-
-.background-primary{
-  background-color:#63E1FD;
-}
-
-.background-secondary{
-  background-color: rgba(99, 225, 253, 0.3);
-}
-.background-tertiary{
-  background-color: rgba(99, 225, 253, 0.15);
-}
-
-.background-blue-logo{
-  background-color: #0A68AE !important;
-  color: white;
-}
-
-.color-table{
-  background-color:rgba(99, 225, 253, 0.1) !important;
-}
-
-.color-orange-logo{
-  background-color: #FCB23A;
-  color: white;
-}
-.color-gray{
-  color: #404A51;
-}
-.component-scroll{
-  height: calc(100vh - 116px);
-  overflow: auto;
-  margin-left: auto !important;
-}
-
-.overflow-page{
-  overflow: hidden;
-}
-@media (max-width: 767px) {
-  .overflow-page{
+.scroll-auto {
+    height: calc(100vh - 116px);
     overflow: auto;
-  }
 }
 
-.font-size-area{
-  font-size: 16px;;
+.btn-icon {
+    color: #404A51;
+    background-color: white;
+    border: none !important;
 }
 
-.style-link{
-  text-decoration: none;
-  color: #404A51;
+.background-primary {
+    background-color: #63E1FD;
 }
 
-.cursor{
-  cursor:pointer;
+.background-secondary {
+    background-color: rgba(99, 225, 253, 0.3);
 }
 
-::ng-deep .highlight-blue{
-  color: #0A68AE !important;
+.background-tertiary {
+    background-color: rgba(99, 225, 253, 0.15);
 }
-::ng-deep .highlight-red{
-  color: #EB6666;
+
+.background-blue-logo {
+    background-color: #0A68AE !important;
+    color: white;
 }
+
+.color-table {
+    background-color: rgba(99, 225, 253, 0.1) !important;
+}
+
+.color-orange-logo {
+    background-color: #FCB23A;
+    color: white;
+}
+
+.color-gray {
+    color: #404A51;
+}
+
+.component-scroll {
+    height: calc(100vh - 116px);
+    overflow: auto;
+    margin-left: auto !important;
+}
+
+.overflow-page {
+    overflow: hidden;
+}
+
+@media (max-width: 767px) {
+    .overflow-page {
+        overflow: auto;
+    }
+}
+
+.font-size-area {
+    font-size: 16px;
+    ;
+}
+
+.style-link {
+    text-decoration: none;
+    color: #404A51;
+}
+
+.cursor {
+    cursor: pointer;
+}
+
+::ng-deep .highlight-blue {
+    color: #0A68AE !important;
+}
+
+::ng-deep .highlight-red {
+    color: #EB6666;
+}
+
+
 /* Cor da tabela */
-::ng-deep .mat-header-cell{
-  font-size: 16px;
-  color: black;
-  background-color:rgba(99, 225, 253, 0.1) !important;
+
+::ng-deep .mat-header-cell {
+    font-size: 16px;
+    color: black;
+    background-color: rgba(99, 225, 253, 0.1) !important;
 }
 
-.clear{
-  clear: both;
+.clear {
+    clear: both;
+}
+
+
+/* Snackbar */
+
+.blue-snackbar {
+    background-color: #0A68AE !important;
+    color: white;
+}
+
+.orange-snackbar {
+    background-color: #FCB23A;
+    color: white;
 }
