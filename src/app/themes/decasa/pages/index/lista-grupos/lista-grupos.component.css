@@ -88,22 +88,16 @@
     /* height: 500px; */
 }
 
-::ng-deep .owl-carousel {}
-
 ::ng-deep .owl-nav {
-    z-index: -1;
-}
-
-::ng-deep .ng-star-inserted {
-    z-index: 999999;
+    z-index: -20 !important;
 }
 
 .sub-wrapper {
     width: 100% !important;
     height: auto;
     background-color: #f9f9fa;
-    position: absolute !important;
+    /* position: absolute !important; */
     left: 0;
     border-bottom: 5px solid #0A68AE;
-    z-index: 99999 !important;
+    z-index: 999999999999999999999999999998 !important;
 }

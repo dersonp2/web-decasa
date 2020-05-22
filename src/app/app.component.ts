@@ -1,4 +1,5 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { NavCarrinhoComponent } from './themes/decasa/blocos/nav/nav-carrinho/nav-carrinho.component';
+import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatStepper } from '@angular/material/stepper';
 import { isPlatformBrowser } from '@angular/common';
@@ -9,7 +10,9 @@ import { isPlatformBrowser } from '@angular/common';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit, OnDestroy {
+  @ViewChild(NavCarrinhoComponent ) navCarrinho: NavCarrinhoComponent;
 
+  exibirMenu = false;
   btnContratar = true;
   isDisplay = true;
   href = '';
@@ -30,11 +33,6 @@ export class AppComponent implements OnInit, OnDestroy {
           this.pages();
         });
     }
-    // // console.log('Nav horizontal');
-    // this.href = this.router.url;
-    // // console.log('Rota' + this.href);
-    // this.displayBtnContratar();
-    // Retirar a barra de rolagem
     document.body.classList.add('overflow-page');
   }
 
@@ -99,6 +97,10 @@ export class AppComponent implements OnInit, OnDestroy {
 
   toggleDisplay() {
     this.isDisplay = !this.isDisplay;
+  }
+
+  abrirMenu() {
+    this.navCarrinho.exibirMenu = true;
   }
 }
 

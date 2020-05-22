@@ -34,7 +34,7 @@
                   </i><br /> SLZ
                 </button>
                                 <button class="btn-icon mr-3"><i class="far fa-heart"></i> </button>
-                                <button class="btn-icon"><i class="fa fa-shopping-cart"></i> </button>
+                                <button class="btn-icon" (click)="abrirMenu()"><i class="fa fa-shopping-cart"></i> </button>
                             </li>
                         </ul>
                     </div>
@@ -90,6 +90,9 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Carrinho de compras  -->
+                <app-nav-carrinho [exibirMenu]="exibirMenu"></app-nav-carrinho>
 
                 <!-- Coluna da navBar -->
                 <div class="col-12">

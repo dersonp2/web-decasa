@@ -10,13 +10,15 @@ import { NavHorizontalComponent } from './nav-horizontal/nav-horizontal.componen
 import { NavVerticalComponent } from './nav-vertical/nav-vertical.component';
 import { NavVerticalPerfilComponent } from './nav-vertical-perfil/nav-vertical-perfil.component';
 import { NavVerticalUsuarioComponent } from './nav-vertical-usuario/nav-vertical-usuario.component';
+import { NavCarrinhoComponent } from './nav-carrinho/nav-carrinho.component';
 
 @NgModule({
   declarations: [
     NavHorizontalComponent,
     NavVerticalComponent,
     NavVerticalPerfilComponent,
-    NavVerticalUsuarioComponent
+    NavVerticalUsuarioComponent,
+    NavCarrinhoComponent
   ],
   imports: [
     CommonModule,
@@ -30,7 +32,8 @@ import { NavVerticalUsuarioComponent } from './nav-vertical-usuario/nav-vertical
     NavHorizontalComponent,
     NavVerticalComponent,
     NavVerticalPerfilComponent,
-    NavVerticalUsuarioComponent
+    NavVerticalUsuarioComponent,
+    NavCarrinhoComponent
   ]
 })
 export class NavModule { }

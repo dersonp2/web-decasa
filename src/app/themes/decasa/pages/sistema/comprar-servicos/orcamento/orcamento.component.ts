@@ -18,18 +18,15 @@ export class OrcamentoComponent implements OnInit {
   minDate = new Date();
   municipioId: number;
   classeId: number;
-  @ViewChild(TabelaComponent) tabelaOrcamento: TabelaComponent;
 
   public dateMask = [/\d/, /\d/, '/', /\d/, /\d/, '/', /\d/, /\d/, /\d/, /\d/];
 
   constructor(private router: Router, private grupoService: GrupoService) {
     const nav = this.router.getCurrentNavigation();
-    this.municipioId = nav.extras.state.municipioId;
+    this.municipioId = Number(localStorage.getItem('municipioId'));
     this.classeId = nav.extras.state.classe;
-    console.log('Recebeu Id do municipio ' + this.municipioId);
-    console.log('Recebeu o Id da classe ' + this.classeId);
+
     this.getGruposClassesByMunicipio(this.municipioId);
-    // this.tabelaOrcamento.getServicosByClasseAndMunicipio(this.classeId, this.municipioId);
   }
 
   ngOnInit(): void {

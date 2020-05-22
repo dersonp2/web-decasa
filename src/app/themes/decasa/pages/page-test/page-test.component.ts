@@ -11,14 +11,4 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class PageTestComponent {
 
-  constructor(private classeSevice: ClasseEvent) {
-    classeSevice.alteracao$.subscribe(
-      (data) => { console.log('Veio do evento: ' + data); }
-    );
-  }
-
-  eventEmitter() {
-    this.classeSevice.alteracao(1);
-  }
-
 }
