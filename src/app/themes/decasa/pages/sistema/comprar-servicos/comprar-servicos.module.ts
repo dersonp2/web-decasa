@@ -1,3 +1,5 @@
+import { environment } from './../../../../../../environments/environment';
+import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -38,6 +40,7 @@ import { BlocosModule } from './../../../blocos/blocos.module';
   imports: [
     CommonModule,
 
+    FormsModule,
     MatTableModule,
     MatFormFieldModule,
     TextMaskModule,
@@ -47,7 +50,7 @@ import { BlocosModule } from './../../../blocos/blocos.module';
     NgxMaterialTimepickerModule,
     MatCheckboxModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyAoVvj5lM77pVqV4EyRzJwIHoBK83MGumU'
+      apiKey: environment.API_MAPS
     }),
 
     BlocosModule

@@ -1,3 +1,5 @@
+import { ClienteOrcamento } from './../../../../../../model/response/cliente-orcamento.module';
+import { OrcamentoEvent } from './../../../../../../events/orcamento-event';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +8,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./agendado.component.css']
 })
 export class AgendadoComponent implements OnInit {
+  orcamentoSelected: ClienteOrcamento = new ClienteOrcamento();
 
-  constructor() { }
+  constructor(private orcamentoEvent: OrcamentoEvent) {
+    orcamentoEvent.agendado$.subscribe(
+      (data: ClienteOrcamento) => { (this.orcamentoSelected = data); }
+    );
+  }
 
   ngOnInit(): void {
   }
+
 
 }

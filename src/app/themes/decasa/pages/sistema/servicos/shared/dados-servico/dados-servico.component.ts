@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { ClienteOrcamento} from '../../../../../../../model/response/cliente-orcamento.module';
+import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
 import { DialogAnexarComponent } from '../../../../../blocos/dialog/dialog-anexar/dialog-anexar.component';
@@ -13,14 +14,19 @@ import { DialogEditarComponent } from './../../../../../blocos/dialog/dialog-edi
   templateUrl: './dados-servico.component.html',
   styleUrls: ['./dados-servico.component.css']
 })
-export class DadosServicoComponent {
+export class DadosServicoComponent implements OnInit {
 
   // 1- Excolher | 3- Agendamento | 4 - Finalizar
   @Input() displayBtn;
+  @Input() orcamentoSelected: ClienteOrcamento;
 
   displayEmail = false;
 
   constructor(public dialog: MatDialog) { }
+
+  ngOnInit(): void {
+    console.log(this.orcamentoSelected);
+  }
 
   openDialogMembros() {
     this.dialog.open(DialogMembrosComponent, {

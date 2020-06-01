@@ -1,15 +1,7 @@
+import { ServicosOrcamento } from './../../../../../../../model/servico-orcamento.module';
+import { element } from 'protractor';
+import { ServicoElement } from './../../../../../../../model/element/servico.element';
 import { Component, OnInit } from '@angular/core';
-export interface PeriodicElement {
-  name: string;
-  uni: string;
-  qntd: any;
-}
-
-const ELEMENT_DATA: PeriodicElement[] = [
-  {name: 'Ticket Passeio', uni: 'km', qntd: ''},
-  {name: 'City Tour Personal 08h - Veículo Sedan', uni: 'km', qntd: ''},
-  {name: '4 horas de City Tour Personal - Veículo Passeio', uni: 'km', qntd: ''},
-];
 @Component({
   selector: 'app-tabela-proposta',
   templateUrl: './tabela-proposta.component.html',
@@ -17,11 +9,28 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class TabelaPropostaComponent implements OnInit {
 
+  total: number;
+  displayedColumns: string[] = ['descricao', 'qntd', 'unidade'];
+  // dataSource = ELEMENT_DATA;
+  dataSource: ServicosOrcamento[];
+
   constructor() { }
-  value = 'Clear me';
-  displayedColumns: string[] = ['name', 'qntd',  'uni',];
-  dataSource = ELEMENT_DATA;
 
   ngOnInit(): void {
+    this.getServicosElement();
+  }
+
+  getServicosElement() {
+    if (localStorage.hasOwnProperty('servicosSelecionados')) {
+      this.dataSource = JSON.parse(localStorage.getItem('servicosSelecionados'));
+      this.setTotal();
+    }
+  }
+
+  setTotal() {
+    this.total = 0;
+    this.dataSource.forEach(e => {
+      this.total += e.valor * e.quantidade;
+    });
   }
 }

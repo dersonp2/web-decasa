@@ -1,0 +1,42 @@
+import { CartaoCliente } from './cartao-cliente.module';
+import { TipoPagamento } from './tipo-pagamento.module';
+import { TipoTransacao } from './tipo-transacao.module';
+import { Financeira } from './financeira.module';
+import { BandeiraCartao } from './bandeira-cartao.module';
+import { StatusBoleto } from './status-boleto.module';
+import { FormaPagamento } from './forma-pagamento.module';
+import { Orcamento } from './orcamento.module';
+import { Prestador } from './prestador.module';
+
+export class Pagamento {
+  id: number;
+  formaPagamento: FormaPagamento;
+  statusBoleto: StatusBoleto;
+  bandeiraCartao: BandeiraCartao;
+  orcamento: Orcamento;
+  financeira: Financeira;
+  tipoTransacao: TipoTransacao;
+  tipoPagamento: TipoPagamento;
+  prestador: Prestador;
+  cartaoCliente: CartaoCliente;
+  numeroParcela: number;
+  valorParcela; number;
+  codigoRetorno: number;
+  mensagemRetorno: string;
+  dataRetorno: Date;
+  numeroPedido: number;
+  numeroAutorizacao: string;
+  numeroSQN;
+  identificadorTID;
+  codigoDeBarra: string;
+  nossoNumero: string;
+  dataProcessamento: Date;
+  dataVenciamento: Date;
+  codAgenciaBeneficiario: string;
+  dataDocumento: Date;
+  taxaMulta: boolean;
+  aditamento: boolean;
+  cancelado: boolean;
+  codigoPagamentoFinanceira: string;
+  refTran: string;
+}

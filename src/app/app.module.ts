@@ -1,3 +1,4 @@
+import { LoadComponent } from './shared/load/load.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app.routing.module';
@@ -45,6 +46,7 @@ import { TokenInterceptor } from './events/http/intercepters/token.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
+    LoadComponent
   ],
   imports: [
     BrowserModule,
@@ -57,6 +59,7 @@ import { TokenInterceptor } from './events/http/intercepters/token.interceptor';
     CoreModule,
     MatButtonModule,
     MatStepperModule,
+
 
     // TODO: apagar
     // HttpClientModule,

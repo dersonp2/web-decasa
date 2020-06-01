@@ -1,40 +1,40 @@
 <app-nav-vertical-usuario></app-nav-vertical-usuario>
 <div class="col-md-10 float-md-right col-12 ml-auto orcamento">
-  <div class="row">
-    <div class="col-2 pedidos">
-      <!-- Pedidos -->
-      <app-n-pedidos></app-n-pedidos>
-    </div>
-
-    <!--Divisão 2 -->
-    <div class="col-10 scroll-auto">
-      <div class="ml-3">
-        <!--Dados do serviço-->
-        <app-dados-servico #dadosServicos [displayBtn]="'4'"></app-dados-servico>
-
-        <!-- Email -->
-        <app-email [display]="dadosServicos.displayEmail"></app-email>
-
-        <!-- Avaliação -->
-
-        <app-avaliacao></app-avaliacao>
-
-        <hr />
-
-        <!-- Funcionarios -->
-        <div class="row">
-          <div class="col-12">
-            <app-escrever-comentario></app-escrever-comentario>
-          </div>
+    <div class="row">
+        <div class="col-2 pedidos">
+            <!-- Pedidos -->
+            <app-n-pedidos [orcamento]="4"></app-n-pedidos>
         </div>
 
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-      </div>
+        <!--Divisão 2 -->
+        <div class="col-10 scroll-auto">
+            <div class="ml-3">
+                <!--Dados do serviço-->
+                <app-dados-servico #dadosServicos [orcamentoSelected]="orcamentoSelected" [displayBtn]="'4'"></app-dados-servico>
+
+                <!-- Email -->
+                <app-email [display]="dadosServicos.displayEmail"></app-email>
+
+                <!-- Avaliação -->
+
+                <app-avaliacao [prestadores]="orcamentoSelected.prestadores"></app-avaliacao>
+
+                <hr />
+
+                <!-- Funcionarios -->
+                <!-- <div class="row">
+                    <div class="col-12">
+                        <app-escrever-comentario></app-escrever-comentario>
+                    </div>
+                </div> -->
+
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+            </div>
+        </div>
     </div>
-  </div>
 </div>

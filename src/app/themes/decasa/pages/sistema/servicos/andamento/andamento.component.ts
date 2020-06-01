@@ -1,3 +1,5 @@
+import { ClienteOrcamento } from './../../../../../../model/response/cliente-orcamento.module';
+import { OrcamentoEvent } from './../../../../../../events/orcamento-event';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
@@ -8,8 +10,14 @@ import { Component, OnInit, Input } from '@angular/core';
 export class AndamentoComponent implements OnInit {
 
   @Input() nome: boolean;
+  orcamentoSelected: ClienteOrcamento = new ClienteOrcamento();
 
-  constructor() { }
+  constructor(private orcamentoEvent: OrcamentoEvent) {
+    orcamentoEvent.execucao$.subscribe(
+      (data: ClienteOrcamento) => { (this.orcamentoSelected = data); }
+    );
+  }
+
 
   ngOnInit(): void {
   }

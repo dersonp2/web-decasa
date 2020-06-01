@@ -74,7 +74,8 @@ export class ListaGruposComponent implements OnInit {
 
   // TODO: mudar para this.municipioID
   goToOrcamento(classeId) {
-    this.router.navigateByUrl('/orcamento', {state: {municipioId : 2, classe: classeId }});
+    localStorage.setItem('classeId', classeId );
+    this.router.navigateByUrl('/orcamento');
   }
 
 }

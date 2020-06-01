@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { take } from 'rxjs/operators';
-import { Servicos } from '../model/servico.module';
+import { Servico } from '../model/servico.module';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +15,7 @@ export class ServicoService {
   constructor(private http: HttpClient) {}
 
   // Lista todos os serviços ativos por classe e municipio
-  getServicosByClasseAndMunicipio(classeId: number, municipioId: number): Observable<Servicos[]> {
-    return this.http.get<Servicos[]>(`${this.apiUrl}/searchServices/${classeId}/${municipioId}`);
+  getServicoByClasseAndMunicipio(classeId: number, municipioId: number): Observable<Servico[]> {
+    return this.http.get<Servico[]>(`${this.apiUrl}/searchServices/${classeId}/${municipioId}`);
   }
 }

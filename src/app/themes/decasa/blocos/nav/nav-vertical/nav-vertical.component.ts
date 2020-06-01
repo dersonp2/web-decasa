@@ -1,4 +1,4 @@
-import { ClasseEvent } from './../../../../../events/ClasseEvent';
+import { ClasseEvent } from '../../../../../events/classe-event';
 import { TodosOsGruposEClassesResponse } from './../../../../../model/response/todos-os-grupos-classes-response.module';
 import { GrupoService } from './../../../../../services/grupo.service';
 import { Component, OnInit, Input, ViewChild } from '@angular/core';

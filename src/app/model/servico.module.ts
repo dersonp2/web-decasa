@@ -1,7 +1,7 @@
 import {Classe} from './classe.module';
 import {UnidadeMedida} from './unidade-medida.module';
 
-export class Servicos {
+export class Servico {
   id: number;
   descricao: string;
   composicao: string;

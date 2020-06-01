@@ -1,6 +1,6 @@
 <div class="navbar-menu" [hidden]="!exibirMenu">
     <div id="carrinho">Seu carrinho<i class="fas fa-times float-right cursor" (click)="exibirMenu = !exibirMenu"></i></div>
     <ul class="navbar-menu-itens" *ngFor="let item of servicosSelecionados">
-        <li class="item">{{item.descricao}}<i class="far fa-trash-alt float-right mr-3 cursor" (click)="deleteElement(item)"></i></li>
+        <li class="item">{{item.servico.descricao}}<i class="far fa-trash-alt float-right mr-3 cursor" (click)="deleteElement(item)"></i></li>
     </ul>
 </div>

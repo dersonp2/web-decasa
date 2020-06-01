@@ -1,9 +1,10 @@
+import { ViaCepService } from './../../../../../../services/via-cep.service';
 import { GrupoService } from './../../../../../../services/grupo.service';
 import { TodosOsGruposEClassesResponse } from './../../../../../../model/response/todos-os-grupos-classes-response.module';
 import { ServicoService } from './../../../../../../services/servico.service';
 import { Router } from '@angular/router';
 import { Component, OnInit, ViewEncapsulation, ViewChild } from '@angular/core';
-import { Servicos } from 'src/app/model/servico.module';
+import { Servico } from 'src/app/model/servico.module';
 import { TabelaComponent } from './tabela-orcamento/tabela.component';
 
 @Component({
@@ -24,8 +25,7 @@ export class OrcamentoComponent implements OnInit {
   constructor(private router: Router, private grupoService: GrupoService) {
     const nav = this.router.getCurrentNavigation();
     this.municipioId = Number(localStorage.getItem('municipioId'));
-    this.classeId = nav.extras.state.classe;
-
+    this.classeId = Number(localStorage.getItem('classeId'));
     this.getGruposClassesByMunicipio(this.municipioId);
   }
 
@@ -38,5 +38,7 @@ export class OrcamentoComponent implements OnInit {
       (error) => console.log(error)
     );
   }
+
+
 
 }

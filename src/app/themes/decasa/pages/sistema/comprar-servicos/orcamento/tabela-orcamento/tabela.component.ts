@@ -1,11 +1,12 @@
+import { ServicosOrcamento } from './../../../../../../../model/servico-orcamento.module';
 import { CarrinhoEvent } from './../../../../../../../events/carrinho-event';
 import { ServicoElement } from './../../../../../../../model/element/servico.element';
-import { ClasseEvent } from './../../../../../../../events/ClasseEvent';
+import { ClasseEvent } from '../../../../../../../events/classe-event';
 import { ServicoService } from './../../../../../../../services/servico.service';
 import { Component, Input, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { SelectionModel } from '@angular/cdk/collections';
-import { Servicos } from 'src/app/model/servico.module';
+import { Servico } from 'src/app/model/servico.module';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { stringify } from 'querystring';
 
@@ -19,30 +20,29 @@ import { stringify } from 'querystring';
 export class TabelaComponent implements OnInit {
 
   @Input() classeId: number;
-  listaServicos: ServicoElement[];
-  servicosSelecionados: ServicoElement[] = [];
+  servicosSelecionados: ServicosOrcamento[] = [];
   municipioId: number;
 
   displayedColumns: string[] = ['select', 'descricao'];
-  dataSource = new MatTableDataSource<ServicoElement>();
-  selection = new SelectionModel<ServicoElement>(true, []);
-  servicos: Servicos[];
+  dataSource = new MatTableDataSource<ServicosOrcamento>();
+  selection = new SelectionModel<ServicosOrcamento>(true, []);
+  servicos: Servico[];
 
   // tslint:disable-next-line:variable-name
   constructor(private servicoService: ServicoService, private classeService: ClasseEvent, private _snackBar: MatSnackBar, private carrinhoService: CarrinhoEvent) {
     classeService.alteracao$.subscribe(
-      (data) => { this.getServicosByClasseAndMunicipio(data); }
+      (data) => { this.getServicoByClasseAndMunicipio(data); }
     );
   }
 
   ngOnInit(): void {
     this.municipioId = Number(localStorage.getItem('municipioId'));
-    this.getServicosByClasseAndMunicipio(this.classeId);
+    this.getServicoByClasseAndMunicipio(this.classeId);
   }
 
   // Pegar todos os servicos por classe e municipio
-  getServicosByClasseAndMunicipio(classeId) {
-    this.servicoService.getServicosByClasseAndMunicipio(classeId, this.municipioId).subscribe(
+  getServicoByClasseAndMunicipio(classeId) {
+    this.servicoService.getServicoByClasseAndMunicipio(classeId, this.municipioId).subscribe(
       (data) => {
         this.servicos = data;
         this.getElementData();
@@ -58,10 +58,10 @@ export class TabelaComponent implements OnInit {
     const dt = [];
     // tslint:disable-next-line:only-arrow-functions space-before-function-paren
     this.servicos.forEach(function (item) {
-      dt.push(new ServicoElement(item.id, item.descricao));
+      dt.push(new ServicosOrcamento(1, item));
     });
     this.dataSource.data = dt;
-
+    console.log(dt);
     if (dt.length === 0) {
       mensagem = 'Sem serviços para essa classe';
       classe = 'orange-snackbar';
@@ -81,7 +81,7 @@ export class TabelaComponent implements OnInit {
   }
 
   // Adicionar ou Remover na lista de servicos selecionados - TESTE
-  // adicionarServicos(servico) {
+  // adicionarServico(servico) {
   //   if (localStorage.hasOwnProperty('servicosSelecionados')) {
   //     this.servicosSelecionados = JSON.parse(localStorage.getItem('servicosSelecionados'));
   //   }
@@ -104,7 +104,7 @@ export class TabelaComponent implements OnInit {
     this.selection.toggle(row);
     // tslint:disable-next-line:no-console
     if (localStorage.hasOwnProperty('servicosSelecionados')) {
-      const servicos2: ServicoElement[] = JSON.parse(localStorage.getItem('servicosSelecionados'));
+      const servicos2: ServicosOrcamento[] = JSON.parse(localStorage.getItem('servicosSelecionados'));
       // tslint:disable-next-line:only-arrow-functions
 
       servicos2.forEach(element => {
@@ -118,7 +118,7 @@ export class TabelaComponent implements OnInit {
 
     console.log(this.servicosSelecionados);
     this.servicosSelecionados.push(row);
-    console.log('Servicos atualizados');
+    console.log('Servico atualizados');
     console.log(this.servicosSelecionados);
     // const pos = this.servicosSelecionados.indexOf(row);
 
@@ -153,7 +153,7 @@ export class TabelaComponent implements OnInit {
   }
 
   /** The label for the checkbox on the passed row */
-  checkboxLabel(row?: ServicoElement): string {
+  checkboxLabel(row?: ServicosOrcamento): string {
     // console.log('Selecionou');
     if (!row) {
       return `${this.isAllSelected() ? 'select' : 'deselect'} all`;

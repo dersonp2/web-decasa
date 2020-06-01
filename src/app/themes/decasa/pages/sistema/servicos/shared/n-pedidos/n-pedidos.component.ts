@@ -1,15 +1,23 @@
-import { Component, OnInit } from '@angular/core';
-import {MatTableDataSource} from '@angular/material/table';
+import { ClienteOrcamento } from './../../../../../../../model/response/cliente-orcamento.module';
+import { OrcamentoEvent } from './../../../../../../../events/orcamento-event';
+import { MunicipioService } from './../../../../../../../services/municipio.service';
+import { OrcamentoService } from './../../../../../../../services/orcamento.service';
+import { Municipio } from './../../../../../../../model/municipio.module';
+import { Component, OnInit, Input } from '@angular/core';
+import { MatTableDataSource } from '@angular/material/table';
 
-export interface PeriodicElement {
+
+export class Pedido {
+  id: number;
   pedido: string;
+
+  constructor(id, pedido) {
+    this.id = id;
+    this.pedido = pedido;
+  }
+
 }
-const ELEMENT_DATA: PeriodicElement[] = [
-  {pedido: 'BRA123456MA'},
-  {pedido: 'BRA123457MA'},
-  {pedido: 'BRA123458MA'},
-  {pedido: 'BRA123459MA'}
-];
+
 
 @Component({
   selector: 'app-n-pedidos',
@@ -17,17 +25,116 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./n-pedidos.component.css']
 })
 export class NPedidosComponent implements OnInit {
-
+  // 1 - Escolher | 2 - Agendado | 3 - Andamento | 4 - Finalizados
+  @Input() orcamento;
   displayedColumns: string[] = ['pedidos'];
-  dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
-  constructor() { }
+  dataSource = new MatTableDataSource<Pedido>();
+  clienteOrcamento: ClienteOrcamento[];
+  orcamentoSelected: ClienteOrcamento;
+  pedidos: Pedido[] = [];
+  municipio: Municipio;
+  selectedId;
+
+  constructor(private orcamentoService: OrcamentoService, private municipioService: MunicipioService, private orcamentoEvent: OrcamentoEvent) { }
 
   ngOnInit(): void {
+    this.buscarMunicipio();
+    switch (this.orcamento) {
+      case 1: {
+        this.getOrcamentosEscolher();
+        break;
+      }
+      case 2: {
+        this.getOrcamentosAgendados();
+        break;
+      }
+      case 3: {
+        this.getOrcamentosExecucao();
+        break;
+      }
+      case 4: {
+        this.getOrcamentosFinalizados();
+        break;
+      }
+    }
+
   }
+
+  buscarMunicipio() {
+    const municipioId = localStorage.getItem('municipioId');
+    this.municipioService.buscarMunicipioPorId(municipioId).subscribe(
+      (data) => { this.municipio = data; },
+      (error) => (console.log(error))
+    );
+  }
+
+  // Pegar os Orçamentos  para escolher Prestador
+  getOrcamentosEscolher() {
+    this.orcamentoService.buscarClienteOrcamentosEscolher(2054).subscribe(
+      (data) => { this.clienteOrcamento = data; this.setPedidos(); }
+    );
+  }
+
+  getOrcamentosAgendados() {
+    this.orcamentoService.buscarClienteOrcamentosAgendados(2054).subscribe(
+      (data) => { this.clienteOrcamento = data; this.setPedidos(); }
+    );
+  }
+
+  getOrcamentosExecucao() {
+    this.orcamentoService.buscarClienteOrcamentosExecucao(2054).subscribe(
+      (data) => { this.clienteOrcamento = data; this.setPedidos(); }
+    );
+  }
+
+  getOrcamentosFinalizados() {
+    this.orcamentoService.buscarClienteOrcamentosFinalizados(2054).subscribe(
+      (data) => { this.clienteOrcamento = data; this.setPedidos(); }
+    );
+  }
+
+  setPedidos() {
+    this.clienteOrcamento.forEach(e => {
+      const pedido = `BRA${e.id}${e.cidade.substring(0, 3)}`;
+      this.pedidos.push(new Pedido(e.id, pedido));
+    });
+    this.dataSource.data = this.pedidos;
+  }
+
+  detalhesOrcamento(orcamentoId) {
+    // tslint:disable-next-line:only-arrow-functions
+    this.clienteOrcamento.forEach(e => {
+      if (e.id === orcamentoId) {
+        this.orcamentoSelected = e;
+      }
+    });
+    this.selectedId = orcamentoId;
+    switch (this.orcamento) {
+      case 1: {
+        break;
+      }
+      case 2: {
+        this.orcamentoEvent.agendado(this.orcamentoSelected);
+        break;
+      }
+      case 3: {
+        this.orcamentoEvent.execucao(this.orcamentoSelected);
+        break;
+      }
+      case 4: {
+        console.log('4');
+        this.orcamentoEvent.finalizado(this.orcamentoSelected);
+        break;
+      }
+    }
+
+  }
+
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
+
 
 }

@@ -1,3 +1,4 @@
+import { ClienteOrcamento } from '../../../../../../../model/response/cliente-orcamento.module';
 import { Component, OnInit, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
@@ -12,6 +13,7 @@ export class DetalhePerfilComponent implements OnInit {
 
   // 1 - Escolher | 2-Agendado | 3 - Andamento
   @Input() displayBtn;
+  @Input() orcamentoSelected: ClienteOrcamento;
 
   displayCertificados = false;
   displayPortifolio = false;

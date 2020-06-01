@@ -1,3 +1,4 @@
+import { ServicosOrcamento } from './../../../../../model/servico-orcamento.module';
 import { CarrinhoEvent } from './../../../../../events/carrinho-event';
 import { ServicoElement } from './../../../../../model/element/servico.element';
 import { Component, OnInit, Input } from '@angular/core';
@@ -9,10 +10,10 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class NavCarrinhoComponent implements OnInit {
   @Input() exibirMenu;
-  servicosSelecionados: ServicoElement[] = [];
+  servicosSelecionados: ServicosOrcamento[] = [];
   constructor(private carrinhoService: CarrinhoEvent) {
     carrinhoService.alteracao$.subscribe(
-      (data) => { this.getServicosElement()}
+      (data) => { this.getServicosElement(); }
     );
   }
 
@@ -31,6 +32,7 @@ export class NavCarrinhoComponent implements OnInit {
     this.servicosSelecionados.splice(this.servicosSelecionados.indexOf(servico), 1);
     //
     localStorage.setItem('servicosSelecionados', JSON.stringify(this.servicosSelecionados));
+    this.carrinhoService.alteracao();
   }
 
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ClienteDetalhesResponse } from 'src/app/model/response/cliente-detalhes-response.module';
 
 @Component({
   selector: 'app-dados-pessoais',
@@ -10,9 +11,19 @@ export class DadosPessoaisComponent implements OnInit {
   public dateMask = [/\d/, /\d/, '/', /\d/, /\d/, '/', /\d/, /\d/, /\d/, /\d/];
   public phoneMask = ['(', /[1-9]/, /\d/, ')', ' ', /\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
   cpfMask = [/[0-9]/, /[0-9]/, /[0-9]/, '.', /[0-9]/, /[0-9]/, /[0-9]/, '.', /[0-9]/, /[0-9]/, /[0-9]/, '-', /[0-9]/, /[0-9]/];
+
+  cliente: ClienteDetalhesResponse = new ClienteDetalhesResponse();
+
   constructor() { }
 
   ngOnInit(): void {
+    this.getDadosCliente();
+  }
+
+  getDadosCliente() {
+    // this.clienteService.buscarClientePorId(2054).subscribe(
+    //   (data) => {this.cliente = data; console.log(this.cliente); }
+    // );
   }
 
 }
