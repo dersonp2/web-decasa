@@ -12,9 +12,16 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class PageTestComponent {
 
+  lat: number;
+  long: number;
+
   constructor(private mapService: MapService) {
-    this.mapService.getLatLong().subscribe(
-      (data) => { console.log(data); }
+    this.mapService.getLatLong('R. São Benedito, 76 - Vila Vicente Fialho').subscribe(
+      (data) => {
+        this.lat = data.results[0].geometry.location.lat;
+        this.long = data.results[0].geometry.location.lng;
+        console.log('Latitude: ' + this.lat + ' - ' + 'Longitude: ' + this.long);
+      }
     );
   }
 }

@@ -1,3 +1,5 @@
+import { Geolocalizacao } from './../../../../../../../model/geolocalizacao.module';
+import { MapsEvent } from './../../../../../../../events/maps-event';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,8 +9,13 @@ import { Component } from '@angular/core';
 })
 export class MapPropostaComponent {
 
-  lat: number = -2.518917;
-  lng: number = -44.23733;
-  zoom: number = 15;
+  zoom = 15;
+  geo: Geolocalizacao = new Geolocalizacao(-2.518917, -44.23733);
+
+  constructor(private mapsEvent: MapsEvent) {
+    this.mapsEvent.alteracao$.subscribe(
+      (data: Geolocalizacao) => { this.geo = data; }
+    );
+  }
 
 }

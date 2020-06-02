@@ -1,20 +1,25 @@
-.qntd-input{
-  width: 50px;
-  text-align: right;
-}
-table {
-  width: 98%;
-}
-/* Configurar a tabela */
-::ng-deep .mat-cell {
-  font-size: 16px;
-}
-::ng-deep .mat-header-cell{
-  font-size: 16px;
-  color: black;
-  background-color:rgba(99, 225, 253, 0.1) !important;
+.qntd-input {
+    width: 50px;
+    text-align: right;
 }
 
-::ng-deep .mat-input-element{
-  width: 5px !important;
+table {
+    width: 98%;
+}
+
+
+/* Configurar a tabela */
+
+::ng-deep .mat-cell {
+    font-size: 16px;
+}
+
+::ng-deep .mat-header-cell {
+    font-size: 16px;
+    color: black;
+    background-color: rgba(99, 225, 253, 0.1) !important;
+}
+
+::ng-deep .mat-input-element {
+    width: 5px !important;
 }

@@ -1,3 +1,7 @@
+import { EnderecoCliente } from './../../../../../../model/endereco-cliente.module';
+import { MapsEvent } from './../../../../../../events/maps-event';
+import { Geolocalizacao } from './../../../../../../model/geolocalizacao.module';
+import { MapService } from './../../../../../../services/maps.service';
 import { ViaCepService } from './../../../../../../services/via-cep.service';
 import { MunicipioService } from './../../../../../../services/municipio.service';
 import { Component, OnInit } from '@angular/core';
@@ -16,16 +20,15 @@ export class PropostaComponent implements OnInit {
   // 2 - Não é em domicilio
   // 3 - Buscar prestador
   domicile = 1;
-  municipio: Municipio = new Municipio();
-  endereco: ViaCep;
-  cep;
-  public cepMask = [/\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/];
+  enderecoCliente: EnderecoCliente = new EnderecoCliente();
+  geo: Geolocalizacao;
+    public cepMask = [/\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/];
 
-  constructor(private municipioService: MunicipioService, private cepService: ViaCepService) { }
+  constructor(private municipioService: MunicipioService, private cepService: ViaCepService, private mapService: MapService, private mapsEvent: MapsEvent) { }
 
   ngOnInit(): void {
     this.buscarMunicipio();
-    this.endereco = new ViaCep();
+    // this.endereco = new ViaCep();
   }
 
   handleChange(evt) {
@@ -43,28 +46,87 @@ export class PropostaComponent implements OnInit {
 
   buscarMunicipio() {
     const municipioId = localStorage.getItem('municipioId');
+    let endereco = null;
+    if (localStorage.hasOwnProperty('enderecoCliente')) {
+      endereco = JSON.parse(atob(localStorage.getItem('enderecoCliente')));
+    }
     this.municipioService.buscarMunicipioPorId(municipioId).subscribe(
-      (data) => { this.municipio = data; },
+      (data) => {
+        if (endereco != null && municipioId == endereco.municipio.id) {
+          this.enderecoCliente = endereco;
+          this.buscarLatLng();
+        } else {
+          this.enderecoCliente.municipio = data;
+        }
+      },
       (error) => (console.log(error))
     );
   }
 
-  onBlurMethod() {
-    this.cep = this.cep.replace('-', '');
-    this.cepService.getEndereco(this.cep).subscribe(
-      (data) => { this.checkMunicipio(data); }
+  onBlurCep() {
+    if (this.enderecoCliente.cep != null) {
+      const cep = this.enderecoCliente.cep.replace('-', '');
+      this.cepService.getEndereco(cep).subscribe(
+        (data) => { this.checkMunicipio(data); }
+      );
+    }
+  }
+
+  checkMunicipio(endereco: ViaCep) {
+    // this.endereco = data; console.log(this.endereco);
+    if (this.removeAcento(endereco.localidade) === this.enderecoCliente.municipio.nome) {
+      this.enderecoCliente.cep = endereco.cep.toString();
+      this.enderecoCliente.bairro = endereco.bairro;
+      this.enderecoCliente.logradouro = endereco.logradouro;
+      this.enderecoCliente.ativo = true;
+      localStorage.setItem('enderecoCliente', btoa(JSON.stringify(this.enderecoCliente)));
+      this.setLatLong(endereco.cep);
+    } else {
+      alert('Cep nao corresponde a cidade dos serviços selecionados');
+      this.enderecoCliente.cep = null;
+      this.enderecoCliente.bairro = null;
+      this.enderecoCliente.logradouro = null;
+      this.enderecoCliente.ativo = null;
+    }
+  }
+
+  getEnderecoCliente() {
+    if (localStorage.hasOwnProperty('enderecoCliente')) {
+      this.enderecoCliente = JSON.parse(atob(localStorage.getItem('enderecoCliente')));
+    }
+  }
+
+  setLatLong(endereco) {
+    this.mapService.getLatLong(endereco).subscribe(
+      (data) => {
+        if (data.status === 'OK') {
+          this.geo = new Geolocalizacao(data.results[0].geometry.location.lat, data.results[0].geometry.location.lng);
+          this.enderecoCliente.latGraus = this.geo.lat;
+          this.enderecoCliente.longGraus = this.geo.lng;
+          localStorage.setItem('enderecoCliente', btoa(JSON.stringify(this.enderecoCliente)));
+          this.mapsEvent.alteracao(this.geo);
+          console.log('Emitiu');
+        } else {
+          alert('Cordenadas geográficas não encontrada');
+        }
+      }
     );
   }
 
-  checkMunicipio(cep: ViaCep) {
-    // this.endereco = data; console.log(this.endereco);
-    console.log(this.removeAcento(cep.localidade) + ' = ' + this.municipio.nome);
-    if (this.removeAcento(cep.localidade) === this.municipio.nome) {
-      this.endereco = cep;
-    } else {
-      alert('Cep nao corresponde a cidade dos serviços selecionados');
-      this.endereco = new ViaCep();
+  onSearchChange(numero) {
+    this.enderecoCliente.numero = numero;
+    console.log('Número: ' + this.enderecoCliente.numero);
+    localStorage.setItem('enderecoCliente', btoa(JSON.stringify(this.enderecoCliente)));
+    this.buscarLatLng();
+  }
 
+  buscarLatLng() {
+    if (this.enderecoCliente.cep != null && this.enderecoCliente.bairro != null && this.enderecoCliente.logradouro != null && this.enderecoCliente.numero != null) {
+      const endereco = `${this.enderecoCliente.cep} ${this.enderecoCliente.bairro} ${this.enderecoCliente.logradouro} ${this.enderecoCliente.numero}`;
+      this.setLatLong(endereco);
+      console.log('Atualizou');
+    } else {
+      console.log('Não atualizou');
     }
   }
 
