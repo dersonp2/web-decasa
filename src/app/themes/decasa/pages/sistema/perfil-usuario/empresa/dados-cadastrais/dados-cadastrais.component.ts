@@ -16,4 +16,10 @@ export class DadosCadastraisComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  // getDadosEmpresa() {
+  //   this.clienteService.getClienteDetalhes(2054).subscribe(
+  //     (data) => {this.cliente = data; console.log(this.cliente); }
+  //   );
+  // }
+
 }

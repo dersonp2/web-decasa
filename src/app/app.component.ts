@@ -1,3 +1,4 @@
+import { AuthService } from './services/auth.service';
 import { NavCarrinhoComponent } from './themes/decasa/blocos/nav/nav-carrinho/nav-carrinho.component';
 import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
@@ -20,7 +21,7 @@ export class AppComponent implements OnInit, OnDestroy {
   // 1 - Steps Contratar serviços || 2 - Serviços agendados || 0 - Dados pessoais
   displayNavBar = 1;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, public authService: AuthService) { }
 
   ngOnInit() {
     if (isPlatformBrowser) {

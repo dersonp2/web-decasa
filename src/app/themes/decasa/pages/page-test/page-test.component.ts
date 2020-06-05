@@ -1,3 +1,4 @@
+import { Md5 } from 'ts-md5/dist/md5';
 import { MapService } from './../../../../services/maps.service';
 import { ClasseEvent } from '../../../../events/classe-event';
 import { OwlOptions } from 'ngx-owl-carousel-o';
@@ -14,14 +15,10 @@ export class PageTestComponent {
 
   lat: number;
   long: number;
+  senhaEncrypted;
+  constructor() {
+    this.senhaEncrypted = new Md5().appendStr('12345678').end();
 
-  constructor(private mapService: MapService) {
-    this.mapService.getLatLong('R. São Benedito, 76 - Vila Vicente Fialho').subscribe(
-      (data) => {
-        this.lat = data.results[0].geometry.location.lat;
-        this.long = data.results[0].geometry.location.lng;
-        console.log('Latitude: ' + this.lat + ' - ' + 'Longitude: ' + this.long);
-      }
-    );
   }
+
 }

@@ -1,3 +1,4 @@
+import { ClienteService } from './../../../../../../../services/cliente.service';
 import { Component, OnInit } from '@angular/core';
 import { ClienteDetalhesResponse } from 'src/app/model/response/cliente-detalhes-response.module';
 
@@ -14,16 +15,16 @@ export class DadosPessoaisComponent implements OnInit {
 
   cliente: ClienteDetalhesResponse = new ClienteDetalhesResponse();
 
-  constructor() { }
+  constructor(private clienteService: ClienteService) { }
 
   ngOnInit(): void {
     this.getDadosCliente();
   }
 
   getDadosCliente() {
-    // this.clienteService.buscarClientePorId(2054).subscribe(
-    //   (data) => {this.cliente = data; console.log(this.cliente); }
-    // );
+    this.clienteService.getClienteDetalhes(2054).subscribe(
+      (data) => {this.cliente = data; console.log(this.cliente); }
+    );
   }
 
 }
