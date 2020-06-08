@@ -28,11 +28,11 @@ export class DialogLocalizacaoComponent implements OnInit {
     this.getMunicipiosUf(10);
   }
 
-// this.municipios = data;
+  // this.municipios = data;
   getMunicipiosUf(idUf: number) {
     console.log('Id do uf' + idUf);
     this.municipioService.buscarMunicipiosUfAtivos(idUf).subscribe(
-      (data) => {(this.municipios = data); },
+      (data) => { (this.municipios = data); },
     );
   }
   getEstados() {
@@ -46,7 +46,7 @@ export class DialogLocalizacaoComponent implements OnInit {
   }
 
   selecionar(): void {
-    this.dialogRef.close({data: this.municipio});
+    this.dialogRef.close({ data: this.municipio });
     localStorage.setItem('municipioId', this.municipio.id.toString());
   }
 

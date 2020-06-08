@@ -1,6 +1,7 @@
+import { CarrinhoEvent } from './../../../../../../../events/carrinho-event';
+import { ServicoOrcamentoService } from './../../../../../../../services/servico-orcamento.service';
 import { ServicosOrcamento } from './../../../../../../../model/servico-orcamento.module';
-import { element } from 'protractor';
-import { ServicoElement } from './../../../../../../../model/element/servico.element';
+
 import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-tabela-proposta',
@@ -11,10 +12,13 @@ export class TabelaPropostaComponent implements OnInit {
 
   total: number;
   displayedColumns: string[] = ['descricao', 'qntd', 'unidade'];
-  // dataSource = ELEMENT_DATA;
   dataSource: ServicosOrcamento[];
+  visitaTecnica = false;
+  municipioId: number;
 
-  constructor() { }
+  constructor(private servicoOrcamentoService: ServicoOrcamentoService, private carrinhoService: CarrinhoEvent) {
+    this.municipioId = Number(localStorage.getItem('municipioId'));
+  }
 
   ngOnInit(): void {
     this.getServicosElement();
@@ -23,6 +27,21 @@ export class TabelaPropostaComponent implements OnInit {
   getServicosElement() {
     if (localStorage.hasOwnProperty('servicosSelecionados')) {
       this.dataSource = JSON.parse(localStorage.getItem('servicosSelecionados'));
+      this.servicoOrcamentoService.getTotaldeServicos(this.dataSource, this.municipioId).subscribe(
+        (data) => {
+          // Veio a visita técnica | Atualiza os dados
+          if (data.length !== this.dataSource.length) {
+            console.log('veio visista tecnica');
+            this.dataSource = data;
+            localStorage.setItem('servicosSelecionados', JSON.stringify(this.dataSource));
+            this.visitaTecnica = true;
+            this.carrinhoService.alteracao();
+            this.setTotal();
+          } else {
+            console.log('Não visista tecnica');
+          }
+        },
+      );
       this.setTotal();
     }
   }

@@ -11,6 +11,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class NavCarrinhoComponent implements OnInit {
   @Input() exibirMenu;
   servicosSelecionados: ServicosOrcamento[] = [];
+
   constructor(private carrinhoService: CarrinhoEvent) {
     carrinhoService.alteracao$.subscribe(
       (data) => { this.getServicosElement(); }

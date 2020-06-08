@@ -1,3 +1,4 @@
+import { Md5 } from 'ts-md5/dist/md5';
 import { Router } from '@angular/router';
 import { Cliente } from '../model/cliente.module';
 import { ClienteEmpresaResponse } from '../model/response/cliente-empresa-response.module';
@@ -24,19 +25,15 @@ export class AuthService {
   }
 
   // Login
-  login(email: string, senha: any): Observable<Cliente> {
-    return this.http.get<Cliente>(`${this.apiUrl}/cliente/${email}/${senha}/`).pipe(
-      tap(data => {
-        localStorage.setItem('user', btoa(JSON.stringify(data)));
-      }),
-      take(1));
+  login(user: { email: string, senha: string }): Observable<Cliente> {
+    const senha = new Md5().appendStr(user.senha).end();
+    return this.http.get<Cliente>(`${this.apiUrl}/cliente/${user.email}/${senha}/`).pipe(take(1));
   }
 
   logout(): void {
     this.http.get(`${this.apiUrl}/logout/${this.getUser().id}`).subscribe(
       (resp) => {
         localStorage.removeItem('user');
-        this.router.navigate(['auth/login']);
       }
     );
   }

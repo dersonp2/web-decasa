@@ -1,3 +1,4 @@
+import { FilterPipe } from './../../../../../../../pipes/filter.pipe';
 import { ServicosOrcamento } from './../../../../../../../model/servico-orcamento.module';
 import { CarrinhoEvent } from './../../../../../../../events/carrinho-event';
 import { ServicoElement } from './../../../../../../../model/element/servico.element';
@@ -12,21 +13,25 @@ import { stringify } from 'querystring';
 
 
 
+
 @Component({
   selector: 'app-tabela',
   templateUrl: './tabela.component.html',
   styleUrls: ['./tabela.component.css']
 })
 export class TabelaComponent implements OnInit {
-
+  searchText: string;
   @Input() classeId: number;
   servicosSelecionados: ServicosOrcamento[] = [];
   municipioId: number;
+  filterarg: ServicosOrcamento;
+  classeDescricacao: string;
 
   displayedColumns: string[] = ['select', 'descricao'];
   dataSource = new MatTableDataSource<ServicosOrcamento>();
   selection = new SelectionModel<ServicosOrcamento>(true, []);
   servicos: Servico[];
+  dt: ServicosOrcamento[] = [];
 
   // tslint:disable-next-line:variable-name
   constructor(private servicoService: ServicoService, private classeService: ClasseEvent, private _snackBar: MatSnackBar, private carrinhoService: CarrinhoEvent) {
@@ -55,17 +60,15 @@ export class TabelaComponent implements OnInit {
   getElementData() {
     let mensagem: string;
     let classe: string;
-    const dt = [];
-    // tslint:disable-next-line:only-arrow-functions space-before-function-paren
-    this.servicos.forEach(function (item) {
-      dt.push(new ServicosOrcamento(1, item));
+    this.dt = [];
+    this.servicos.forEach(item => {
+      this.dt.push(new ServicosOrcamento(1, item));
     });
-    this.dataSource.data = dt;
-    console.log(dt);
-    if (dt.length === 0) {
+    if (this.dt.length === 0) {
       mensagem = 'Sem serviços para essa classe';
       classe = 'orange-snackbar';
     } else {
+      this.classeDescricacao = this.servicos[0].classe.descricao;
       mensagem = 'Tabela atualizada';
       classe = 'blue-snackbar';
     }
@@ -80,83 +83,12 @@ export class TabelaComponent implements OnInit {
     );
   }
 
-  // Adicionar ou Remover na lista de servicos selecionados - TESTE
-  // adicionarServico(servico) {
-  //   if (localStorage.hasOwnProperty('servicosSelecionados')) {
-  //     this.servicosSelecionados = JSON.parse(localStorage.getItem('servicosSelecionados'));
-  //   }
-  //   this.servicosSelecionados.push(servico);
-  // }
-
-  armazenarServicos() {
-    // if (localStorage.hasOwnProperty('servicosSelecionados')) {
-    //     const servicos2: ServicoElement[] = JSON.parse(localStorage.getItem('servicosSelecionados'));
-    //     }
+  adicionarServico(servico) {
+    console.log(servico);
+    this.servicosSelecionados = JSON.parse(localStorage.getItem('servicosSelecionados'));
+    this.servicosSelecionados.push(servico);
     localStorage.setItem('servicosSelecionados', JSON.stringify(this.servicosSelecionados));
-    this.servicosSelecionados.length = 0;
     this.carrinhoService.alteracao();
     this.showSnackBar('Serviço inserido no carrinho', 'blue-snackbar');
-  }
-
-  testeRow(row) {
-    // tslint:disable-next-line:no-console
-    console.info(row);
-    this.selection.toggle(row);
-    // tslint:disable-next-line:no-console
-    if (localStorage.hasOwnProperty('servicosSelecionados')) {
-      const servicos2: ServicosOrcamento[] = JSON.parse(localStorage.getItem('servicosSelecionados'));
-      // tslint:disable-next-line:only-arrow-functions
-
-      servicos2.forEach(element => {
-        console.log(element);
-        const pos = this.servicosSelecionados.indexOf(row);
-        if (pos < 0) {
-          this.servicosSelecionados.push(element);
-        }
-      });
-    }
-
-    console.log(this.servicosSelecionados);
-    this.servicosSelecionados.push(row);
-    console.log('Servico atualizados');
-    console.log(this.servicosSelecionados);
-    // const pos = this.servicosSelecionados.indexOf(row);
-
-    // if (pos > -1) {
-    //   console.log('Servico já cadastrado no carrinho');
-    //   this.servicosSelecionados.splice(pos, 1);
-    // } else {
-    //   this.servicosSelecionados.push(row);
-    // }
-    // // tslint:disable-next-line:no-console
-    // console.info(this.servicosSelecionados);
-  }
-
-  // Padrão tabela
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-  }
-
-  /** Whether the number of selected elements matches the total number of rows. */
-  isAllSelected() {
-    const numSelected = this.selection.selected.length;
-    const numRows = this.dataSource.data.length;
-    return numSelected === numRows;
-  }
-
-  /** Selects all rows if they are not all selected; otherwise clear selection. */
-  masterToggle() {
-    this.isAllSelected() ?
-      this.selection.clear() :
-      this.dataSource.data.forEach(row => this.selection.select(row));
-  }
-
-  /** The label for the checkbox on the passed row */
-  checkboxLabel(row?: ServicosOrcamento): string {
-    // console.log('Selecionou');
-    if (!row) {
-      return `${this.isAllSelected() ? 'select' : 'deselect'} all`;
-    }
   }
 }

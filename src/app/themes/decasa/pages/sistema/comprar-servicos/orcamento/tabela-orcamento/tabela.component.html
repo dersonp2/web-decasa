@@ -1,42 +1,29 @@
 <!--Filtro Buscar serviços-->
-<mat-form-field class="mt-5" appearance="outline">
+<!-- <mat-form-field class="mt-5" appearance="outline">
     <mat-label><i class="fas fa-search"></i> Buscar serviço </mat-label>
-    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Manutenção hidráulica">
+    <input matInput [(ngModel)]="searchText" placeholder="Ex. Manutenção hidráulica">
     <mat-icon matSuffix></mat-icon>
-</mat-form-field>
+</mat-form-field> -->
 
-<!-- Tabela-->
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 mb-5">
-
-    <!-- Checkbox Column -->
-    <ng-container matColumnDef="select">
-        <th mat-header-cell *matHeaderCellDef>
-            <mat-checkbox (change)="$event ? masterToggle() : null" [checked]="selection.hasValue() && isAllSelected()" [indeterminate]="selection.hasValue() && !isAllSelected()" [aria-label]="checkboxLabel()">
-            </mat-checkbox>
-        </th>
-        <td mat-cell *matCellDef="let row">
-            <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? testeRow(row) : null" [checked]="selection.isSelected(row)">
-            </mat-checkbox>
-        </td>
-    </ng-container>
-
-
-    <!-- Descrição Column -->
-    <ng-container matColumnDef="descricao">
-        <th mat-header-cell *matHeaderCellDef> Descrição dos Serviços
-            <a class="float-right btn btn-adicionar" (click)="armazenarServicos()">
-        Adicionar
-        <i class="fa fa-shopping-cart fa-lg"></i>
-      </a>
-        </th>
-        <td mat-cell *matCellDef="let element"><span matTooltipPosition="right" matTooltip="Informações sobre o serviço">{{element.servico.descricao}} </span>
-        </td>
-    </ng-container>
-
-
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="testeRow(row)">
-    </tr>
-</table>
+<div class="row mb-5 mt-5" *ngIf="(dt).length > 0; else noResults">
+    <div class="col-12">
+        <h2>Serviços de {{classeDescricacao}}
+        </h2>
+        <hr>
+    </div>
+    <div class="col-3 col-md-3 col-sm-6 mt-2" *ngFor="let item of dt">
+        <div class="card">
+            <!-- <img src="/assets/icones/advogado.jpeg" class="card-img-top" /> -->
+            <div class="card-body">
+                <h3 class="card-title">{{item.servico.descricao}}</h3>
+                <a class="btn btn-carrinho" (click)="adicionarServico(item)">Adicionar no carrinho</a>
+            </div>
+        </div>
+    </div>
+</div>
+<ng-template #noResults class="mt-5">
+    <p>Nenhum serviço encontrado. </p>
+</ng-template>
+<br/>
 <br/>
 <br/>

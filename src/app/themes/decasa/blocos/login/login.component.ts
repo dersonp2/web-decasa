@@ -1,3 +1,4 @@
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from './../../../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
@@ -12,20 +13,32 @@ export class LoginComponent implements OnInit {
 
   email: string;
   senha: string;
+  loginForm: FormGroup;
+  invalido = true;
 
-  constructor(public authService: AuthService, private router: Router) { }
+  constructor(public authService: AuthService, private router: Router, private fb: FormBuilder) {
+    this.loginForm = fb.group(
+      {
+        email: ['', [Validators.email, Validators.required]],
+        senha: ['', [Validators.required, Validators.minLength(6)]]
+      }
+    );
+  }
 
   ngOnInit(): void {
   }
 
   fazerLogin() {
     // this.senha =
-    const senhaEncrypted = new Md5().appendStr(this.senha).end();
-    console.log('Email: ' + this.email);
-    console.log('Senha: ' + senhaEncrypted);
-    this.authService.login(this.email, senhaEncrypted).subscribe(
+    this.authService.login(this.loginForm.value).subscribe(
       (resp) => {
         // this.router.navigate(['sucesso']);
+        if (resp.code !== 200) {
+          localStorage.setItem('user', btoa(JSON.stringify(resp)));
+          this.invalido  = true;
+        } else {
+          this.invalido  = false;
+        }
         console.log(resp);
       },
       (error) => {

@@ -1,3 +1,4 @@
+import { FilterPipe } from './pipes/filter.pipe';
 import { LoadComponent } from './shared/load/load.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -15,6 +16,7 @@ import { CoreModule } from './themes/decasa/core/core.module';
 import { MatButtonModule } from '@angular/material/button';
 import { MatStepperModule } from '@angular/material/stepper';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import {MatBadgeModule} from '@angular/material/badge';
 
 // Interceptor
 import { TokenInterceptor } from './events/http/intercepters/token.interceptor';
@@ -46,11 +48,11 @@ import { TokenInterceptor } from './events/http/intercepters/token.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
-    LoadComponent
+    LoadComponent,
   ],
   imports: [
     BrowserModule,
-
+    MatBadgeModule,
     // Modules,
     BlocosModule,
     PagesModule,

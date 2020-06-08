@@ -4,17 +4,18 @@
 <div class="container-fluid" [hidden]="displayTemplate">
     <div class="row">
         <!-- Login-->
-        <div class="col-12  col-md-2 background-primary float-left" (click)="toggleDisplay()" style="cursor:pointer">
+        <div class="col-12  col-md-2 background-primary float-left">
             <a id="login">
                 <div class="justify-content-center d-flex mt-2 mt-md-5">
                     <img class="img-logo rounded-circle" src="/assets/sistema/nav-horizontal/user.png" alt="Imagem Perfil">
                 </div>
-                <p class="center mt-md-3 mt-1">
+                <a style="cursor:pointer" class="center mt-md-3 mt-1" *ngIf="!authService.check()" (click)="toggleDisplay()">
                     Fazer login
-                </p>
-                <!-- <p [hidden]="!authService.check()" class="center mt-md-3 mt-1">
+                </a>
+                <p *ngIf="authService.check()" class=" d-block text-center center mt-md-2 mt-1">
                     {{authService.getUser().nome}}
-                </p> -->
+                    <a class="d-block" (click)="authService.logout()" style="cursor:pointer">sair</a>
+                </p>
             </a>
         </div>
         <div class="col-12 col-md-10 float-left">
@@ -37,7 +38,7 @@
                   </i><br /> SLZ
                 </button>
                                 <button class="btn-icon mr-3"><i class="far fa-heart"></i> </button>
-                                <button class="btn-icon" (click)="abrirMenu()"><i class="fa fa-shopping-cart"></i> </button>
+                                <button class="btn-icon" (click)="abrirMenu()" [matBadge]="badgeContent" [matBadgeHidden]="badgeContent==0" matBadgeColor="warn"><i class="fa fa-shopping-cart"></i> </button>
                             </li>
                         </ul>
                     </div>
@@ -141,9 +142,11 @@
         </div>
     </div>
     <!--Row Orçamento-->
-    <div class="row" [hidden]="isDisplay">
-        <div class="ml-0 col-12  col-md-4">
-            <app-login></app-login>
+    <div *ngIf="!authService.check()">
+        <div class="row" *ngIf="isDisplay">
+            <div class="ml-0 col-12  col-md-4">
+                <app-login></app-login>
+            </div>
         </div>
     </div>
 </div>

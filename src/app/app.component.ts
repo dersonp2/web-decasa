@@ -1,3 +1,4 @@
+import { CarrinhoEvent } from './events/carrinho-event';
 import { AuthService } from './services/auth.service';
 import { NavCarrinhoComponent } from './themes/decasa/blocos/nav/nav-carrinho/nav-carrinho.component';
 import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
@@ -11,20 +12,31 @@ import { isPlatformBrowser } from '@angular/common';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit, OnDestroy {
-  @ViewChild(NavCarrinhoComponent ) navCarrinho: NavCarrinhoComponent;
+  @ViewChild(NavCarrinhoComponent) navCarrinho: NavCarrinhoComponent;
 
   exibirMenu = false;
   btnContratar = true;
-  isDisplay = true;
+  isDisplay = false;
   href = '';
   displayTemplate = false;
   // 1 - Steps Contratar serviços || 2 - Serviços agendados || 0 - Dados pessoais
   displayNavBar = 1;
-
-  constructor(private router: Router, public authService: AuthService) { }
+  badgeContent: number;
+  constructor(private router: Router, public authService: AuthService, private carrinhoService: CarrinhoEvent) {
+    carrinhoService.alteracao$.subscribe(
+      (data) => {
+        this.badgeCarrinho();
+      }
+    );
+    if (authService.check()) {
+      this.isDisplay = false;
+    }
+  }
 
   ngOnInit() {
+
     if (isPlatformBrowser) {
+      this.badgeCarrinho();
       this.router.events
         .subscribe(() => {
           this.href = this.router.routerState.snapshot.url;
@@ -35,6 +47,11 @@ export class AppComponent implements OnInit, OnDestroy {
         });
     }
     document.body.classList.add('overflow-page');
+  }
+
+  badgeCarrinho() {
+    const servicos: [] = JSON.parse(localStorage.getItem('servicosSelecionados'));
+    this.badgeContent = servicos.length;
   }
 
   ngOnDestroy() {
@@ -80,11 +97,11 @@ export class AppComponent implements OnInit, OnDestroy {
       this.displayTemplate = true;
       this.removeOverflowHidden();
     }
-    this.displayNavbar() ;
+    this.displayNavbar();
   }
 
   displayNavbar() {
-    if (this.href === '/orcamento' || this.href === '/quantidade' || this.href === '/proposta' || this.href === '/pagamento' ) {
+    if (this.href === '/orcamento' || this.href === '/quantidade' || this.href === '/proposta' || this.href === '/pagamento') {
       // console.log('Navbar 1');
       this.displayNavBar = 1;
     } else if (this.href === '/escolher' || this.href === '/agendados' || this.href === '/andamento' || this.href === '/finalizados') {

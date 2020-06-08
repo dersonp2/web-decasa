@@ -16,9 +16,10 @@ export class IndexComponent implements OnInit, AfterViewInit {
   municipio: Municipio;
   grupos: any[];
   isDisplay = true;
+  popover = true;
   @ViewChild(ListaGruposComponent ) listaGrupos: ListaGruposComponent;
 
-  @ViewChild('myPopover') myPopover: PopoverContentComponent;
+  @ViewChild('popoverLocation') myPopover: PopoverContentComponent;
   // private gruposService: GruposService
   constructor(public dialog: MatDialog) { }
 
@@ -27,6 +28,7 @@ export class IndexComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
+    // this.showPopover();
   }
 
   openModal() {

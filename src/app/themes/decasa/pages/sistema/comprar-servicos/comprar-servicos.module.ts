@@ -1,6 +1,8 @@
+import { FilterPipe } from './../../../../../pipes/filter.pipe';
+import { MatCardModule } from '@angular/material/card';
 import { environment } from './../../../../../../environments/environment';
 import { FormsModule } from '@angular/forms';
-import { NgModule } from '@angular/core';
+import { NgModule, PipeTransform } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { MatTableModule } from '@angular/material/table';
@@ -35,11 +37,11 @@ import { BlocosModule } from './../../../blocos/blocos.module';
     TabelaQuantidadeComponent,
     PropostaComponent,
     TabelaPropostaComponent,
-    MapPropostaComponent
+    MapPropostaComponent,
+    FilterPipe
   ],
   imports: [
     CommonModule,
-
     FormsModule,
     MatTableModule,
     MatFormFieldModule,
@@ -49,11 +51,13 @@ import { BlocosModule } from './../../../blocos/blocos.module';
     MatInputModule,
     NgxMaterialTimepickerModule,
     MatCheckboxModule,
+    MatCardModule,
     AgmCoreModule.forRoot({
       apiKey: environment.API_MAPS
     }),
 
     BlocosModule
-  ]
+  ],
+  exports: [FilterPipe]
 })
 export class ComprarServicosModule { }
