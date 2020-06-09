@@ -1,3 +1,6 @@
+import { RouterModule } from '@angular/router';
+import { BlocosModule } from './../blocos.module';
+import { LoginComponent } from './../login/login.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -30,6 +33,7 @@ import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 import { TabelaServicosComponent } from './dialog-editar/tabela-servicos/tabela-servicos.component';
 import { NovoServicoComponent } from './dialog-editar/novo-servico/novo-servico.component';
 import { DialogLocalizacaoComponent } from './dialog-localizacao/dialog-localizacao.component';
+import { DialogLoginComponent } from './dialog-login/dialog-login.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +50,8 @@ import { DialogLocalizacaoComponent } from './dialog-localizacao/dialog-localiza
     DialogCancelarComponent,
     TabelaServicosComponent,
     NovoServicoComponent,
-    DialogLocalizacaoComponent
+    DialogLocalizacaoComponent,
+    DialogLoginComponent
   ],
   imports: [
     CommonModule,
@@ -64,7 +69,7 @@ import { DialogLocalizacaoComponent } from './dialog-localizacao/dialog-localiza
     MatDatepickerModule,
     MatNativeDateModule,
     NgxMaterialTimepickerModule,
-
+    RouterModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyAoVvj5lM77pVqV4EyRzJwIHoBK83MGumU'
     }),
@@ -75,7 +80,7 @@ import { DialogLocalizacaoComponent } from './dialog-localizacao/dialog-localiza
     DialogComprovanteComponent,
     DialogCreditoComponent,
     DialogMembrosComponent,
-    DialogServicosComponent
+    DialogServicosComponent,
   ],
   entryComponents: [DialogAnexarComponent,
     DialogCartaoComponent,
@@ -87,7 +92,8 @@ import { DialogLocalizacaoComponent } from './dialog-localizacao/dialog-localiza
     DialogEditarComponent,
     DialogRastrearComponent,
     DialogRescindirComponent,
-    DialogCancelarComponent
+    DialogCancelarComponent,
+    DialogLoginComponent
   ],
 })
 export class DialogModule { }

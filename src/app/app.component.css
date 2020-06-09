@@ -115,3 +115,7 @@ li p {
         display: none;
     }
 }
+
+.background-blue-logo:hover {
+    color: white;
+}

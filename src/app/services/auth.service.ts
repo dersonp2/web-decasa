@@ -27,13 +27,14 @@ export class AuthService {
   // Login
   login(user: { email: string, senha: string }): Observable<Cliente> {
     const senha = new Md5().appendStr(user.senha).end();
-    return this.http.get<Cliente>(`${this.apiUrl}/cliente/${user.email}/${senha}/`).pipe(take(1));
+    return this.http.get<Cliente>(`${this.apiUrl}/cliente/${user.email.toUpperCase()}/${senha}/`).pipe(take(1));
   }
 
   logout(): void {
     this.http.get(`${this.apiUrl}/logout/${this.getUser().id}`).subscribe(
       (resp) => {
         localStorage.removeItem('user');
+        window.location.reload();
       }
     );
   }

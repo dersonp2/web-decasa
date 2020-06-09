@@ -33,6 +33,7 @@ export class NavVerticalComponent implements OnInit {
 
   loadServicos(classeId) {
     this.classeService.alteracao(classeId);
+    localStorage.setItem('classeId', classeId );
   }
 
   abriSubMenu(id) {

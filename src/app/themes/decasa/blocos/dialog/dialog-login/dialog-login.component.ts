@@ -1,22 +1,22 @@
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { AuthService } from './../../../../services/auth.service';
+import { AuthService } from './../../../../../services/auth.service';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import { Md5 } from 'ts-md5/dist/md5';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: 'app-dialog-login',
+  templateUrl: './dialog-login.component.html',
+  styleUrls: ['./dialog-login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class DialogLoginComponent implements OnInit {
 
   email: string;
   senha: string;
   loginForm: FormGroup;
   invalido = true;
 
-  constructor(public authService: AuthService, private router: Router, private fb: FormBuilder) {
+  constructor(public authService: AuthService, private router: Router, private fb: FormBuilder, public dialogRef: MatDialogRef<DialogLoginComponent>) {
     this.loginForm = fb.group(
       {
         email: ['', [Validators.email, Validators.required]],
@@ -29,12 +29,13 @@ export class LoginComponent implements OnInit {
   }
 
   fazerLogin() {
-    // this.senha =
+    // this.senha
     this.authService.login(this.loginForm.value).subscribe(
       (resp) => {
         console.log('Deu certo');
         localStorage.setItem('user', btoa(JSON.stringify(resp)));
         this.invalido = true;
+        this.dialogRef.close();
       },
       (error) => {
         console.log('Deu erro' + error);
@@ -42,5 +43,4 @@ export class LoginComponent implements OnInit {
       }
     );
   }
-
 }

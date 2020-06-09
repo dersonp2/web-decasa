@@ -1,3 +1,5 @@
+import { MatDialog } from '@angular/material/dialog';
+import { DialogLoginComponent } from './../../../../blocos/dialog/dialog-login/dialog-login.component';
 import { AuthService } from './../../../../../../services/auth.service';
 import { Component, Output, EventEmitter, OnInit } from '@angular/core';
 
@@ -8,12 +10,18 @@ import { Component, Output, EventEmitter, OnInit } from '@angular/core';
 })
 export class PagamentoComponent implements OnInit {
 
-  constructor(public authService: AuthService) {
+  constructor(public authService: AuthService, public dialog: MatDialog) {
   }
   ngOnInit() {
     if (!this.authService.check()) {
-      alert('Faça o login ou crie sua conta para efetuar o pagamento');
+      this.openModal();
     }
+  }
+
+  openModal() {
+    const dialogRef = this.dialog.open(DialogLoginComponent, {
+      disableClose: true
+    });
   }
 
 }
