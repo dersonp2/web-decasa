@@ -1,3 +1,4 @@
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { CarrinhoEvent } from './../../../../../../../events/carrinho-event';
 import { ServicoOrcamentoService } from './../../../../../../../services/servico-orcamento.service';
 import { ServicosOrcamento } from './../../../../../../../model/servico-orcamento.module';
@@ -16,7 +17,8 @@ export class TabelaPropostaComponent implements OnInit {
   visitaTecnica = false;
   municipioId: number;
 
-  constructor(private servicoOrcamentoService: ServicoOrcamentoService, private carrinhoService: CarrinhoEvent) {
+  // tslint:disable-next-line:variable-name
+  constructor(private servicoOrcamentoService: ServicoOrcamentoService, private carrinhoService: CarrinhoEvent, private _snackBar: MatSnackBar) {
     this.municipioId = Number(localStorage.getItem('municipioId'));
   }
 
@@ -37,6 +39,7 @@ export class TabelaPropostaComponent implements OnInit {
             this.visitaTecnica = true;
             this.carrinhoService.alteracao();
             this.setTotal();
+            this.showSnackBar('Um serviço de visita técnica foi adicionado, pois o(s) valor(es) do(s) serviço(s) não atingiu o valor mínimo.', 'orange-snackbar');
           } else {
             console.log('Não visista tecnica');
           }
@@ -51,5 +54,13 @@ export class TabelaPropostaComponent implements OnInit {
     this.dataSource.forEach(e => {
       this.total += e.valor * e.quantidade;
     });
+  }
+
+  showSnackBar(mensagem, cor) {
+    this._snackBar.open(mensagem, 'Ok', {
+      duration: 8000,
+      panelClass: [cor]
+    }
+    );
   }
 }

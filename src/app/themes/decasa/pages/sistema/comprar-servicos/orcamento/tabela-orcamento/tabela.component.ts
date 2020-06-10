@@ -85,7 +85,9 @@ export class TabelaComponent implements OnInit {
 
   adicionarServico(servico) {
     console.log(servico);
-    this.servicosSelecionados = JSON.parse(localStorage.getItem('servicosSelecionados'));
+    if (localStorage.hasOwnProperty('servicosSelecionados')) {
+      this.servicosSelecionados = JSON.parse(localStorage.getItem('servicosSelecionados'));
+    }
     this.servicosSelecionados.push(servico);
     localStorage.setItem('servicosSelecionados', JSON.stringify(this.servicosSelecionados));
     this.carrinhoService.alteracao();

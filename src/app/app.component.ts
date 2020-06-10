@@ -50,8 +50,10 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   badgeCarrinho() {
-    const servicos: [] = JSON.parse(localStorage.getItem('servicosSelecionados'));
-    this.badgeContent = servicos.length;
+    if (localStorage.hasOwnProperty('servicosSelecionados')) {
+      const servicos: [] = JSON.parse(localStorage.getItem('servicosSelecionados'));
+      this.badgeContent = servicos.length;
+    }
   }
 
   ngOnDestroy() {

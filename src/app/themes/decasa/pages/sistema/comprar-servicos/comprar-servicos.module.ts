@@ -1,3 +1,4 @@
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FilterPipe } from './../../../../../pipes/filter.pipe';
 import { MatCardModule } from '@angular/material/card';
 import { environment } from './../../../../../../environments/environment';
@@ -52,6 +53,7 @@ import { BlocosModule } from './../../../blocos/blocos.module';
     NgxMaterialTimepickerModule,
     MatCheckboxModule,
     MatCardModule,
+    MatSnackBarModule,
     AgmCoreModule.forRoot({
       apiKey: environment.API_MAPS
     }),

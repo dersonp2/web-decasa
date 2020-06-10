@@ -118,3 +118,7 @@ html {
     background-color: #FCB23A;
     color: white;
 }
+
+.mat-simple-snackbar-action {
+    color: white !important;
+}
