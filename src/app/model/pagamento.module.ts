@@ -20,14 +20,14 @@ export class Pagamento {
   prestador: Prestador;
   cartaoCliente: CartaoCliente;
   numeroParcela: number;
-  valorParcela; number;
+  valorParcela: number;
   codigoRetorno: number;
   mensagemRetorno: string;
   dataRetorno: Date;
   numeroPedido: number;
   numeroAutorizacao: string;
-  numeroSQN;
-  identificadorTID;
+  numeroSQN: number;
+  identificadorTID: number;
   codigoDeBarra: string;
   nossoNumero: string;
   dataProcessamento: Date;
