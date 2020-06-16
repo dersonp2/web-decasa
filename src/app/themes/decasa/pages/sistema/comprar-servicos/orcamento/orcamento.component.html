@@ -12,7 +12,7 @@
                     <!--Data-->
                     <mat-form-field class="font-padrao">
                         <mat-label mask='{dd/MM/y}'>Selecione a data </mat-label>
-                        <input matInput [matDatepicker]="picker" [min]="minDate" placeholder="dia/mês/ano" [textMask]="{mask: dateMask}">
+                        <input matInput [matDatepicker]="picker" [min]="minDate" placeholder="dia/mês/ano" [textMask]="{mask: dateMask}" (dateInput)="addEvent('input', $event)" disabled>
                         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                         <mat-datepicker disabled="false" touchUi #picker></mat-datepicker>
                     </mat-form-field>
@@ -20,7 +20,7 @@
                 <!-- Hora-->
                 <div class="col-12 col-md-4 mt-4">
                     <div class="font-padrao font-padrao d-md-flex justify-content-center d-inline-block">
-                        <ngx-timepicker-field class="font-padrao" [format]="24"></ngx-timepicker-field>
+                        <ngx-timepicker-field class="font-padrao" [format]="24" (timeChanged)="onOpeningOrClosingTimeChanged($event)"></ngx-timepicker-field>
                     </div>
                 </div>
                 <!-- <div class="col-12 col-md-4 mt-5 mt-md-4">

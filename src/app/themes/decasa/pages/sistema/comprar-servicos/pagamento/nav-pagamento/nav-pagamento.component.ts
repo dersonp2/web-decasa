@@ -15,8 +15,6 @@ import { CreditCardValidators } from 'angular-cc-library';
 })
 export class NavPagamentoComponent implements OnInit {
 
-  public mesMask = [/\d/, /\d/];
-  // numeroMask = [/\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/, ' '];
   form: FormGroup;
   cartao: CartaoCliente = new CartaoCliente();
   constructor(private fb: FormBuilder, private authService: AuthService, private cartaoClienteService: CartaoClienteService, public dialog: MatDialog) {
