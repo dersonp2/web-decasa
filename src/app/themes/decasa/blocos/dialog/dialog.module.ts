@@ -1,3 +1,4 @@
+import { CreditCardDirectivesModule } from 'angular-cc-library';
 import { RouterModule } from '@angular/router';
 import { BlocosModule } from './../blocos.module';
 import { LoginComponent } from './../login/login.component';
@@ -69,6 +70,7 @@ import { DialogLoginComponent } from './dialog-login/dialog-login.component';
     MatDatepickerModule,
     MatNativeDateModule,
     NgxMaterialTimepickerModule,
+    CreditCardDirectivesModule,
     RouterModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyAoVvj5lM77pVqV4EyRzJwIHoBK83MGumU'

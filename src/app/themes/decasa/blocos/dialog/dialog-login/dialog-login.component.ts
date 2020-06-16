@@ -36,6 +36,7 @@ export class DialogLoginComponent implements OnInit {
         localStorage.setItem('user', btoa(JSON.stringify(resp)));
         this.invalido = true;
         this.dialogRef.close();
+        window.location.reload();
       },
       (error) => {
         console.log('Deu erro' + error);

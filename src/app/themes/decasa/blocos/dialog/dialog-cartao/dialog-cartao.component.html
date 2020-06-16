@@ -1,50 +1,103 @@
 <mat-toolbar>
-  <span>Adicionar Cartão</span>
-  <span class="spacer"></span>
-  <a (click)="close()" class="cursor"><i class="fas fa-times"></i></a>
+    <span>Cartão</span>
+    <span class="spacer"></span>
+    <a (click)="close()" class="cursor"><i class="fas fa-times"></i></a>
 </mat-toolbar>
 
-<div class="form-check form-check-inline mt-3">
-  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" checked>
-  <label class="form-check-label" for="inlineRadio1" checked> Débito</label>
+<!-- <div class="form-check form-check-inline mt-3">
+    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" checked>
+    <label class="form-check-label" for="inlineRadio1" checked> Débito</label>
 </div>
 <div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-  <label class="form-check-label" for="inlineRadio2">Crédito</label>
-</div>
+    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+    <label class="form-check-label" for="inlineRadio2">Crédito</label>
+</div> -->
 <!--Primeira linha-->
 
-<!--Segunda Linha-->
-<div class="form-row mt-2">
-  <div class="form-group col-8">
-    <label for="exampleFormControlInput1">Número</label>
-    <input class="form-control" id="exampleFormControlInput1" [textMask]="{mask: numeroMask}">
-  </div>
-  <div class="form-group col-2">
-    <label for="exampleFormControlInput1">Mês</label>
-    <input class="form-control" id="exampleFormControlInput1" [textMask]="{mask: mesMask}">
-  </div>
-  <div class="form-group col-2">
-    <label for="exampleFormControlInput1">Ano</label>
-    <input class="form-control" id="exampleFormControlInput1" [textMask]="{mask: mesMask}">
-  </div>
+<div class="form-row mt-2" *ngIf="(cartoes).length > 0">
+    <table mat-table [dataSource]="cartoes" class="mt-4" *ngIf="!cadastrarCartao">
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="nome">
+            <mat-header-cell *matHeaderCellDef> Nome </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.nomeCartao}}</mat-cell>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="numero">
+            <mat-header-cell *matHeaderCellDef> Número </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.numeroCartao}}</mat-cell>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="bandeira">
+            <mat-header-cell *matHeaderCellDef> Bandeira </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.bandeira | uppercase}}</mat-cell>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="opc">
+            <mat-header-cell *matHeaderCellDef></mat-header-cell>
+            <mat-cell *matCellDef="let element"> <button mat-raised-button [mat-dialog-close]="element"><i class="far fa-hand-point-left ml-3"></i> Selecionar</button>
+
+            </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </table>
 </div>
-<!--Segunda linha-->
 
-<!-- Terceira linha-->
-<div class="form-row ">
-  <div class="form-group col-10">
-    <!--Nome-->
-    <div class="form-group">
-      <label for="idNomeCartao">Nome do Titular</label>
-      <input type="text" class="form-control" id="idNomeCartao">
-      <small class="form-text text-muted">Nome completo, como mostrado no cartão.</small>
+<div class="mt-3" *ngIf="!cadastrarCartao">
+    <button mat-raised-button (click)="showCadastrarCartao()">Novo cartão <i class="ml-2 fas fa-plus"></i></button>
+</div>
+<div class="mt-3" *ngIf="(cartoes).length > 0; else noResults">
+    <button mat-raised-button (click)="showCadastrarCartao()" *ngIf="cadastrarCartao">Lista de cartões <i class="fas fa-list-ul ml-2"></i></button>
+</div>
+
+<ng-template #noResults>
+    <p class="mt-3">Cadastre um cartão para realizar o pagamento </p>
+</ng-template>
+
+<form [formGroup]="form" novalidate #demoForm="ngForm" *ngIf="cadastrarCartao">
+    <!--Segunda Linha-->
+    <div class="form-row mt-2">
+        <div class="form-group col-10">
+            <label for="exampleFormControlInput1">Número</label>
+            <input class="form-control" type="tel" ccNumber #ccNumber="ccNumber" formControlName="creditCard">
+            <small class="form-text text-muted">{{ccNumber.resolvedScheme$ | async}}</small>
+
+            <span *ngIf="form.controls['creditCard'].invalid && (form.controls['creditCard'].touched || form.controls['creditCard'].dirty)">
+        <span class="color-red">Cartão Inválido.</span>
+            </span>
+
+        </div>
+        <div class="form-group col-2">
+            <label for="cc-exp-date">Data</label>
+            <input class="form-control" id="cc-exp-date" type="tel" autocomplete="cc-exp" ccExp formControlName="expirationDate">
+            <span *ngIf="form.controls['expirationDate'].invalid && (form.controls['expirationDate'].touched || form.controls['expirationDate'].dirty)">
+          <span class="color-red">Data Inválida.</span>
+            </span>
+        </div>
     </div>
-  </div>
-  <div class="form-group col-2">
-    <label for="idCod">Cod. Seg.</label>
-    <input type="number" class="form-control" id="idCod">
-  </div>
-</div> <!-- Terceira Linha-->
-
-<button mat-raised-button class="" align="end">Salvar</button>
+    <div class="form-row ">
+        <div class="form-group col-10">
+            <!--Nome-->
+            <div class="form-group">
+                <label for="idNomeCartao">Nome do Titular</label>
+                <input type="text" class="form-control" id="idNomeCartao" formControlName="nome">
+                <small class="form-text text-muted">Nome completo, como mostrado no cartão.</small>
+                <span *ngIf="form.controls['nome'].invalid && (form.controls['nome'].touched || form.controls['nome'].dirty)">
+              <span class="color-red">Nome obrigatório.</span>
+                </span>
+            </div>
+        </div>
+    </div>
+    <button mat-raised-button class="" align="end" [disabled]="form.invalid" *ngIf="!disabledButton" (click)="salvarCartao(ccNumber.resolvedScheme$)">Salvar</button>
+    <div *ngIf="disabledButton">
+        <div class="spinner-border text-primary" role="status">
+        </div>
+        <span>Salvando...</span>
+    </div>
+</form>
+<!-- Terceira Linha-->

@@ -18,7 +18,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class TabelaCartoesComponent implements OnInit {
 
-  displayedColumns: string[] = ['bandeira', 'numero',  'opc'];
+ displayedColumns: string[] = ['bandeira', 'numero',  'opc'];
   dataSource = ELEMENT_DATA;
 
   constructor() { }

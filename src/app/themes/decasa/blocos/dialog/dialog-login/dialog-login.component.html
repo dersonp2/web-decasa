@@ -10,7 +10,6 @@
                     <input type="email" class="form-control" id="staticEmail" placeholder="email@exemplo.com" formControlName="email">
 
                     <span *ngIf="loginForm.controls['email'].invalid && (loginForm.controls['email'].touched || loginForm.controls['email'].dirty)">
-                    <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
                     <span class="color-red">E-mail inválido.</span>
                     </span>
                 </div>

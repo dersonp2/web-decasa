@@ -2,7 +2,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FilterPipe } from './../../../../../pipes/filter.pipe';
 import { MatCardModule } from '@angular/material/card';
 import { environment } from './../../../../../../environments/environment';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule, PipeTransform } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -15,6 +15,8 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
 import { NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { CreditCardDirectivesModule } from 'angular-cc-library';
+
 
 import { OrcamentoComponent } from './orcamento/orcamento.component';
 import { TabelaComponent } from './orcamento/tabela-orcamento/tabela.component';
@@ -44,6 +46,7 @@ import { BlocosModule } from './../../../blocos/blocos.module';
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     MatTableModule,
     MatFormFieldModule,
     TextMaskModule,
@@ -54,6 +57,7 @@ import { BlocosModule } from './../../../blocos/blocos.module';
     MatCheckboxModule,
     MatCardModule,
     MatSnackBarModule,
+    CreditCardDirectivesModule,
     AgmCoreModule.forRoot({
       apiKey: environment.API_MAPS
     }),
