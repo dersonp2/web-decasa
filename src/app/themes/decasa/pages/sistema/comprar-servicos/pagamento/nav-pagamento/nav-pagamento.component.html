@@ -5,12 +5,6 @@
             <li class="nav-item">
                 <a class="nav-link active" href="#cartao" role="tab" data-toggle="tab">Cartão</a>
             </li>
-            <!-- <li class="nav-item">
-                <a class="nav-link" href="#boleto" role="tab" data-toggle="tab">Boleto</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#empresa" role="tab" data-toggle="tab">Conta empresa</a>
-            </li> -->
         </ul>
 
         <!--Conteudo de cada Nav-Item-->
@@ -19,7 +13,6 @@
             <div role="tabpanel" class="tab-pane active" id="cartao">
                 <div class="row">
                     <div class="col-12">
-                        <a class="btn mb-2 ml-0 pl-0" (click)="openModal()">Usar outro cartao </a>
                         <!-- Primeira Linha-->
                         <form>
                             <!-- Terceira linha-->
@@ -28,7 +21,7 @@
                                     <!--Nome-->
                                     <div class="form-group">
                                         <label for="idNomeCartao">Nome do Titular</label>
-                                        <input type="text" name="nome" class="form-control" id="idNomeCartao" disabled [ngModel]="cartao?.nomeCartao">
+                                        <input type="text" name="nome" class="form-control" id="idNomeCartao" disabled [ngModel]="cartao.nomeCartao">
                                     </div>
                                 </div>
 
@@ -49,22 +42,16 @@
                                     <input type="number" disabled class="form-control" id="idCod">
                                 </div>
                                 <div class="form-group col-1">
-                                    <a class="btn  btn-outline-secondary btn-aplicar">Pagar</a>
+                                    <a class="btn-aplicar" mat-raised-button>Pagar</a>
                                 </div>
                             </div>
                             <!-- Terceira Linha-->
-
-
-
                         </form>
                         <!--Quarta Linha-->
                     </div>
-                    <!-- Col-8-->
-                    <!-- <div class="col-4">
-                        <img src="/assets/sistema/pagamento/cartaoPagamento.jpg" width="340px" alt="Cartão" class="vertical-align">
-                    </div> -->
                 </div>
                 <!--Linha-->
+                <button mat-raised-button (click)="openModal()">Usar outro cartao </button>
             </div>
             <!--Tab Cartão -->
 
@@ -80,11 +67,6 @@
             </div>
         </div>
     </div>
-    <!-- Coluna-->
-    <!--
-  <div class="col-2">
-    <img src="/assets/sistema/pagamento/cartaoPagamento.jpg" width="340px"  alt="Cartão" class="vertical-align">
-  </div> -->
 </div>
 <!-- Linha-->
 

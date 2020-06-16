@@ -1,3 +1,4 @@
+import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FilterPipe } from './../../../../../pipes/filter.pipe';
 import { MatCardModule } from '@angular/material/card';
@@ -49,6 +50,7 @@ import { BlocosModule } from './../../../blocos/blocos.module';
     ReactiveFormsModule,
     MatTableModule,
     MatFormFieldModule,
+    MatButtonModule,
     TextMaskModule,
     MatDatepickerModule,
     MatNativeDateModule,
