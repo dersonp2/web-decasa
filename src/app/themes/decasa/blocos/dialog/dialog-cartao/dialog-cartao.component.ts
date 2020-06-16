@@ -50,7 +50,7 @@ export class DialogCartaoComponent implements OnInit {
       },
       (error) => {
         console.log(error);
-        this.showSnackBar('Nenhum cartão encontrado!', 'orange-snackbar');
+        this.showSnackBar('Nenhum cartão encontrado!!!', 'orange-snackbar');
       }
     );
   }
