@@ -1,10 +1,10 @@
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Cliente } from './../../../../../model/cliente.module';
+import { Cliente } from '../../../../../model/cliente.module';
 import { CreditCardValidators } from 'angular-cc-library';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
-import { CartaoCliente } from './../../../../../model/cartao-cliente.module';
-import { AuthService } from './../../../../../services/auth.service';
-import { CartaoClienteService } from './../../../../../services/cartao-cliente.service';
+import { CartaoCliente } from '../../../../../model/cartao-cliente.module';
+import { AuthService } from '../../../../../services/auth.service';
+import { CartaoClienteService } from '../../../../../services/cartao-cliente.service';
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 
@@ -22,6 +22,7 @@ export class DialogCartaoComponent implements OnInit {
   form: FormGroup;
   cartao: CartaoCliente = new CartaoCliente();
 
+  // tslint:disable-next-line:variable-name
   constructor(public dialogRef: MatDialogRef<DialogCartaoComponent>, private cartaoClienteService: CartaoClienteService, private authService: AuthService, private fb: FormBuilder, private _snackBar: MatSnackBar) { }
 
 
@@ -53,10 +54,6 @@ export class DialogCartaoComponent implements OnInit {
         this.showSnackBar('Nenhum cartão encontrado!!!', 'orange-snackbar');
       }
     );
-  }
-
-  onSubmit(xt) {
-    console.log(this.form.value);
   }
 
   salvarCartao(bandeira) {

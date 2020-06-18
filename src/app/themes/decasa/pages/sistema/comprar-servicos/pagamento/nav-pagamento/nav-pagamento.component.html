@@ -28,8 +28,8 @@
                                 <div class="form-group col-3">
                                     <!--Nome-->
                                     <div class="form-group">
-                                        <label for="idNomeCartao">Número do Cartão</label>
-                                        <input type="text" name="cartao" class="form-control" id="idNomeCartao" disabled [ngModel]="cartao.numeroCartao">
+                                        <label for="idNumeroCartao">Número do Cartão</label>
+                                        <input type="text" name="cartao" class="form-control" id="idNumeroCartao" disabled [ngModel]="cartao.numeroCartao">
                                     </div>
                                 </div>
                                 <div class="form-group col-2">
@@ -39,7 +39,7 @@
 
                                 <div class="form-group col-1 offset-2">
                                     <label for="idCod">Total</label>
-                                    <input type="number" disabled class="form-control" id="idCod">
+                                    <input type="number" name="total" disabled class="form-control" id="idCod" [ngModel]="orcamento.valor">
                                 </div>
                                 <div class="form-group col-1">
                                     <a class="btn-aplicar" mat-raised-button>Pagar</a>

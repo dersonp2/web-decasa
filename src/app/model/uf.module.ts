@@ -5,4 +5,8 @@ export class Uf {
   nome: string;
   sigla: string;
   pais: Pais;
+
+  constructor() {
+    this.pais = new Pais();
+  }
 }
