@@ -1,10 +1,11 @@
-import { ClienteOrcamento } from './../../../../../../../model/response/cliente-orcamento.module';
-import { OrcamentoEvent } from './../../../../../../../events/orcamento-event';
-import { MunicipioService } from './../../../../../../../services/municipio.service';
-import { OrcamentoService } from './../../../../../../../services/orcamento.service';
-import { Municipio } from './../../../../../../../model/municipio.module';
+import { ClienteOrcamento } from '../../../../../../../model/response/cliente-orcamento.module';
+import { OrcamentoEvent } from '../../../../../../../events/orcamento-event';
+import { MunicipioService } from '../../../../../../../services/municipio.service';
+import { OrcamentoService } from '../../../../../../../services/orcamento.service';
+import { Municipio } from '../../../../../../../model/municipio.module';
 import { Component, OnInit, Input } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+import {AuthService} from '../../../../../../../services/auth.service';
 
 
 export class Pedido {
@@ -34,11 +35,13 @@ export class NPedidosComponent implements OnInit {
   pedidos: Pedido[] = [];
   municipio: Municipio;
   selectedId;
+  clientId;
 
-  constructor(private orcamentoService: OrcamentoService, private municipioService: MunicipioService, private orcamentoEvent: OrcamentoEvent) { }
+  constructor(private orcamentoService: OrcamentoService, private municipioService: MunicipioService,
+              private orcamentoEvent: OrcamentoEvent, private authService: AuthService) { }
 
   ngOnInit(): void {
-    this.buscarMunicipio();
+    this.searchMunicipioAndClient();
     switch (this.orcamento) {
       case 1: {
         this.getOrcamentosEscolher();
@@ -60,7 +63,8 @@ export class NPedidosComponent implements OnInit {
 
   }
 
-  buscarMunicipio() {
+  searchMunicipioAndClient() {
+    this.clientId = this.authService.getUser().id;
     const municipioId = localStorage.getItem('municipioId');
     this.municipioService.buscarMunicipioPorId(municipioId).subscribe(
       (data) => { this.municipio = data; },
@@ -70,25 +74,25 @@ export class NPedidosComponent implements OnInit {
 
   // Pegar os Orçamentos  para escolher Prestador
   getOrcamentosEscolher() {
-    this.orcamentoService.buscarClienteOrcamentosEscolher(2054).subscribe(
+    this.orcamentoService.buscarClienteOrcamentosEscolher(this.clientId).subscribe(
       (data) => { this.clienteOrcamento = data; this.setPedidos(); }
     );
   }
 
   getOrcamentosAgendados() {
-    this.orcamentoService.buscarClienteOrcamentosAgendados(2054).subscribe(
+    this.orcamentoService.buscarClienteOrcamentosAgendados(this.clientId).subscribe(
       (data) => { this.clienteOrcamento = data; this.setPedidos(); }
     );
   }
 
   getOrcamentosExecucao() {
-    this.orcamentoService.buscarClienteOrcamentosExecucao(2054).subscribe(
+    this.orcamentoService.buscarClienteOrcamentosExecucao(this.clientId).subscribe(
       (data) => { this.clienteOrcamento = data; this.setPedidos(); }
     );
   }
 
   getOrcamentosFinalizados() {
-    this.orcamentoService.buscarClienteOrcamentosFinalizados(2054).subscribe(
+    this.orcamentoService.buscarClienteOrcamentosFinalizados(this.clientId).subscribe(
       (data) => { this.clienteOrcamento = data; this.setPedidos(); }
     );
   }
