@@ -1,9 +1,12 @@
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { CarrinhoEvent } from './../../../../../../../events/carrinho-event';
-import { ServicoOrcamentoService } from './../../../../../../../services/servico-orcamento.service';
-import { ServicosOrcamento } from './../../../../../../../model/servico-orcamento.module';
+import {MatSnackBar} from '@angular/material/snack-bar';
+import {CarrinhoEvent} from '../../../../../../../events/carrinho-event';
+import {ServicoOrcamentoService} from '../../../../../../../services/servico-orcamento.service';
+import {ServicosOrcamento} from '../../../../../../../model/servico-orcamento.module';
 
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Orcamento} from '../../../../../../../model/orcamento.module';
+import {PrestadorOrcamento} from '../../../../../../../model/prestador-orcamento.module';
+
 @Component({
   selector: 'app-tabela-proposta',
   templateUrl: './tabela-proposta.component.html',
@@ -54,13 +57,34 @@ export class TabelaPropostaComponent implements OnInit {
     this.dataSource.forEach(e => {
       this.total += e.valor * e.quantidade;
     });
+    this.setOrcamento();
   }
 
   showSnackBar(mensagem, cor) {
     this._snackBar.open(mensagem, 'Ok', {
-      duration: 8000,
-      panelClass: [cor]
-    }
+        duration: 8000,
+        panelClass: [cor]
+      }
     );
+  }
+
+  // Inserir servicos orcamento no prestador orcamento
+  // Inserir  prestador orcamento no orcamento
+  setOrcamento() {
+    let orcamento: Orcamento = new Orcamento();
+    // TODO: criptografar
+    if (localStorage.getItem('orcamento')) {
+      orcamento = JSON.parse(atob(localStorage.getItem('orcamento')));
+    }
+    // Prestador
+    const prestadorOrcamento = new PrestadorOrcamento();
+    prestadorOrcamento.servicosOrcamentos = this.dataSource;
+    const prestadorOrcamentos: PrestadorOrcamento[] = [];
+    prestadorOrcamentos.push(prestadorOrcamento);
+    orcamento.prestadorOrcamentos = prestadorOrcamentos;
+    orcamento.valor = this.total;
+    // tslint:disable-next-line:no-console
+    console.info(orcamento);
+    localStorage.setItem('orcamento', btoa(JSON.stringify(orcamento)));
   }
 }

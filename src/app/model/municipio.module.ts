@@ -6,4 +6,9 @@ export class Municipio {
   codigoIbge: number;
   ativo: boolean;
   uf: Uf;
+
+
+  constructor() {
+    this.uf = new Uf();
+  }
 }

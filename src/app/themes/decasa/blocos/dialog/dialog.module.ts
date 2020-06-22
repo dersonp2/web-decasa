@@ -35,6 +35,7 @@ import { TabelaServicosComponent } from './dialog-editar/tabela-servicos/tabela-
 import { NovoServicoComponent } from './dialog-editar/novo-servico/novo-servico.component';
 import { DialogLocalizacaoComponent } from './dialog-localizacao/dialog-localizacao.component';
 import { DialogLoginComponent } from './dialog-login/dialog-login.component';
+import { DiaologEnderecoComponent } from './diaolog-endereco/diaolog-endereco.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { DialogLoginComponent } from './dialog-login/dialog-login.component';
     TabelaServicosComponent,
     NovoServicoComponent,
     DialogLocalizacaoComponent,
-    DialogLoginComponent
+    DialogLoginComponent,
+    DiaologEnderecoComponent
   ],
   imports: [
     CommonModule,
@@ -83,6 +85,7 @@ import { DialogLoginComponent } from './dialog-login/dialog-login.component';
     DialogCreditoComponent,
     DialogMembrosComponent,
     DialogServicosComponent,
+    DiaologEnderecoComponent
   ],
   entryComponents: [DialogAnexarComponent,
     DialogCartaoComponent,
@@ -95,7 +98,8 @@ import { DialogLoginComponent } from './dialog-login/dialog-login.component';
     DialogRastrearComponent,
     DialogRescindirComponent,
     DialogCancelarComponent,
-    DialogLoginComponent
+    DialogLoginComponent,
+    DiaologEnderecoComponent
   ],
 })
 export class DialogModule { }

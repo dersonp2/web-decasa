@@ -5,6 +5,7 @@ import { ClienteOrcamento } from './../../../../../../model/response/cliente-orc
 import { OrcamentoService } from './../../../../../../services/orcamento.service';
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+import {AuthService} from '../../../../../../services/auth.service';
 
 export interface PeriodicElement {
   pedido: string;
@@ -37,7 +38,8 @@ export class SelecionarFornecedorComponent implements OnInit {
   pedidos: Pedido[] = [];
   municipio: Municipio;
 
-  constructor(private orcamentoService: OrcamentoService, private municipioService: MunicipioService) { }
+  constructor(private orcamentoService: OrcamentoService, private municipioService: MunicipioService,
+              private authService: AuthService) { }
 
   ngOnInit(): void {
     this.buscarMunicipio();
@@ -52,13 +54,13 @@ export class SelecionarFornecedorComponent implements OnInit {
     );
   }
   getOrcamentosPendentes() {
-    this.orcamentoService.buscarClienteOrcamentosEscolher(2054).subscribe(
+    this.orcamentoService.buscarClienteOrcamentosEscolher(this.authService.getUser().id).subscribe(
       (data) => { this.clienteOrcamento = data; this.setPedidos(); }
     );
   }
 
   setPedidos() {
-    // console.info(this.clienteOrcamento);
+    console.info(this.clienteOrcamento);
     this.clienteOrcamento.forEach(e => {
       const pedido = `BRA${e.id}${e.cidade.substring(0, 3)}`;
       this.pedidos.push(new Pedido(pedido));

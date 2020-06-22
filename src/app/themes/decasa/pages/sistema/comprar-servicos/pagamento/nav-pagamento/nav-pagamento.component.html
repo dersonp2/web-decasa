@@ -1,77 +1,84 @@
 <div class="row mt-3">
-    <div class="col-12">
-        <!--Nav Tav-->
-        <ul class="nav nav-tabs nav-fill">
-            <li class="nav-item">
-                <a class="nav-link active" href="#cartao" role="tab" data-toggle="tab">Cartão</a>
-            </li>
-        </ul>
+  <div class="col-12">
+    <!--Nav Tav-->
+    <ul class="nav nav-tabs nav-fill">
+      <li class="nav-item">
+        <a class="nav-link active" href="#cartao" role="tab" data-toggle="tab">Cartão</a>
+      </li>
+    </ul>
 
-        <!--Conteudo de cada Nav-Item-->
-        <div class="tab-content mt-3 mb-3 ml-2">
-            <!-- Cartão de credito-->
-            <div role="tabpanel" class="tab-pane active" id="cartao">
-                <div class="row">
-                    <div class="col-12">
-                        <!-- Primeira Linha-->
-                        <form>
-                            <!-- Terceira linha-->
-                            <div class="form-row">
-                                <div class="form-group col-3">
-                                    <!--Nome-->
-                                    <div class="form-group">
-                                        <label for="idNomeCartao">Nome do Titular</label>
-                                        <input type="text" name="nome" class="form-control" id="idNomeCartao" disabled [ngModel]="cartao.nomeCartao">
-                                    </div>
-                                </div>
-
-                                <div class="form-group col-3">
-                                    <!--Nome-->
-                                    <div class="form-group">
-                                        <label for="idNomeCartao">Número do Cartão</label>
-                                        <input type="text" name="cartao" class="form-control" id="idNomeCartao" disabled [ngModel]="cartao.numeroCartao">
-                                    </div>
-                                </div>
-                                <div class="form-group col-2">
-                                    <label for="cc-cvc">Cod. Segurança</label>
-                                    <input id="cc-cvc" type="tel" autocomplete="off" ccCVC class="form-control">
-                                </div>
-
-                                <div class="form-group col-1 offset-2">
-                                    <label for="idCod">Total</label>
-                                    <input type="number" disabled class="form-control" id="idCod">
-                                </div>
-                                <div class="form-group col-1">
-                                    <a class="btn-aplicar" mat-raised-button>Pagar</a>
-                                </div>
-                            </div>
-                            <!-- Terceira Linha-->
-                        </form>
-                        <!--Quarta Linha-->
-                    </div>
+    <!--Conteudo de cada Nav-Item-->
+    <div class="tab-content mt-3 mb-3 ml-2">
+      <!-- Cartão de credito-->
+      <div role="tabpanel" class="tab-pane active" id="cartao">
+        <div class="row">
+          <div class="col-12">
+            <!-- Primeira Linha-->
+            <form>
+              <!-- Terceira linha-->
+              <div class="form-row">
+                <div class="form-group col-3">
+                  <!--Nome-->
+                  <div class="form-group">
+                    <label for="idNomeCartao">Nome do Titular</label>
+                    <input type="text" name="nome" class="form-control" id="idNomeCartao" disabled
+                           [ngModel]="cartao.nomeCartao">
+                  </div>
                 </div>
-                <!--Linha-->
-                <button mat-raised-button (click)="openModal()">Usar outro cartao </button>
-            </div>
-            <!--Tab Cartão -->
 
-
-            <!-- Boleto -->
-            <div role="tabpanel" class="tab-pane" id="boleto">
-                <button type="button" class="btn btn-secondary mt-3">Gerar boleto <i class="fas fa-barcode fa-lg"></i></button>
-            </div>
-
-            <!-- Empresa -->
-            <div role="tabpanel" class="tab-pane" id="empresa">
-                Conta Empresa
-            </div>
+                <div class="form-group col-3">
+                  <!--Nome-->
+                  <div class="form-group">
+                    <label for="idNumeroCartao">Número do Cartão</label>
+                    <input type="text" name="cartao" class="form-control" id="idNumeroCartao" disabled
+                           [ngModel]="cartao.numeroCartao">
+                  </div>
+                </div>
+                <div class="form-group col-2">
+                  <label for="icvc">Cod. Segurança</label>
+                  <input id="icvc" name="cvc" class="form-control" [(ngModel)]="cvc">
+                </div>
+                <div class="form-group col-1 offset-2">
+                  <label for="idCod">Total</label>
+                  <input type="number" name="total" disabled class="form-control" id="idCod"
+                         [ngModel]="orcamento.valor">
+                </div>
+                <div class="form-group col-1">
+                  <a class="btn-aplicar" mat-raised-button (click)="saveOrcamento()" [hidden]="!visiblePagar || !cvc">Pagar</a>
+                  <div [hidden]="visiblePagar">
+                    <div class="spinner-border text-primary" role="status">
+                    </div>
+                    <span>Salvando...</span>
+                  </div>
+                </div>
+              </div>
+              <!-- Terceira Linha-->
+            </form>
+            <!--Quarta Linha-->
+          </div>
         </div>
+        <!--Linha-->
+        <button mat-raised-button (click)="openModal()">Usar outro cartao</button>
+      </div>
+      <!--Tab Cartão -->
+
+
+      <!-- Boleto -->
+      <div role="tabpanel" class="tab-pane" id="boleto">
+        <button type="button" class="btn btn-secondary mt-3">Gerar boleto <i class="fas fa-barcode fa-lg"></i></button>
+      </div>
+
+      <!-- Empresa -->
+      <div role="tabpanel" class="tab-pane" id="empresa">
+        Conta Empresa
+      </div>
     </div>
+  </div>
 </div>
 <!-- Linha-->
 
-<br />
-<br />
-<br />
-<br />
-<br />
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>

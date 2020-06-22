@@ -1,6 +1,6 @@
 import { MatDialog } from '@angular/material/dialog';
-import { DialogLoginComponent } from './../../../../blocos/dialog/dialog-login/dialog-login.component';
-import { AuthService } from './../../../../../../services/auth.service';
+import { DialogLoginComponent } from '../../../../blocos/dialog/dialog-login/dialog-login.component';
+import { AuthService } from '../../../../../../services/auth.service';
 import { Component, Output, EventEmitter, OnInit } from '@angular/core';
 
 @Component({

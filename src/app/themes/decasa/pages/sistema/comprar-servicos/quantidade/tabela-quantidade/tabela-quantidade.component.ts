@@ -42,7 +42,7 @@ export class TabelaQuantidadeComponent implements OnInit {
     console.log(qnt);
     console.log(servico);
     const pos = this.servicosSelecionados.indexOf(servico);
-    this.servicosSelecionados[pos].quantidade = qnt;
+    this.servicosSelecionados[pos].quantidade = Number(qnt);
     localStorage.setItem('servicosSelecionados', JSON.stringify(this.servicosSelecionados));
 
   }

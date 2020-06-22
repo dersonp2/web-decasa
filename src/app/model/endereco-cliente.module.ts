@@ -1,5 +1,6 @@
 import { Cliente } from './cliente.module';
 import { Municipio } from './municipio.module';
+import {Uf} from './uf.module';
 
 export class EnderecoCliente {
   id: number;
@@ -21,4 +22,8 @@ export class EnderecoCliente {
   clienteId: number;
   ativo: boolean;
 
+
+  constructor() {
+    this.municipio = new Municipio();
+  }
 }

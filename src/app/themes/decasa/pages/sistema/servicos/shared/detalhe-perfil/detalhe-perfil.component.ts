@@ -13,7 +13,7 @@ export class DetalhePerfilComponent implements OnInit {
 
   // 1 - Escolher | 2-Agendado | 3 - Andamento
   @Input() displayBtn;
-  @Input() orcamentoSelected: ClienteOrcamento;
+  @Input() orcamentoSelected: ClienteOrcamento = new ClienteOrcamento();
 
   displayCertificados = false;
   displayPortifolio = false;
