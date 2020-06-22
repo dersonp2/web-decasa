@@ -9,6 +9,13 @@ import {CreditCardValidators} from 'angular-cc-library';
 import {Orcamento} from '../../../../../../../model/orcamento.module';
 import {PrestadorOrcamento} from '../../../../../../../model/prestador-orcamento.module';
 import {Cliente} from '../../../../../../../model/cliente.module';
+import {OrcamentoService} from '../../../../../../../services/orcamento.service';
+import {Pagamento} from '../../../../../../../model/pagamento.module';
+import {Financeira} from '../../../../../../../model/financeira.module';
+import {FormaPagamento} from '../../../../../../../model/forma-pagamento.module';
+import {PagamentoService} from '../../../../../../../services/pagamento.service';
+import {MatSnackBar} from '@angular/material/snack-bar';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -21,18 +28,19 @@ export class NavPagamentoComponent implements OnInit {
   form: FormGroup;
   cartao: CartaoCliente = new CartaoCliente();
   orcamento: Orcamento = new Orcamento();
-
-  constructor(private fb: FormBuilder, private authService: AuthService, private cartaoClienteService: CartaoClienteService, public dialog: MatDialog) {
+  cvc;
+  visiblePagar = true;
+  // tslint:disable-next-line:variable-name
+  constructor(private fb: FormBuilder, private authService: AuthService, private _snackBar: MatSnackBar,
+              private cartaoClienteService: CartaoClienteService, public dialog: MatDialog, private router: Router,
+              private orcamentoService: OrcamentoService, private pagamentoService: PagamentoService) {
   }
 
   ngOnInit() {
-    this.form = this.fb.group(
-      {
-        creditCard: ['', [CreditCardValidators.validateCCNumber]],
-        expirationDate: ['', [CreditCardValidators.validateExpDate]],
-        nome: ['', [Validators.required]],
-        cvc: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(4)]]
-      });
+    // this.form = this.fb.group(
+    //   {
+    //     cvc: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(4)]]
+    //   });
     this.getCartaoPrincipal();
     this.getOrcamento();
   }
@@ -46,10 +54,6 @@ export class NavPagamentoComponent implements OnInit {
         this.openModal();
       }
     );
-  }
-
-  onSubmit(xt) {
-    console.log(this.form.value);
   }
 
   openModal() {
@@ -73,9 +77,75 @@ export class NavPagamentoComponent implements OnInit {
       const cliente = new Cliente();
       cliente.id = this.authService.getUser().id;
       this.orcamento.cliente = cliente;
+      this.orcamento.origemWeb = true;
       // tslint:disable-next-line:no-console
       console.info(this.orcamento);
+      console.log(this.orcamento);
       localStorage.setItem('orcamento', btoa(JSON.stringify(this.orcamento)));
     }
+  }
+
+  saveOrcamento() {
+    this.visiblePagar = false;
+    if (this.orcamento !== null) {
+      this.orcamentoService.salvarOrcamento(this.orcamento).subscribe(
+        (data) => {
+          console.log(data);
+          if (data.id === 200) {
+            this.orcamento = data.orcamento;
+            console.log('Salvou Orcamento' + this.orcamento);
+            this.savepayment();
+          }
+        },
+        (error) => {
+          console.error(error);
+          this.showSnackBar('Erro ao cadastrar orçamento!!!', 'orange-snackbar');
+          this.visiblePagar = true;
+        }
+      );
+    }
+  }
+
+  savepayment() {
+    console.log(this.cvc);
+    const pagamento: Pagamento = new Pagamento();
+    this.cartao.codigoSegurancaCartao = Number(this.cvc);
+    // Orcamento
+    pagamento.orcamento = this.orcamento;
+    pagamento.cartaoCliente = this.cartao;
+    pagamento.formaPagamento = new FormaPagamento(1);
+    pagamento.numeroParcela = 1;
+    // TODO: mudar o valor para this.orcamento.valor
+    pagamento.valorParcela = 1;
+    pagamento.financeira = new Financeira(2);
+    console.log(pagamento);
+
+    this.pagamentoService.savePay(pagamento).subscribe(
+      (data) => {
+        if (data.id === 200) {
+          console.log('Salvou Cartao' + data);
+          localStorage.removeItem('orcamento');
+          localStorage.removeItem('servicosSelecionados');
+          this.showSnackBar('Pagamento Realizado com sucesso!!!', 'blue-snackbar');
+          this.router.navigate(['/escolher']);
+        } else {
+          this.visiblePagar = true;
+          this.showSnackBar('Erro ao realizar o pagamento!', 'orange-snackbar');
+        }
+      },
+      (error) => {
+        console.log(error);
+        this.visiblePagar = true;
+        this.showSnackBar('Erro ao realizar o pagamento!', 'orange-snackbar');
+      }
+    );
+  }
+
+  showSnackBar(mensagem, cor) {
+    this._snackBar.open(mensagem, '', {
+        duration: 3000,
+        panelClass: [cor]
+      }
+    );
   }
 }

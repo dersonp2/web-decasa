@@ -1,6 +1,8 @@
 export class FormaPagamento {
   id: number;
   descricao: string;
-  imagem: string;
-  qtdMaxParcelas: number;
+
+  constructor(id) {
+    this.id = id;
+  }
 }

@@ -5,11 +5,9 @@ import {MapService} from '../../../../../../services/maps.service';
 import {ViaCepService} from '../../../../../../services/via-cep.service';
 import {MunicipioService} from '../../../../../../services/municipio.service';
 import {Component, OnInit} from '@angular/core';
-import {Municipio} from 'src/app/model/municipio.module';
 import {ViaCep} from 'src/app/model/via-cep.module';
 import {AuthService} from '../../../../../../services/auth.service';
 import {EnderecoService} from '../../../../../../services/endereco.service';
-import {DialogLoginComponent} from '../../../../blocos/dialog/dialog-login/dialog-login.component';
 import {MatDialog} from '@angular/material/dialog';
 import {DiaologEnderecoComponent} from '../../../../blocos/dialog/diaolog-endereco/diaolog-endereco.component';
 import {Orcamento} from '../../../../../../model/orcamento.module';
@@ -36,29 +34,32 @@ export class PropostaComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.checkEnderecoPrincipal();
+    this.checkPrincipalAddress();
   }
 
-  // Eventos do Radio para atendimento
-  handleChange(evt) {
-    console.log(evt.target);
-    if (evt.target.value === 'option1') {
-      this.domicile = 1;
-    } else {
-      this.domicile = 2;
-    }
-  }
-
-  // (Usuário Logado) Verifica se existe endereço principal
-  checkEnderecoPrincipal() {
+  // (Usuário Logado) Verifica se existe endereço no orçamento, se não busca o endereco principal
+  // (Usuáio não logado) Busca o id do municipio para preenchar alguns campos
+  checkPrincipalAddress() {
     if (this.authService.check()) {
-      this.enderecoService.getPrincipalAddress(this.authService.getUser().id).subscribe(
-        (data) => {
-          this.checkEqualsCount(data);
+      let orcamento: Orcamento = new Orcamento();
+      if (localStorage.getItem('orcamento')) {
+        orcamento = JSON.parse(atob(localStorage.getItem('orcamento')));
+        if ( typeof orcamento.enderecoCliente !== 'undefined') {
+          console.log('Entrou em orcamento endereco cliente');
+          console.log(orcamento.enderecoCliente);
+          this.enderecoCliente = orcamento.enderecoCliente;
+        } else {
+          console.log('Não entrou em orcamento endereco cliente');
+          this.enderecoService.getPrincipalAddress(this.authService.getUser().id).subscribe(
+            (data) => {
+              this.checkEqualsCount(data);
+            }
+          );
         }
-      );
+      }
     } else {
       this.enderecoCliente = new EnderecoCliente();
+      this.searchMunicipio();
     }
   }
 
@@ -76,6 +77,7 @@ export class PropostaComponent implements OnInit {
     }
   }
 
+  // Verifica se o municipio do cep é igual ao endereco o cliente
   checkMunicipio(endereco: ViaCep) {
     // this.endereco = data; console.log(this.endereco);
     if (this.removeAcento(endereco.localidade) === this.enderecoCliente.municipio.nome) {
@@ -117,6 +119,26 @@ export class PropostaComponent implements OnInit {
           alert('Cordenadas geográficas não encontrada');
         }
       }
+    );
+  }
+
+  // Servico para pegar o endereço que estava no localStorage
+  searchMunicipio() {
+    const municipioId = localStorage.getItem('municipioId');
+    let endereco = null;
+    if (localStorage.hasOwnProperty('enderecoCliente')) {
+      endereco = JSON.parse(atob(localStorage.getItem('enderecoCliente')));
+    }
+    this.municipioService.buscarMunicipioPorId(municipioId).subscribe(
+      (data) => {
+        if (endereco != null && municipioId === endereco.municipio.id) {
+          this.enderecoCliente = endereco;
+          this.searchLatLng();
+        } else {
+          this.enderecoCliente.municipio = data;
+        }
+      },
+      (error) => (console.log(error))
     );
   }
 
@@ -184,6 +206,16 @@ export class PropostaComponent implements OnInit {
       }
     });
   }
+
+  // Eventos do Radio para atendimento
+  // handleChange(evt) {
+  //   console.log(evt.target);
+  //   if (evt.target.value === 'option1') {
+  //     this.domicile = 1;
+  //   } else {
+  //     this.domicile = 2;
+  //   }
+  // }
 
   // Servico para pegar o endereço que estava no localStorage
   // buscarMunicipio() {

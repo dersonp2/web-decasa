@@ -46,7 +46,7 @@ export class OrcamentoComponent implements OnInit {
   }
 
   addEvent(type: string, event: MatDatepickerInputEvent<Date>) {
-    this.date = moment(event.value).format('YYYY/MM/DD');
+    this.date = moment(event.value).format('DD/MM/YYYY');
     this.saveDateTime();
   }
 
@@ -62,7 +62,8 @@ export class OrcamentoComponent implements OnInit {
       if (localStorage.getItem('orcamento')) {
         orcamento =  JSON.parse(atob(localStorage.getItem('orcamento')));
       }
-      orcamento.dataHora = `${this.date} ${this.time}`;
+      orcamento.dataHora = this.date + ' ' + this.time;
+      console.log(orcamento);
       localStorage.setItem('orcamento', btoa(JSON.stringify(orcamento)));
     }
   }

@@ -13,13 +13,14 @@ export class DiaologEnderecoComponent implements OnInit {
 
   displayedColumns: string[] = ['municipio', 'rua', 'numero', 'opc'];
   enderecosCliente: EnderecoCliente[] = [];
-
+  municipioId;
   constructor(public dialogRef: MatDialogRef<DiaologEnderecoComponent>,
               private enderecoService: EnderecoService, private authService: AuthService) {
   }
 
   ngOnInit() {
     this.getAllAddress();
+    this.municipioId = Number(localStorage.getItem('municipioId'));
   }
 
   getAllAddress() {

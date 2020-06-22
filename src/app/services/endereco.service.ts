@@ -24,4 +24,8 @@ export class EnderecoService {
   getAddressClientId(clientId): Observable<EnderecoCliente[]> {
     return this.http.get<EnderecoCliente[]>(`${this.apiUrl}/clientAddress/${clientId}`).pipe(take(1));
   }
+
+  getExisteEnderecoCliente(endereco: EnderecoCliente): Observable<EnderecoCliente> {
+    return this.http.post<EnderecoCliente>(`${this.apiUrl}/enderecos/clientes/exist`, endereco).pipe(take(1));
+  }
 }

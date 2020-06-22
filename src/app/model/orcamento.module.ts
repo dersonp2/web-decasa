@@ -18,6 +18,7 @@ export class Orcamento {
   custoAdicional: CustoAdicional;
   prestadorOrcamentos: PrestadorOrcamento[];
   historicoOrcamentos: HistoricoOrcamento[];
+  origemWeb: boolean;
   // id: number;
   // data: Date;
   // valor: number;
@@ -33,4 +34,8 @@ export class Orcamento {
   // pagamento: Pagamento;
   // custoAdicional: CustoAdicional;
   // userInformation: UserInformation;
+
+  constructor() {
+    this.enderecoCliente = new EnderecoCliente();
+  }
 }
