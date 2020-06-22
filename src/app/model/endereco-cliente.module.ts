@@ -25,6 +25,5 @@ export class EnderecoCliente {
 
   constructor() {
     this.municipio = new Municipio();
-    this.cliente = new Cliente();
   }
 }

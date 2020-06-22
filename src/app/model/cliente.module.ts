@@ -1,10 +1,11 @@
-import { EnderecoCliente } from './endereco-cliente.module';
-import { TipoPessoa } from './tipo-pessoa.module';
-import { Usuario } from './usuario.module';
-import { Uf } from './uf.module';
-import { OrgaoExpedidor } from './orgao-expedidor.module';
-import { EstadoCivil } from './estado-civil.module';
-import { Sexo } from './sexo.module';
+import {EnderecoCliente} from './endereco-cliente.module';
+import {TipoPessoa} from './tipo-pessoa.module';
+import {Usuario} from './usuario.module';
+import {Uf} from './uf.module';
+import {OrgaoExpedidor} from './orgao-expedidor.module';
+import {EstadoCivil} from './estado-civil.module';
+import {Sexo} from './sexo.module';
+
 export class Cliente {
   id: number;
   nome: string;
@@ -26,4 +27,8 @@ export class Cliente {
   dataNascimento: Date;
   newPassword: string;
   idConsultor: number;
+
+  constructor(id) {
+    this.id = id;
+  }
 }

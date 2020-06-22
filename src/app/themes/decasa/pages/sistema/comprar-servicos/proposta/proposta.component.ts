@@ -30,7 +30,7 @@ export class PropostaComponent implements OnInit {
 
   constructor(private municipioService: MunicipioService, private cepService: ViaCepService,
               private mapService: MapService, private mapsEvent: MapsEvent,
-              private authService: AuthService, private enderecoService: EnderecoService, public dialog: MatDialog) {
+              public authService: AuthService, private enderecoService: EnderecoService, public dialog: MatDialog) {
   }
 
   ngOnInit(): void {
@@ -42,14 +42,14 @@ export class PropostaComponent implements OnInit {
   checkPrincipalAddress() {
     if (this.authService.check()) {
       let orcamento: Orcamento = new Orcamento();
-      if (localStorage.getItem('orcamento')) {
+      if (localStorage.hasOwnProperty('orcamento')) {
         orcamento = JSON.parse(atob(localStorage.getItem('orcamento')));
-        if ( typeof orcamento.enderecoCliente !== 'undefined') {
-          console.log('Entrou em orcamento endereco cliente');
-          console.log(orcamento.enderecoCliente);
-          this.enderecoCliente = orcamento.enderecoCliente;
+        if (typeof orcamento.enderecoCliente !== 'undefined') {
+          this.checkEqualsCount(orcamento.enderecoCliente);
+          // this.enderecoCliente = orcamento.enderecoCliente;
+          // localStorage.setItem('enderecoCliente', btoa(JSON.stringify(this.enderecoCliente)));
         } else {
-          console.log('Não entrou em orcamento endereco cliente');
+          console.log('buscar endereco principal');
           this.enderecoService.getPrincipalAddress(this.authService.getUser().id).subscribe(
             (data) => {
               this.checkEqualsCount(data);
@@ -65,7 +65,6 @@ export class PropostaComponent implements OnInit {
 
   // Verifica se o endereço do cliente é igual ao endereo dos serviços selecionados
   checkEqualsCount(data) {
-    this.enderecoCliente = data;
     const municipioId = Number(localStorage.getItem('municipioId'));
     if (municipioId === data.municipio.id) {
       this.enderecoCliente = data;
@@ -73,13 +72,15 @@ export class PropostaComponent implements OnInit {
       this.searchLatLng();
     } else {
       this.enderecoCliente = new EnderecoCliente();
-      alert('O endereço não corresponde a cidade dos serviços selecionados');
+      this.searchMunicipio();
+      alert('Seu endereço principal não corresponde a cidade dos serviços selecionados');
     }
   }
 
   // Verifica se o municipio do cep é igual ao endereco o cliente
   checkMunicipio(endereco: ViaCep) {
-    // this.endereco = data; console.log(this.endereco);
+    console.log('ViaCep');
+    console.log(this.removeAcento(endereco.localidade) + ' - ' + this.enderecoCliente.municipio.nome);
     if (this.removeAcento(endereco.localidade) === this.enderecoCliente.municipio.nome) {
       this.enderecoCliente.cep = endereco.cep.toString();
       this.enderecoCliente.bairro = endereco.bairro;
@@ -125,18 +126,20 @@ export class PropostaComponent implements OnInit {
   // Servico para pegar o endereço que estava no localStorage
   searchMunicipio() {
     const municipioId = localStorage.getItem('municipioId');
-    let endereco = null;
-    if (localStorage.hasOwnProperty('enderecoCliente')) {
-      endereco = JSON.parse(atob(localStorage.getItem('enderecoCliente')));
-    }
+    // let endereco = null;
+    // if (localStorage.hasOwnProperty('enderecoCliente')) {
+    //   endereco = JSON.parse(atob(localStorage.getItem('enderecoCliente')));
+    // }
     this.municipioService.buscarMunicipioPorId(municipioId).subscribe(
       (data) => {
-        if (endereco != null && municipioId === endereco.municipio.id) {
-          this.enderecoCliente = endereco;
-          this.searchLatLng();
-        } else {
-          this.enderecoCliente.municipio = data;
-        }
+        this.enderecoCliente.municipio = data;
+        // if (endereco != null && municipioId === endereco.municipio.id) {
+        //   this.enderecoCliente = endereco;
+        //   this.searchLatLng();
+        //   this.updateOramento();
+        // } else {
+        //   this.enderecoCliente.municipio = data;
+        // }
       },
       (error) => (console.log(error))
     );
@@ -144,8 +147,11 @@ export class PropostaComponent implements OnInit {
 
   // Buscar Latitude e logitude
   searchLatLng() {
-    if (this.enderecoCliente.cep != null && this.enderecoCliente.bairro != null && this.enderecoCliente.logradouro != null && this.enderecoCliente.numero != null) {
-      const endereco = `${this.enderecoCliente.cep} ${this.enderecoCliente.bairro} ${this.enderecoCliente.logradouro} ${this.enderecoCliente.numero}`;
+    if (this.enderecoCliente.cep != null && this.enderecoCliente.bairro != null && this.enderecoCliente.logradouro != null) {
+      let endereco = `${this.enderecoCliente.cep} ${this.enderecoCliente.bairro} ${this.enderecoCliente.logradouro}`;
+      if (this.enderecoCliente.numero != null) {
+        endereco += ' ' + this.enderecoCliente.numero;
+      }
       this.setLatLong(endereco);
       console.log('Atualizou');
     } else {
@@ -200,9 +206,14 @@ export class PropostaComponent implements OnInit {
       data: {enderecoCliente: this.enderecoCliente}
     });
     dialogRef.afterClosed().subscribe(result => {
-      if (result != null) {
+      console.log('fechou');
+      console.log(result.id);
+      if (typeof result.id !== 'undefined') {
         this.enderecoCliente = result;
         this.updateOramento();
+      } else {
+        this.enderecoCliente = new EnderecoCliente();
+        this.searchMunicipio();
       }
     });
   }

@@ -38,14 +38,13 @@
                   <label for="icvc">Cod. Segurança</label>
                   <input id="icvc" name="cvc" class="form-control" [(ngModel)]="cvc">
                 </div>
-
                 <div class="form-group col-1 offset-2">
                   <label for="idCod">Total</label>
                   <input type="number" name="total" disabled class="form-control" id="idCod"
                          [ngModel]="orcamento.valor">
                 </div>
                 <div class="form-group col-1">
-                  <a class="btn-aplicar" mat-raised-button (click)="saveOrcamento()" [hidden]="!visiblePagar">Pagar</a>
+                  <a class="btn-aplicar" mat-raised-button (click)="saveOrcamento()" [hidden]="!visiblePagar || !cvc">Pagar</a>
                   <div [hidden]="visiblePagar">
                     <div class="spinner-border text-primary" role="status">
                     </div>

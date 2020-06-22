@@ -32,6 +32,11 @@ export class DiaologEnderecoComponent implements OnInit {
     );
   }
 
+  newAddress() {
+    this.dialogRef.close(new EnderecoCliente());
+
+  }
+
   close(): void {
     this.dialogRef.close();
   }

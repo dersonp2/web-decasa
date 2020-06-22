@@ -16,6 +16,8 @@ import {FormaPagamento} from '../../../../../../../model/forma-pagamento.module'
 import {PagamentoService} from '../../../../../../../services/pagamento.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {Router} from '@angular/router';
+import {EnderecoCliente} from '../../../../../../../model/endereco-cliente.module';
+import {EnderecoService} from '../../../../../../../services/endereco.service';
 
 
 @Component({
@@ -28,12 +30,13 @@ export class NavPagamentoComponent implements OnInit {
   form: FormGroup;
   cartao: CartaoCliente = new CartaoCliente();
   orcamento: Orcamento = new Orcamento();
-  cvc;
+  cvc = null;
   visiblePagar = true;
+
   // tslint:disable-next-line:variable-name
   constructor(private fb: FormBuilder, private authService: AuthService, private _snackBar: MatSnackBar,
               private cartaoClienteService: CartaoClienteService, public dialog: MatDialog, private router: Router,
-              private orcamentoService: OrcamentoService, private pagamentoService: PagamentoService) {
+              private orcamentoService: OrcamentoService, private pagamentoService: PagamentoService, private enderecoService: EnderecoService) {
   }
 
   ngOnInit() {
@@ -41,8 +44,10 @@ export class NavPagamentoComponent implements OnInit {
     //   {
     //     cvc: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(4)]]
     //   });
-    this.getCartaoPrincipal();
-    this.getOrcamento();
+    if (this.authService.check()) {
+      this.getCartaoPrincipal();
+      this.getOrcamento();
+    }
   }
 
   getCartaoPrincipal() {
@@ -68,32 +73,59 @@ export class NavPagamentoComponent implements OnInit {
     });
   }
 
+  getExistAddress() {
+    console.log('Entrou no getExistaddress');
+    let endereco: EnderecoCliente = null;
+    if (localStorage.hasOwnProperty('enderecoCliente')) {
+      endereco = JSON.parse(atob(localStorage.getItem('enderecoCliente')));
+      endereco.clienteId = this.authService.getUser().id;
+      console.info(endereco);
+      if (endereco.id == null) {
+        this.enderecoService.getExisteEnderecoCliente(endereco).subscribe(
+          (data) => {
+            this.orcamento.enderecoCliente = data;
+            console.log('Endereco salvo');
+            console.log(data);
+            localStorage.setItem('orcamento', btoa(JSON.stringify(this.orcamento)));
+          },
+          (error) => {
+            console.log(error);
+          }
+        );
+      }
+    }
+  }
+
   getOrcamento() {
     // TODO: criptografar
     if (localStorage.getItem('orcamento')) {
       this.orcamento = JSON.parse(atob(localStorage.getItem('orcamento')));
     }
     if (this.authService.check()) {
-      const cliente = new Cliente();
-      cliente.id = this.authService.getUser().id;
-      this.orcamento.cliente = cliente;
+      this.orcamento.cliente = new Cliente(this.authService.getUser().id);
       this.orcamento.origemWeb = true;
+      console.log('orcamento ---');
       // tslint:disable-next-line:no-console
       console.info(this.orcamento);
-      console.log(this.orcamento);
+
+      console.log(this.orcamento.enderecoCliente.id);
+      if (this.orcamento.enderecoCliente.id == null) {
+        this.getExistAddress();
+      }
       localStorage.setItem('orcamento', btoa(JSON.stringify(this.orcamento)));
     }
   }
 
   saveOrcamento() {
     this.visiblePagar = false;
-    if (this.orcamento !== null) {
+    if (this.orcamento.id == null) {
       this.orcamentoService.salvarOrcamento(this.orcamento).subscribe(
         (data) => {
           console.log(data);
           if (data.id === 200) {
             this.orcamento = data.orcamento;
             console.log('Salvou Orcamento' + this.orcamento);
+            localStorage.setItem('orcamento', btoa(JSON.stringify(this.orcamento)));
             this.savepayment();
           }
         },
@@ -103,6 +135,8 @@ export class NavPagamentoComponent implements OnInit {
           this.visiblePagar = true;
         }
       );
+    } else {
+      this.savepayment();
     }
   }
 

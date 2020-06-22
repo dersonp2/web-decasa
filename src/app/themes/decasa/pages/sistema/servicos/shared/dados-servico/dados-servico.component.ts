@@ -18,7 +18,7 @@ export class DadosServicoComponent implements OnInit {
 
   // 1- Excolher | 3- Agendamento | 4 - Finalizar
   @Input() displayBtn;
-  @Input() orcamentoSelected: ClienteOrcamento;
+  @Input() orcamentoSelected: ClienteOrcamento = new ClienteOrcamento();
 
   displayEmail = false;
 
