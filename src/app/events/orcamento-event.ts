@@ -1,5 +1,5 @@
-import { Subject } from 'rxjs';
-import { Injectable } from '@angular/core';
+import {Subject} from 'rxjs';
+import {Injectable} from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +7,7 @@ import { Injectable } from '@angular/core';
 export class OrcamentoEvent {
 
   // tslint:disable-next-line:variable-name
-  private _alteracao = new Subject();
+  private _escolher = new Subject();
   // tslint:disable-next-line:variable-name
   private _agendado = new Subject();
   // tslint:disable-next-line:variable-name
@@ -15,11 +15,17 @@ export class OrcamentoEvent {
   // tslint:disable-next-line:variable-name
   private _finalizado = new Subject();
 
+  escolher$ = this._escolher.asObservable();
   finalizado$ = this._finalizado.asObservable();
   agendado$ = this._agendado.asObservable();
   execucao$ = this._execucao.asObservable();
 
-  constructor() { }
+  constructor() {
+  }
+
+  escolher(e) {
+    this._escolher.next(e);
+  }
 
   agendado(e) {
     this._agendado.next(e);

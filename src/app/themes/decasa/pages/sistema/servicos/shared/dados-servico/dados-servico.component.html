@@ -11,7 +11,7 @@
             <input type="text" class="form-control ml-1" placeholder="Nome do projeto" id="nomeProjeto" aria-describedby="emailHelp">
             <button class="btn btn-primary" disabled title="Confime"><i class="fas fa-check"></i></button>
         </div>
-        <p class="mt-4">Endereço: {{orcamentoSelected.logradouro}}, nº {{orcamentoSelected.numero}}, bairro {{orcamentoSelected.bairro}}, observação: {{orcamentoSelected.observacao}} </p>
+        <p class="mt-4">Endereço: {{orcamentoSelected.logradouro}}, nº {{orcamentoSelected.numero}}, bairro {{orcamentoSelected.bairro}}. Oservação: {{orcamentoSelected.observacao}} </p>
         <p class="mt-3">Município: {{orcamentoSelected.cidade | titlecase}}<span class="ml-4">UF: {{orcamentoSelected.uf | titlecase}}</span></p>
         <p *ngIf="displayBtn == 4" class="mt-3">Prestador de Serviços: {{orcamentoSelected.prestadores[0].nome}}<span class="ml-4"></span>Código: {{orcamentoSelected.prestadores[0].id}}</p>
     </div>
