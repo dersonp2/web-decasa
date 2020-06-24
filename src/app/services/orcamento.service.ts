@@ -45,15 +45,15 @@ export class OrcamentoService {
       .pipe(take(1));
   }
 
-  generateFine(orcamentoId): Observable<ResponseMessage> {
+  generateFine(budgetId): Observable<ResponseMessage> {
     return this.http.get<ResponseMessage>
-    (`${this.apiUrl}/gerarMulta/${orcamentoId}`)
+    (`${this.apiUrl}/geraMulta/${budgetId}`)
       .pipe(take(1));
   }
 
-  cancelBudget(orcamentoId): Observable<ResponseMessage> {
-    return this.http.get<ResponseMessage>
-    (`${this.apiUrl}/gerarMulta/${orcamentoId}`)
+  cancelBudget(budgetId, fine): Observable<ResponseMessage> {
+    return this.http.put<ResponseMessage>
+    (`${this.apiUrl}/cancelarOrcamento/${budgetId}/${fine}`, '')
       .pipe(take(1));
   }
 }

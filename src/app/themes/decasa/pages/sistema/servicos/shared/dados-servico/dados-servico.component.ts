@@ -58,6 +58,7 @@ export class DadosServicoComponent implements OnInit {
   openDialogCancelar() {
     this.dialog.open(DialogCancelarComponent, {
       width: '50%',
+      data: {budgetId: this.orcamentoSelected.id}
     });
   }
 

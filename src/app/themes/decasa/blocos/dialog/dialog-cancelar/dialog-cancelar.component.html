@@ -3,10 +3,27 @@
   <span class="spacer"></span>
   <a (click)="close()" class="cursor"><i class="fas fa-times"></i></a>
 </mat-toolbar>
-<div class="mt-3">
+<div class="mt-3" [hidden]="isFine != 1 || cancel === true">
 <h3>Você deseja cancelar o serviço?</h3>
 </div>
-<div mat-dialog-actions align="end">
-  <button mat-button mat-raised-button (click)="openDialogReagendar()">Reagendar o Serviço</button>
-  <button mat-button mat-raised-button  cdkFocusInitial>Sim, Desejo Cancelar</button>
+<!--Mensagem caso tenha multa-->
+<div class="alert alert-warning mt-3" role="alert" [hidden]="isFine != 2">
+  Essa operação acarretará em multa de 20% do orçamento. Deseja cancelar?
+</div>
+<!--Mensagem caso não seja possível cancelar-->
+<div class="alert alert-danger mt-3" role="alert" [hidden]="isFine != 3">
+  {{erroMessage}}
+</div>
+<div class="alert alert-primary" role="alert" [hidden]="isFine != 4">
+  Cancelamento feito com sucesso
+</div>
+<p class="text-center" *ngIf="cancel === true">
+  <img src=" /assets/gif/load.gif " alt="Logo" class="mb-2 mt-2" width="50">
+  Cancelando...
+</p>
+
+<div mat-dialog-actions align="end" [hidden]="cancel">
+  <button mat-button mat-raised-button (click)="openDialogReagendar()"[hidden]="isFine == 3 || isFine == 4">Reagendar o Serviço</button>
+  <button mat-button mat-raised-button  cdkFocusInitial (click)="initialcancelBudget()" [hidden]="isFine == 3 || isFine == 4">Sim, Desejo Cancelar</button>
+  <button mat-button mat-raised-button (click)="close()" *ngIf="isFine == 3 || isFine == 4">OK</button>
 </div>
