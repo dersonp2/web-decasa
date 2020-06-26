@@ -1,16 +1,20 @@
-<div id="holder">
-    <owl-carousel-o [options]="customOptions">
-        <ng-template carouselSlide *ngFor="let grupo of gruposClasses" class="lista-material">
-            <ul class="using">
-                <li class="pad" class="text-center">
-                    <a href="#"><span><i class="fas fa-chevron-down mr-2"></i>{{grupo.descricao}}</span></a>
-                    <ul>
-                        <div class="sub-wrapper">
-                            <li *ngFor="let classe of grupo.classes"><a (click)="goToOrcamento(classe.id)">{{classe.descricao}}</a></li>
-                        </div>
-                    </ul>
-                </li>
-            </ul>
-        </ng-template>
-    </owl-carousel-o>
+<div class="row">
+  <drag-scroll id="holder" drag-scroll #nav>
+    <div class="lista-material" drag-scroll-item *ngFor="let grupo of gruposClasses">
+      <ul class="using">
+        <li class="pad"><a href="#"><span><i class="fas fa-laptop mr-2"></i>{{grupo.descricao}}</span></a>
+          <ul>
+            <div class="sub-wrapper">
+              <li *ngFor="let classe of grupo.classes"><a (click)="goToOrcamento(classe.id)">{{classe.descricao}}</a></li>
+            </div>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </drag-scroll>
 </div>
+<div class="d-flex justify-content-center">
+  <button class="btn" (click)="moveLeft()"><i class="fa fa-chevron-left"></i></button>
+  <button class="btn" (click)="moveRight()"><i class="fa fa-chevron-right"></i></button>
+</div>
+

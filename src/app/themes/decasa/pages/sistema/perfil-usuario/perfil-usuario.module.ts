@@ -1,4 +1,4 @@
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -40,19 +40,20 @@ import { BlocosModule } from './../../../blocos/blocos.module';
     DadosPessoaisComponent,
     SenhaComponent
   ],
-  imports: [
-    CommonModule,
+    imports: [
+        CommonModule,
 
-    MatTableModule,
-    MatFormFieldModule,
-    MatInputModule,
-    AppRoutingModule,
-    TextMaskModule,
-    MatCheckboxModule,
-    MatButtonModule,
-    FormsModule,
+        MatTableModule,
+        MatFormFieldModule,
+        MatInputModule,
+        AppRoutingModule,
+        TextMaskModule,
+        MatCheckboxModule,
+        MatButtonModule,
+        FormsModule,
 
-    BlocosModule
-  ]
+        BlocosModule,
+        ReactiveFormsModule
+    ]
 })
 export class PerfilUsuarioModule { }

@@ -17,6 +17,7 @@ import { AppRoutingModule } from 'src/app/app.routing.module';
 import { ClienteComponent } from './cadastro/cliente/cliente.component';
 import { ProfissionalComponent } from './cadastro/profissional/profissional.component';
 import { BemVindoComponent } from './cadastro/profissional/bem-vindo/bem-vindo.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,8 @@ import { BemVindoComponent } from './cadastro/profissional/bem-vindo/bem-vindo.c
     AppRoutingModule,
     TextMaskModule,
     MatSnackBarModule,
+    FormsModule,
+    ReactiveFormsModule,
 
     BlocosModule,
     ComprarServicosModule,

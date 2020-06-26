@@ -1,6 +1,7 @@
 import { ClienteService } from './../../../../../../../services/cliente.service';
 import { Component, OnInit } from '@angular/core';
 import { ClienteDetalhesResponse } from 'src/app/model/response/cliente-detalhes-response.module';
+import {AuthService} from '../../../../../../../services/auth.service';
 
 @Component({
   selector: 'app-dados-pessoais',
@@ -15,14 +16,14 @@ export class DadosPessoaisComponent implements OnInit {
 
   cliente: ClienteDetalhesResponse = new ClienteDetalhesResponse();
 
-  constructor(private clienteService: ClienteService) { }
+  constructor(private clienteService: ClienteService, private  authService: AuthService) { }
 
   ngOnInit(): void {
     this.getDadosCliente();
   }
 
   getDadosCliente() {
-    this.clienteService.getClienteDetalhes(2054).subscribe(
+    this.clienteService.getClienteDetalhes(this.authService.getUser().id).subscribe(
       (data) => {this.cliente = data; console.log(this.cliente); }
     );
   }

@@ -1,10 +1,11 @@
-import { Router } from '@angular/router';
-import { DialogLocalizacaoComponent } from './../../../blocos/dialog/dialog-localizacao/dialog-localizacao.component';
-import { MatDialog } from '@angular/material/dialog';
-import { GrupoService } from './../../../../../services/grupo.service';
-import { TodosOsGruposEClassesResponse } from './../../../../../model/response/todos-os-grupos-classes-response.module';
-import { Component, OnInit } from '@angular/core';
-import { OwlOptions } from 'ngx-owl-carousel-o';
+import {Router} from '@angular/router';
+import {DialogLocalizacaoComponent} from './../../../blocos/dialog/dialog-localizacao/dialog-localizacao.component';
+import {MatDialog} from '@angular/material/dialog';
+import {GrupoService} from './../../../../../services/grupo.service';
+import {TodosOsGruposEClassesResponse} from './../../../../../model/response/todos-os-grupos-classes-response.module';
+import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
+import {OwlOptions} from 'ngx-owl-carousel-o';
+import {DragScrollComponent} from 'ngx-drag-scroll';
 
 
 @Component({
@@ -17,31 +18,10 @@ export class ListaGruposComponent implements OnInit {
   gruposClasses: TodosOsGruposEClassesResponse[];
   grupo: TodosOsGruposEClassesResponse;
   municipioId: number;
-  customOptions: OwlOptions = {
-    loop: true,
-    dots: false,
-    autoplay: false,
-    navSpeed: 900,
-    // tslint:disable-next-line:quotemark
-    navText: ["<i class='fa fa-chevron-left'></i>", "<i class='fa fa-chevron-right'></i>"],
-    responsive: {
-      0: {
-        items: 2
-      },
-      400: {
-        items: 3
-      },
-      740: {
-        items: 6
-      },
-      // 940: {
-      //   items: 4
-      // }
-    },
-    nav: true
-  };
+  @ViewChild('nav', {read: DragScrollComponent}) ds: DragScrollComponent;
 
-  constructor(private grupoService: GrupoService, public dialog: MatDialog, private router: Router) { }
+  constructor(private grupoService: GrupoService, public dialog: MatDialog, private router: Router) {
+  }
 
   ngOnInit(): void {
     this.getGruposClasses();
@@ -61,10 +41,24 @@ export class ListaGruposComponent implements OnInit {
   public getGruposClassesByMunicipio(municipioId) {
     this.municipioId = municipioId;
     this.grupoService.getGruposClassesByMunicipio(municipioId).subscribe(
-      (data) => { this.gruposClasses = data; },
+      (data) => {
+        this.gruposClasses = data;
+      },
       (error) => console.log(error)
     );
   }
+
+  // Menu de navegação
+  moveLeft() {
+    this.ds.moveLeft();
+  }
+
+  moveRight() {
+    this.ds.moveRight();
+  }
+  // moveTo(index) {
+  //   this.ds.moveTo(index);
+  // }
 
   openModal() {
     this.dialog.open(DialogLocalizacaoComponent, {
@@ -74,7 +68,7 @@ export class ListaGruposComponent implements OnInit {
 
   // TODO: mudar para this.municipioID
   goToOrcamento(classeId) {
-    localStorage.setItem('classeId', classeId );
+    localStorage.setItem('classeId', classeId);
     this.router.navigateByUrl('/orcamento');
   }
 
