@@ -20,7 +20,7 @@ export class DialogLoginComponent implements OnInit {
     this.loginForm = fb.group(
       {
         email: ['', [Validators.email, Validators.required]],
-        senha: ['', [Validators.required, Validators.minLength(6)]]
+        senha: ['', [Validators.required, Validators.minLength(5)]]
       }
     );
   }

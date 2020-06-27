@@ -13,13 +13,18 @@
       </div>
 
       <!-- Form de cadastro -->
-      <form id="formFuncionario" *ngIf="displayForm">
+      <form id="formFuncionario" *ngIf="displayForm" [formGroup]="enderecoForm" novalidate>
 
         <!-- Cep -->
         <div class="row mt-2">
           <div class="form-group col-md-2 col-6">
             <label for="cep">CEP</label>
-            <input type="text" class="form-control" id="cep" placeholder="Cep">
+            <input [textMask]="{mask: cepMask}" type="text" class="form-control" name="cep" id="cep" placeholder="Cep"
+                   (blur)="onBlurCep()" formControlName="cep">
+            <span
+              *ngIf="enderecoForm.controls['cep'].invalid && (enderecoForm.controls['cep'].touched || enderecoForm.controls['cep'].dirty)">
+                    <span class="color-red">Cep inválido</span>
+                    </span>
           </div>
 
           <div class="mt-2 form-group col-md-10 d-md-block d-none">
@@ -32,32 +37,51 @@
         <!-- Rua -->
         <div class="row">
           <div class="form-group col-md-6 col-10">
-            <label for="rua">Rua</label>
-            <input type="text" class="form-control" id="Rua" placeholder="Ex. R. Osvaldo">
+            <label for="logradouro">Rua</label>
+            <input type="text" class="form-control" name="logradouro" formControlName="logradouro" id="logradouro"
+                   placeholder="Ex. R. Osvaldo">
+            <span
+              *ngIf="enderecoForm.controls['logradouro'].invalid && (enderecoForm.controls['logradouro'].touched || enderecoForm.controls['logradouro'].dirty)">
+                    <span class="color-red">Preencha a rua</span>
+                    </span>
           </div>
+
           <div class="form-group col-md-2 col-2">
             <label for="n">Nº</label>
-            <input type="number" class="form-control" id="n">
+            <input type="number" class="form-control" name="numero" formControlName="numero" id="n">
           </div>
         </div>
 
         <!-- Bairro -->
         <div class="row">
+
           <div class="form-group col-md-6 col-10">
             <label for="bairro">Bairro</label>
-            <input type="text" class="form-control" id="bairro" placeholder="Informe seu bairro">
+            <input type="text" class="form-control" name="bairro" formControlName="bairro" id="bairro" placeholder="Informe seu bairro">
+            <span
+              *ngIf="enderecoForm.controls['bairro'].invalid && (enderecoForm.controls['bairro'].touched || enderecoForm.controls['bairro'].dirty)">
+                    <span class="color-red">Preencha o bairro</span>
+                    </span>
           </div>
+
           <div class="form-group col-md-4 col-10">
             <label for="cidade">Cidade</label>
-            <input type="text" class="form-control" id="cidade" placeholder="Informe a cidade">
+            <input type="text" class="form-control" name="cidade" formControlName="cidade" id="cidade" placeholder="Informe a cidade">
+            <span
+              *ngIf="enderecoForm.controls['cidade'].invalid && (enderecoForm.controls['cidade'].touched || enderecoForm.controls['cidade'].dirty)">
+                    <span class="color-red">Preencha a Cidade</span>
+                    </span>
           </div>
+
           <div class="form-group col-md-2 col-10">
             <label for="uf">UF</label>
-            <select id="uf" class="form-control">
-              <option selected>...</option>
-              <option>MA</option>
-            </select>
+            <input type="text" class="form-control" name="uf" formControlName="uf" id="uf" placeholder="Informe a UF">
+            <span
+              *ngIf="enderecoForm.controls['uf'].invalid && (enderecoForm.controls['uf'].touched || enderecoForm.controls['uf'].dirty)">
+                    <span class="color-red">Preencha a UF</span>
+                    </span>
           </div>
+
         </div>
 
         <div class="row">
@@ -82,10 +106,10 @@
           </div>
         </div>
 
-        <button mat-raised-button class="mr-2"> <i class="fas fa-check mr-2"></i>Cadastrar</button>
+        <button mat-raised-button class="mr-2"><i class="fas fa-check mr-2"></i>Cadastrar</button>
       </form> <!-- Form de cadastros-->
 
-      <app-lista-enderecos></app-lista-enderecos>
+      <app-lista-enderecos [displayForm]="displayForm"></app-lista-enderecos>
 
       <br/>
       <br/>

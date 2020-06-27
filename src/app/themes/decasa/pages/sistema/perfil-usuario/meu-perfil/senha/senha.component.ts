@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroupDirective, NgForm, Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
+import {Md5} from 'ts-md5';
+import {Usuario} from '../../../../../../../model/usuario.module';
+import {AuthService} from '../../../../../../../services/auth.service';
+import {ClienteService} from '../../../../../../../services/cliente.service';
+import {MatSnackBar} from '@angular/material/snack-bar';
 // Validação da senha
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -20,10 +25,11 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 export class SenhaComponent {
 
   myForm: FormGroup;
-
+  user: Usuario;
   matcher = new MyErrorStateMatcher();
-
-  constructor(private formBuilder: FormBuilder) {
+  loading = false;
+  // tslint:disable-next-line:variable-name
+  constructor(private formBuilder: FormBuilder, private authService: AuthService, private _snackBar: MatSnackBar, private clienteService: ClienteService) {
     this.myForm = this.formBuilder.group({
       oldPassword: ['', [Validators.required]],
       password: ['', [Validators.required]],
@@ -40,7 +46,37 @@ export class SenhaComponent {
   }
 
   alterPassword() {
-    console.log(this.myForm.get('oldPassword').value);
-    console.log(this.myForm);
+    this.loading = true;
+    // TODO: alterar o getUser
+    const cliente = this.authService.getUser();
+    const user = new Usuario();
+    user.email = cliente.email;
+    user.senha = new Md5().appendStr(this.myForm.get('password').value).end();
+    const oldPassword = new Md5().appendStr(this.myForm.get('oldPassword').value).end();
+    console.log(oldPassword);
+    console.log(user);
+
+    this.clienteService.alterPassword(user, oldPassword).subscribe(
+      (data) => {
+        this.showSnackBar('Senha alterada com sucesso!!!', 'blue-snackbar');
+        console.log(data);
+        this.loading = false;
+        this.myForm.reset();
+      },
+      (error) => {
+        if (error.status === 406) {
+          this.showSnackBar('Senha atual incorreta!!!', 'orange-snackbar');
+        }
+        this.loading = false;
+      }
+    );
+  }
+
+  showSnackBar(mensagem, cor) {
+    this._snackBar.open(mensagem, '', {
+        duration: 3000,
+        panelClass: [cor]
+      }
+    );
   }
 }
