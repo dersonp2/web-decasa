@@ -26,7 +26,7 @@ export class ClienteService {
 
   // Recebe as informações da empresa pelo id do cliente
   getClienteEmpresaDetalhes(clienteId: number): Observable<ClienteEmpresaResponse> {
-    return this.http.get<ClienteEmpresaResponse>(`${this.apiUrl}/cliente/${clienteId}/details/empresa`).pipe(take(1));
+    return this.http.get<ClienteEmpresaResponse>(`${this.apiUrl}/empresa/${clienteId}/details`).pipe(take(1));
   }
 
 //  Alterar a senha:

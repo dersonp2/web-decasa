@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ClienteService} from '../../../../../../../services/cliente.service';
+import {AuthService} from '../../../../../../../services/auth.service';
 
 @Component({
   selector: 'app-dados-cadastrais',
@@ -9,17 +11,23 @@ export class DadosCadastraisComponent implements OnInit {
 
   public phoneMask = ['(', /[1-9]/, /\d/, ')', ' ', /\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
 
-  cnpjMask = [/[1-9]/, /\d/, '.', /\d/, /\d/, /\d/, '.',  /\d/, /\d/, /\d/, '/', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/];
+  cnpjMask = [/[1-9]/, /\d/, '.', /\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '/', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/];
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(private clienteService: ClienteService, private authService: AuthService) {
   }
 
-  // getDadosEmpresa() {
-  //   this.clienteService.getClienteDetalhes(2054).subscribe(
-  //     (data) => {this.cliente = data; console.log(this.cliente); }
-  //   );
-  // }
+  ngOnInit(): void {
+    this.getCompany();
+  }
 
+  getCompany() {
+    this.clienteService.getClienteEmpresaDetalhes(this.authService.getUser().id).subscribe(
+      (data) => {
+        console.log(data);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
 }

@@ -28,4 +28,8 @@ export class EnderecoService {
   getExisteEnderecoCliente(endereco: EnderecoCliente): Observable<EnderecoCliente> {
     return this.http.post<EnderecoCliente>(`${this.apiUrl}/enderecos/clientes/exist`, endereco).pipe(take(1));
   }
+
+  saveAddress(endereco: EnderecoCliente): Observable<EnderecoCliente> {
+    return this.http.post<EnderecoCliente>(`${this.apiUrl}/saveAddress`, endereco).pipe(take(1));
+  }
 }

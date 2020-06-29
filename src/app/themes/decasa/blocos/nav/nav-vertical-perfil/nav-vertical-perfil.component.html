@@ -15,13 +15,13 @@
       </ul>
 
 
-      <li data-toggle="collapse" data-target="#empresa" class="collapsed">
-        <a><i class="fas fa-briefcase"></i> Empresa <span class="arrow"></span></a>
+      <li data-toggle="collapse" data-target="#empresa" class="collapsed" [routerLink]="['/dados-cadastrais']" routerLinkActive="active">
+        <a><i class="fas fa-briefcase"></i> Empresa</a>
       </li>
-      <ul class="sub-menu collapse ml-md-2 ml-0" id="empresa">
-        <li [routerLink]="['/dados-cadastrais']" routerLinkActive="active"><a>Dados Cadastrais</a></li>
-        <li [routerLink]="['/outros-membros']" routerLinkActive="active"><a>Outros membros</a></li>
-      </ul>
+<!--      <ul class="sub-menu collapse ml-md-2 ml-0" id="empresa">-->
+<!--        <li [routerLink]="['/dados-cadastrais']" routerLinkActive="active"><a>Dados Cadastrais</a></li>-->
+<!--        <li [routerLink]="['/outros-membros']" routerLinkActive="active"><a>Outros membros</a></li>-->
+<!--      </ul>-->
 
       <li class="collapsed" [routerLink]="['/endereco']" routerLinkActive="active">
         <a><i class="fas fa-map-marker-alt"></i> Endereços</a>
