@@ -51,7 +51,7 @@ export class SenhaComponent {
     const cliente = this.authService.getUser();
     const user = new Usuario();
     user.email = cliente.email;
-    user.senha = new Md5().appendStr(this.myForm.get('password').value).end();
+    user.senha = new Md5().appendStr(this.myForm.get('password').value).end().toString();
     const oldPassword = new Md5().appendStr(this.myForm.get('oldPassword').value).end();
     console.log(oldPassword);
     console.log(user);
