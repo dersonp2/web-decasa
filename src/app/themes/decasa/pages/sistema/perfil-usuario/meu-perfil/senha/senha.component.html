@@ -8,29 +8,49 @@
     </div>
 
     <div class="col-12 col-md-9 scroll-auto container-fluid">
-      <form>
+      <!--     Formulário para alterar a senha-->
+      <form [formGroup]="myForm">
         <div class="form-row mt-4">
-          <!-- Nome -->
+          <!-- senha -->
           <div class="form-group col-md-6 col-12">
             <label for="senhaAtual">Senha atual</label>
-            <input type="password" class="form-control" id="senhaAtual" placeholder="Informe a senha atual">
+            <input type="password" class="form-control" id="senhaAtual" placeholder="Informe a senha atual"
+                   formControlName="oldPassword" required>
+            <span class="color-red"
+                  *ngIf="myForm.controls['oldPassword'].invalid && (myForm.controls['oldPassword'].touched || myForm.controls['oldPassword'].dirty)">
+              Informe sua senha
+            </span>
           </div>
         </div>
 
         <div class="form-row mt-4">
+
           <div class="form-group col-md-6 col-12">
             <label for="novaSenha">Nova Senha</label>
-            <input type="password" class="form-control" id="novaSenha" placeholder="Informe a nova senha">
+            <input type="password" class="form-control" id="novaSenha" placeholder="Informe a nova senha"
+                   formControlName="password" required>
+            <span class="color-red"
+                  *ngIf="myForm.controls['password'].invalid && (myForm.controls['password'].touched || myForm.controls['password'].dirty)">
+              Informe a nova senha - No mínimo 6 dígitos
+            </span>
           </div>
 
           <div class="form-group col-md-6 col-12">
             <label for="confimaSenha">Confirme a Nova Senha</label>
-            <input type="password" class="form-control" id="confimaSenha" placeholder="Confirme a nova senha">
+            <input class="form-control" type="password" placeholder="Confirme a senha" id="confimaSenha"
+                   formControlName="confirmPassword">
+            <span class="text-danger"
+                  *ngIf="myForm.hasError('notSame')&& (myForm.controls['confirmPassword'].touched || myForm.controls['confirmPassword'].dirty)">
+              as senhas nao correspondem
+            </span>
           </div>
         </div>
-
-        <button mat-raised-button><i class="fas fa-check"></i>Salvar</button>
+        <button mat-raised-button [disabled]="myForm.invalid || loading" (click)="alterPassword()">
+          <span *ngIf="!loading"> <i class="fas fa-check"></i> Salvar</span>
+          <div class="spinner-border text-primary" role="status" *ngIf="loading"></div>
+        </button>
       </form>
     </div>
   </div>
 </div>
+

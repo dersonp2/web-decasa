@@ -1,11 +1,14 @@
-import { MunicipioService } from './../../../../../../services/municipio.service';
-import { Municipio } from './../../../../../../model/municipio.module';
-import { element } from 'protractor';
-import { ClienteOrcamento } from './../../../../../../model/response/cliente-orcamento.module';
-import { OrcamentoService } from './../../../../../../services/orcamento.service';
-import { Component, OnInit } from '@angular/core';
-import { MatTableDataSource } from '@angular/material/table';
+import {MunicipioService} from './../../../../../../services/municipio.service';
+import {Municipio} from './../../../../../../model/municipio.module';
+import {element} from 'protractor';
+import {ClienteOrcamento} from './../../../../../../model/response/cliente-orcamento.module';
+import {OrcamentoService} from './../../../../../../services/orcamento.service';
+import {Component, OnInit} from '@angular/core';
+import {MatTableDataSource} from '@angular/material/table';
 import {AuthService} from '../../../../../../services/auth.service';
+import {OrcamentoEvent} from '../../../../../../events/orcamento-event';
+import {MatDialog} from '@angular/material/dialog';
+import {DialogLoginComponent} from '../../../../blocos/dialog/dialog-login/dialog-login.component';
 
 export interface PeriodicElement {
   pedido: string;
@@ -13,6 +16,7 @@ export interface PeriodicElement {
 
 export class Pedido {
   pedido: string;
+
   constructor(pedido) {
     this.pedido = pedido;
   }
@@ -37,25 +41,43 @@ export class SelecionarFornecedorComponent implements OnInit {
   clienteOrcamento: ClienteOrcamento[];
   pedidos: Pedido[] = [];
   municipio: Municipio;
+  orcamentoSelected: ClienteOrcamento = new ClienteOrcamento();
 
   constructor(private orcamentoService: OrcamentoService, private municipioService: MunicipioService,
-              private authService: AuthService) { }
+              private authService: AuthService, private orcamentoEvent: OrcamentoEvent, public dialog: MatDialog) {
+    orcamentoEvent.escolher$.subscribe(
+      (data: ClienteOrcamento) => {
+        (this.orcamentoSelected = data);
+        console.log(this.orcamentoSelected);
+      }
+    );
+  }
 
   ngOnInit(): void {
-    this.buscarMunicipio();
-    this.getOrcamentosPendentes();
+    if (!this.authService.check()) {
+      this.openModal();
+    } else {
+      this.buscarMunicipio();
+      this.getOrcamentosPendentes();
+    }
   }
 
   buscarMunicipio() {
     const municipioId = localStorage.getItem('municipioId');
     this.municipioService.buscarMunicipioPorId(municipioId).subscribe(
-      (data) => { this.municipio = data; },
+      (data) => {
+        this.municipio = data;
+      },
       (error) => (console.log(error))
     );
   }
+
   getOrcamentosPendentes() {
     this.orcamentoService.buscarClienteOrcamentosEscolher(this.authService.getUser().id).subscribe(
-      (data) => { this.clienteOrcamento = data; this.setPedidos(); }
+      (data) => {
+        this.clienteOrcamento = data;
+        this.setPedidos();
+      }
     );
   }
 
@@ -69,6 +91,12 @@ export class SelecionarFornecedorComponent implements OnInit {
     console.log(this.pedidos);
   }
 
+  // Abre a dialog de login
+  openModal() {
+    const dialogRef = this.dialog.open(DialogLoginComponent, {
+      disableClose: true
+    });
+  }
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
