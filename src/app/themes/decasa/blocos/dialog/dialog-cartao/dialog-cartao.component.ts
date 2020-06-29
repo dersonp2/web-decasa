@@ -1,12 +1,12 @@
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { Cliente } from '../../../../../model/cliente.module';
-import { CreditCardValidators } from 'angular-cc-library';
-import { FormGroup, Validators, FormBuilder } from '@angular/forms';
-import { CartaoCliente } from '../../../../../model/cartao-cliente.module';
-import { AuthService } from '../../../../../services/auth.service';
-import { CartaoClienteService } from '../../../../../services/cartao-cliente.service';
-import { Component, OnInit } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';
+import {MatSnackBar} from '@angular/material/snack-bar';
+import {Cliente} from '../../../../../model/cliente.module';
+import {CreditCardValidators} from 'angular-cc-library';
+import {FormGroup, Validators, FormBuilder} from '@angular/forms';
+import {CartaoCliente} from '../../../../../model/cartao-cliente.module';
+import {AuthService} from '../../../../../services/auth.service';
+import {CartaoClienteService} from '../../../../../services/cartao-cliente.service';
+import {Component, Inject, OnInit} from '@angular/core';
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-dialog-cartao',
@@ -21,9 +21,14 @@ export class DialogCartaoComponent implements OnInit {
   cartoes: CartaoCliente[] = [];
   form: FormGroup;
   cartao: CartaoCliente = new CartaoCliente();
+  cadastrar;
 
   // tslint:disable-next-line:variable-name
-  constructor(public dialogRef: MatDialogRef<DialogCartaoComponent>, private cartaoClienteService: CartaoClienteService, private authService: AuthService, private fb: FormBuilder, private _snackBar: MatSnackBar) { }
+  constructor(public dialogRef: MatDialogRef<DialogCartaoComponent>, private cartaoClienteService: CartaoClienteService,
+              private authService: AuthService, private fb: FormBuilder,
+              // tslint:disable-next-line:variable-name
+              private _snackBar: MatSnackBar, @Inject(MAT_DIALOG_DATA) public data) {
+  }
 
 
   ngOnInit() {
@@ -34,7 +39,13 @@ export class DialogCartaoComponent implements OnInit {
         nome: ['', [Validators.required]],
         // cvc: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(4)]]
       });
-    this.buscarCartoes();
+
+    // Abrir diretamente a tela de cadastro
+    if (this.data.cadastrar === 1) {
+      this.cadastrarCartao = true;
+    } else {
+      this.buscarCartoes();
+    }
   }
 
   close(): void {
@@ -69,12 +80,15 @@ export class DialogCartaoComponent implements OnInit {
     this.cartaoClienteService.salvarCartao(this.cartao).subscribe(
       (data) => {
         console.log(data);
-        this.buscarCartoes();
-        this.showCadastrarCartao();
-        this.showSnackBar('Cadastrado com sucesso', 'blue-snackbar');
-        this.disabledButton = false;
-        this.form.reset();
-
+        this.showSnackBar('Cadastrado com sucesso!!!', 'blue-snackbar');
+        if (this.data.cadastrar === 1) {
+          this.close();
+        } else {
+          this.buscarCartoes();
+          this.showCadastrarCartao();
+          this.disabledButton = false;
+          this.form.reset();
+        }
       },
       (error) => {
         console.log(error);
@@ -90,9 +104,9 @@ export class DialogCartaoComponent implements OnInit {
 
   showSnackBar(mensagem, cor) {
     this._snackBar.open(mensagem, '', {
-      duration: 3000,
-      panelClass: [cor]
-    }
+        duration: 3000,
+        panelClass: [cor]
+      }
     );
   }
 

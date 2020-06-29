@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { take } from 'rxjs/operators';
+import {ResponseMessage} from '../model/response-message.module';
 
 @Injectable({
   providedIn: 'root'
@@ -23,5 +24,9 @@ export class CartaoClienteService {
 
   salvarCartao(cartaoCliente: CartaoCliente) {
     return this.http.post(`${this.apiUrl}/salvarCartao`, cartaoCliente);
+  }
+
+  deleteCard(cardId): Observable<ResponseMessage> {
+    return this.http.put<ResponseMessage>(`${this.apiUrl}/removeCard/${cardId}`, '');
   }
 }
