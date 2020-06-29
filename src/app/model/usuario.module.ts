@@ -6,7 +6,7 @@ export class Usuario {
   id: number;
   nome: string;
   cpf: string;
-  senha: string;
+  senha: any;
   email: string;
   dataCadastro: Date;
   ultimoAcesso: Date;

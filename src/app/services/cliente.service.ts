@@ -8,12 +8,14 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { take } from 'rxjs/operators';
 import { Servico } from '../model/servico.module';
+import {ResponseMessage} from '../model/response-message.module';
+import {Md5} from 'ts-md5';
+import {User} from '../model/response/user.response.module';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ClienteService {
-
   apiUrl = environment.API_URL;
   constructor(private http: HttpClient) { }
 
@@ -25,6 +27,11 @@ export class ClienteService {
   // Recebe as informações da empresa pelo id do cliente
   getClienteEmpresaDetalhes(clienteId: number): Observable<ClienteEmpresaResponse> {
     return this.http.get<ClienteEmpresaResponse>(`${this.apiUrl}/cliente/${clienteId}/details/empresa`).pipe(take(1));
+  }
+
+//  Alterar a senha:
+  alterPassword(user: User, oldpass): Observable<ResponseMessage> {
+    return this.http.put<ResponseMessage>(`${this.apiUrl}/updatePass/${oldpass}`, user).pipe(take(1));
   }
 
 }

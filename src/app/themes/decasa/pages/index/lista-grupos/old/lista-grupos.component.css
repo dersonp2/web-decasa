@@ -1,0 +1,103 @@
+.top-header a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #404A51;
+}
+
+#holder ul li {
+    list-style-type: none;
+}
+
+#holder ul {
+    margin: 0;
+    padding: 0;
+}
+
+#holder {
+    margin: 0px;
+}
+
+#holder li.pad {
+    float: left;
+}
+
+#holder li {
+    color: #838080;
+    text-decoration: none;
+    transition: 0.1s;
+}
+
+#holder a {
+    color: #838080;
+    text-decoration: none;
+    display: block;
+    transition: 0.1s;
+}
+
+.pad a {
+    padding: 18px 17px 22px 17px;
+}
+
+#holder ul {
+    width: 100%;
+}
+
+#holder ul li span {
+    padding: 7px !important;
+}
+
+.pad>a:hover,
+.using>li:hover>a {
+    background-color: #f9f9fa;
+    color: black !important;
+}
+
+.lista-material ul li a:hover span,
+.lista-material .using>li:hover>a>span {
+    border-bottom: 2px solid #0A68AE;
+    transition: 0.1s;
+    color: black !important;
+}
+
+.sub-wrapper li {
+    margin-top: 10px;
+}
+
+.sub-wrapper a:hover {
+    color: black !important;
+    transition: 0.15s;
+}
+
+#holder ul li>ul {
+    position: absolute !important;
+    left: -90000px !important;
+}
+
+#holder ul li:hover ul {
+    left: 0 !important;
+}
+
+.sub-wrapper li {
+    float: left !important;
+}
+
+
+/* Owl */
+
+#holder {
+    /* height: 500px; */
+}
+
+::ng-deep .owl-nav {
+    z-index: -20 !important;
+}
+
+.sub-wrapper {
+    width: 100% !important;
+    height: auto;
+    background-color: #f9f9fa;
+    /* position: absolute !important; */
+    left: 0;
+    border-bottom: 5px solid #0A68AE;
+    z-index: 999999999999999999999999999998 !important;
+}

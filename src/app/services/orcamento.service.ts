@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { take } from 'rxjs/operators';
 import { OrcamentoResponse } from '../model/orcamento-response.module';
+import {ResponseMessage} from '../model/response-message.module';
 
 @Injectable({
   providedIn: 'root'
@@ -44,4 +45,15 @@ export class OrcamentoService {
       .pipe(take(1));
   }
 
+  generateFine(budgetId): Observable<ResponseMessage> {
+    return this.http.get<ResponseMessage>
+    (`${this.apiUrl}/geraMulta/${budgetId}`)
+      .pipe(take(1));
+  }
+
+  cancelBudget(budgetId, fine): Observable<ResponseMessage> {
+    return this.http.put<ResponseMessage>
+    (`${this.apiUrl}/cancelarOrcamento/${budgetId}/${fine}`, '')
+      .pipe(take(1));
+  }
 }

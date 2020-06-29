@@ -50,11 +50,11 @@ export class IndexComponent implements OnInit, AfterViewInit {
   }
 
   hidePopover() {
-    console.log('FEchhhoouuu');
+    // console.log('FEchhhoouuu');
     this.myPopover.hide();
   }
   showPopover() {
-    console.log('Abriu');
+    // console.log('Abriu');
     this.myPopover.show();
   }
 

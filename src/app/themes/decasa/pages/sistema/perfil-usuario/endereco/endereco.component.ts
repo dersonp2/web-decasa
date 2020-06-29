@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {ViaCepService} from '../../../../../../services/via-cep.service';
 
 @Component({
   selector: 'app-endereco',
@@ -13,7 +12,7 @@ export class EnderecoComponent implements OnInit {
   enderecoForm: FormGroup;
   public cepMask = [/\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/];
 
-  constructor(private cepService: ViaCepService, private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder) {
     this.enderecoForm = this.formBuilder.group({
       cep: ['', [Validators.required, Validators.minLength(9)]],
       logradouro: ['', [Validators.required]],
@@ -36,21 +35,18 @@ export class EnderecoComponent implements OnInit {
 
   // Busca o cep
   onBlurCep() {
+    // if (this.enderecoCliente.cep != null) {
+    //   const cep = this.enderecoCliente.cep.replace('-', '');
+    //   this.cepService.getEndereco(cep).subscribe(
+    //     (data) => {
+    //       this.checkMunicipio(data);
+    //     }
+    //   );
+    // }
     if (this.enderecoForm.controls.cep.valid) {
       console.log('valido');
-      const cep = this.enderecoForm.get('cep').value.replace('-', '');
-      this.cepService.getEndereco(cep).subscribe(
-        (data) => {
-          console.log(data);
-          this.setFormsValue(data);
-        }
-      );
 
     }
-  }
-
-  setFormsValue(data) {
-    this.enderecoForm.patchValue({'logradouro': data.logradouro, 'bairro': data.bairro, 'cidade': data.localidade, 'uf': data.uf });
   }
 
 }

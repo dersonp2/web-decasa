@@ -32,7 +32,7 @@ export class SenhaComponent {
   constructor(private formBuilder: FormBuilder, private authService: AuthService, private _snackBar: MatSnackBar, private clienteService: ClienteService) {
     this.myForm = this.formBuilder.group({
       oldPassword: ['', [Validators.required]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
+      password: ['', [Validators.required]],
       confirmPassword: ['']
     }, { validator: this.checkPasswords });
 

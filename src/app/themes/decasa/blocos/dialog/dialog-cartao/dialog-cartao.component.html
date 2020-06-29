@@ -63,8 +63,8 @@
     <!--Segunda Linha-->
     <div class="form-row mt-2">
         <div class="form-group col-10">
-            <label for="exampleFormControlInput1">Número</label>
-            <input class="form-control" type="tel" ccNumber #ccNumber="ccNumber" formControlName="creditCard">
+            <label for="numero">Número</label>
+            <input class="form-control" id="numero" type="tel" ccNumber #ccNumber="ccNumber" formControlName="creditCard">
             <small class="form-text text-muted">{{ccNumber.resolvedScheme$ | async}}</small>
 
             <span *ngIf="form.controls['creditCard'].invalid && (form.controls['creditCard'].touched || form.controls['creditCard'].dirty)">

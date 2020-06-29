@@ -58,7 +58,7 @@ export class DialogCartaoComponent implements OnInit {
 
   salvarCartao(bandeira) {
     this.disabledButton = true;
-    this.cartao.cliente = new Cliente(this.authService.getUser().id);;
+    this.cartao.cliente = new Cliente(this.authService.getUser().id);
     this.cartao.nomeCartao = this.form.get('nome').value.toUpperCase();
     this.cartao.numeroCartao = this.form.get('creditCard').value.replace(/\s/g, '');
     this.cartao.validadeCartao = this.form.get('expirationDate').value.replace(/\s/g, '');

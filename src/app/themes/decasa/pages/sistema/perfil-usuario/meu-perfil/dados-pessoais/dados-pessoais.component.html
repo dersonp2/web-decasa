@@ -35,23 +35,23 @@
                 <!-- Email -->
                 <div class="row">
                     <div class="form-group col-md-6">
-                        <label for="inputEmail4">Email</label>
-                        <input type="email" class="form-control" id="inputEmail4" placeholder="Email" name="email" [(ngModel)]="cliente.email" disabled>
+                        <label for="inputEmail">Email</label>
+                        <input type="email" class="form-control" id="inputEmail" placeholder="Email" name="email" [(ngModel)]="cliente.email" disabled>
                     </div>
                 </div>
 
                 <div class="row">
                     <!-- Telefone -->
                     <div class="form-group col-md-3 col-4">
-                        <label for="inputEmail4">Telefone</label>
-                        <input [textMask]="{mask: phoneMask}" type="text" class="form-control" id="inputEmail" placeholder="(DD)_____-_____" name="telefone" [(ngModel)]="cliente.telefone" disabled>
+                        <label for="inputhPhone">Telefone</label>
+                        <input [textMask]="{mask: phoneMask}" type="text" class="form-control" id="inputhPhone" placeholder="(DD)_____-_____" name="telefone" [(ngModel)]="cliente.telefone" disabled>
                     </div>
 
 
                     <!-- Data de Nascimento -->
                     <div class="form-group col-md-2  col-4">
-                        <label for="inputEmail4">Data de Nasc.</label>
-                        <input title="Data de Nascimento" type="text" class="form-control" id="inputEmail4" placeholder="  / /    " [textMask]="{mask: dateMask}" name="data" [(ngModel)]="cliente.dataNascimento" disabled>
+                        <label for="inputNasc">Data de Nasc.</label>
+                        <input title="Data de Nascimento" type="text" class="form-control" id="inputNasc" placeholder="  / /    " [textMask]="{mask: dateMask}" name="data" [(ngModel)]="cliente.dataNascimento" disabled>
                     </div>
 
                     <!-- Sexo -->
@@ -67,14 +67,14 @@
 
                 <!-- <div class="row"> -->
                 <!-- Plano -->
-                <div class="form-group col-md-3">
-                    <label for="plano">Tipo de Cadastro</label>
-                    <select class="custom-select" id="plano">
-              <option selected>Escolha</option>
-              <option value="1">Individual</option>
-              <option value="2">Empresarial</option>
-            </select>
-                </div>
+<!--                <div class="form-group col-md-3">-->
+<!--                    <label for="plano">Tipo de Cadastro</label>-->
+<!--                    <select class="custom-select" id="plano">-->
+<!--              <option selected>Escolha</option>-->
+<!--              <option value="1">Individual</option>-->
+<!--              <option value="2">Empresarial</option>-->
+<!--            </select>-->
+<!--                </div>-->
 
                 <!-- Idioma -->
                 <!-- <div class="form-group col-md-3">

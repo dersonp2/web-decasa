@@ -1,5 +1,5 @@
-import { ClienteOrcamento } from './../../../../../../model/response/cliente-orcamento.module';
-import { OrcamentoEvent } from './../../../../../../events/orcamento-event';
+import { ClienteOrcamento } from '../../../../../../model/response/cliente-orcamento.module';
+import { OrcamentoEvent } from '../../../../../../events/orcamento-event';
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from '../../../../../../services/auth.service';
 import {MatDialog} from '@angular/material/dialog';
