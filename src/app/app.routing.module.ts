@@ -23,6 +23,7 @@ import { SelecionarFornecedorComponent } from './themes/decasa/pages/sistema/ser
 import { DadosCadastraisComponent } from './themes/decasa/pages/sistema/perfil-usuario/empresa/dados-cadastrais/dados-cadastrais.component';
 import { ClienteComponent } from './themes/decasa/pages/sistema/cadastro/cliente/cliente.component';
 import { BemVindoComponent } from './themes/decasa/pages/sistema/cadastro/profissional/bem-vindo/bem-vindo.component';
+import {ManutencaoComponent} from './themes/decasa/pages/manutencao/manutencao.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: IndexComponent },
@@ -46,6 +47,7 @@ const appRoutes: Routes = [
   { path: 'meios-de-pagamento', component: MeioDePagamentoComponent},
   { path: 'boletos-notas', component: BoletosNotasComponent},
   { path: 'teste', component: PageTestComponent },
+  { path: 'manutencao', component: ManutencaoComponent },
   { path: '**', component: NotFoundComponent }
 ];
 

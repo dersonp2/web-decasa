@@ -20,13 +20,15 @@ import {MatSelectModule} from '@angular/material/select';
 
 import {DragScrollModule} from 'ngx-drag-scroll';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { ManutencaoComponent } from './manutencao/manutencao.component';
 
 @NgModule({
   declarations: [
     IndexComponent,
     NotFoundComponent,
     PageTestComponent,
-    ListaGruposComponent
+    ListaGruposComponent,
+    ManutencaoComponent
   ],
   imports: [
     CommonModule,
