@@ -2,7 +2,7 @@
 
   <!-- Name Column -->
   <ng-container matColumnDef="nome">
-    <td mat-cell *matCellDef="let element"> {{element.nomeCartao}}</td>
+    <td mat-cell *matCellDef="let element"> {{element.nomeCartao}}</td>show
   </ng-container>
 
 
@@ -18,7 +18,10 @@
 
   <!-- Unidade Column -->
   <ng-container matColumnDef="opc">
-    <td mat-cell *matCellDef="let element"> <a (click)="deleteCard(element.id)" class="cursor" title="deletar cartão"><i class="fas fa-trash"></i></a></td>
+    <td mat-cell *matCellDef="let element">
+      <div class="spinner-border text-primary" role="status" *ngIf="selectCard === element.id"></div>
+      <a (click)=" openDialogDelete(element.id)" class="cursor" *ngIf="selectCard != element.id" title="deletar cartão"><i class="fas fa-trash"></i></a>
+    </td>
   </ng-container>
 
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

@@ -3,6 +3,8 @@ import {CartaoClienteService} from '../../../../../../../services/cartao-cliente
 import {AuthService} from '../../../../../../../services/auth.service';
 import {CartaoCliente} from '../../../../../../../model/cartao-cliente.module';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import {DialogExcluirComponent} from '../../../../../blocos/dialog/dialog-excluir/dialog-excluir.component';
+import {MatDialog} from '@angular/material/dialog';
 
 export interface PeriodicElement {
   bandeira: string;
@@ -24,9 +26,10 @@ export class TabelaCartoesComponent implements OnInit {
 
   displayedColumns: string[] = ['nome', 'numero', 'bandeira', 'opc'];
   cartoes: CartaoCliente[] = [];
+  selectCard;
 
   // tslint:disable-next-line:variable-name
-  constructor(private cartaoClienteService: CartaoClienteService, private authService: AuthService, private _snackBar: MatSnackBar) {
+  constructor(private cartaoClienteService: CartaoClienteService, public dialog: MatDialog, private authService: AuthService, private _snackBar: MatSnackBar) {
   }
 
   ngOnInit(): void {
@@ -46,13 +49,23 @@ export class TabelaCartoesComponent implements OnInit {
     );
   }
 
+  openDialogDelete(cardId) {
+    const dialogRef = this.dialog.open(DialogExcluirComponent, {});
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.deleteCard(cardId);
+      }
+    });
+  }
+
 
   deleteCard(cardId) {
-    console.log(cardId);
+    this.selectCard = cardId;
     this.cartaoClienteService.deleteCard(cardId).subscribe(
       (data) => {
         console.log(data);
         this.showSnackBar('Cartão excluído com sucesso!!!', 'blue-snackbar');
+        this.selectCard = 0;
         this.buscarCartoes();
       },
       (error) => {
@@ -60,8 +73,8 @@ export class TabelaCartoesComponent implements OnInit {
           this.showSnackBar('Cartão não encontrado!!!', 'orange-snackbar');
         } else {
           this.showSnackBar('Ocorreu um erro!!!', 'orange-snackbar');
-
         }
+        this.selectCard = 0;
       }
     );
   }

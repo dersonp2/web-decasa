@@ -6,6 +6,7 @@ import {DialogComprovanteComponent} from '../../../../blocos/dialog/dialog-compr
 import {CartaoClienteService} from '../../../../../../services/cartao-cliente.service';
 import {AuthService} from '../../../../../../services/auth.service';
 import {CartaoCliente} from '../../../../../../model/cartao-cliente.module';
+import {DialogExcluirComponent} from '../../../../blocos/dialog/dialog-excluir/dialog-excluir.component';
 
 @Component({
   selector: 'app-meio-de-pagamento',
@@ -14,7 +15,7 @@ import {CartaoCliente} from '../../../../../../model/cartao-cliente.module';
 })
 export class MeioDePagamentoComponent implements OnInit {
 
-  constructor(public dialog: MatDialog, private cartaoClienteService: CartaoClienteService, private authService: AuthService) {
+  constructor(public dialog: MatDialog) {
   }
 
   ngOnInit(): void {
