@@ -5,6 +5,8 @@ import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatStepper } from '@angular/material/stepper';
 import { isPlatformBrowser } from '@angular/common';
+import {OrcamentoService} from './services/orcamento.service';
+import {TotalOrcamento} from './model/response/total-orcamento-response.module';
 
 @Component({
   selector: 'app-root',
@@ -22,7 +24,10 @@ export class AppComponent implements OnInit, OnDestroy {
   // 1 - Steps Contratar serviços || 2 - Serviços agendados || 0 - Dados pessoais
   displayNavBar = 1;
   badgeContent: number;
-  constructor(private router: Router, public authService: AuthService, private carrinhoService: CarrinhoEvent) {
+  total: TotalOrcamento;
+
+
+  constructor(private router: Router, public authService: AuthService, private orcamentoService: OrcamentoService, private carrinhoService: CarrinhoEvent) {
     carrinhoService.alteracao$.subscribe(
       (data) => {
         this.badgeCarrinho();
@@ -108,11 +113,22 @@ export class AppComponent implements OnInit, OnDestroy {
       this.displayNavBar = 1;
     } else if (this.href === '/escolher' || this.href === '/agendados' || this.href === '/andamento' || this.href === '/finalizados') {
       this.displayNavBar = 2;
+      this.getTotalBudget();
       // console.log('Navbar 2');
     } else {
       this.displayNavBar = 0;
       // console.log('Navbar 0');
     }
+  }
+
+  getTotalBudget() {
+    this.orcamentoService.getTotalBudget(this.authService.getUser().id).subscribe(
+      (data) => {
+        this.total = data;
+        console.log(this.total);
+      },
+      (error) => {console.log(error); }
+    );
   }
 
   toggleDisplay() {

@@ -104,25 +104,25 @@
                     <ul class="nav justify-content-center nav-fill" *ngIf="displayNavBar == 2">
                         <li class="nav-item">
                             <a class="nav-link font-nav-size" [routerLink]="['/escolher']" routerLinkActive="active"> Escolher<br />
-                <small> 1 Serviço</small>
+                <small>{{total.totalEscolher}} Serviços</small>
               </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link font-nav-size" [routerLink]="['/agendados']" routerLinkActive="active">
                 Agendado<br />
-                <small> 2 Serviços</small>
+                <small> {{total.totalAgendado}} Serviços</small>
               </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link font-nav-size" href="#" [routerLink]="['/andamento']" routerLinkActive="active">
                 Em Andamento<br />
-                <small> 3 Serviços</small>
+                <small> {{total.totalExecucao}} Serviços</small>
               </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link font-nav-size" href="#" [routerLink]="['/finalizados']" routerLinkActive="active">
                 Finalizados<br />
-                <small> 1 Serviço</small>
+                <small> {{total.totalFinalizado}} Serviço</small>
               </a>
                         </li>
                     </ul>

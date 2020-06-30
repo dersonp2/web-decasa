@@ -15,47 +15,6 @@ import {TodosOsGruposEClassesResponse} from '../../../../model/response/todos-os
   templateUrl: './page-test.component.html',
   styleUrls: ['./page-test.component.css']
 })
-export class PageTestComponent implements AfterViewInit, OnInit {
+export class PageTestComponent {
 
-  @ViewChild('nav', {read: DragScrollComponent}) ds: DragScrollComponent;
-  gruposClasses: TodosOsGruposEClassesResponse[];
-  grupo: TodosOsGruposEClassesResponse;
-  municipioId: number;
-
-  constructor(private grupoService: GrupoService, public dialog: MatDialog, private router: Router) {
-  }
-
-  ngOnInit(): void {
-    this.getGruposClasses();
-  }
-
-  getGruposClasses() {
-    this.grupoService.getGruposAllClasses().subscribe(
-      (data) => {
-        this.gruposClasses = data;
-      },
-      (error) => console.log(error)
-    );
-  }
-
-
-  // Menu de navegação
-  moveLeft() {
-    this.ds.moveLeft();
-  }
-
-  moveRight() {
-    this.ds.moveRight();
-  }
-
-  moveTo(index) {
-    this.ds.moveTo(index);
-  }
-
-  ngAfterViewInit() {
-    // Starting ngx-drag-scroll from specified index(3)
-    setTimeout(() => {
-      this.ds.moveTo(3);
-    }, 0);
-  }
 }

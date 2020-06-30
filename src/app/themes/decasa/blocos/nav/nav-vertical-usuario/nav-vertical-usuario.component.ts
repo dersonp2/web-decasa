@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {OrcamentoService} from '../../../../../services/orcamento.service';
+import {AuthService} from '../../../../../services/auth.service';
+import {TotalOrcamento} from '../../../../../model/response/total-orcamento-response.module';
 
 @Component({
   selector: 'app-nav-vertical-usuario',
@@ -7,9 +10,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavVerticalUsuarioComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
-
 }
